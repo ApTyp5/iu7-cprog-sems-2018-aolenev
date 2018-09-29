@@ -9,6 +9,10 @@ typedef int* MATRIX;
 #define COL_OFFSET -2
 #define TYPE_OFFSET -3
 
+#define SUCCESS 0
+#define FAIL 10
+#define __EMRTY_SIZE 1
+
 MATRIX matrix_create(int row, int col);
 MATRIX matrix_create_from_file(FILE* file);
 

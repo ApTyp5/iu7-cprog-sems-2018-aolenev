@@ -14,3 +14,4 @@ int matrix_size(MATRIX matrix, int* rows, int* cols)
 	
 	return SUCCESS;
 }
+
