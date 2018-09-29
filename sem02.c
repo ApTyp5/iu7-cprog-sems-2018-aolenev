@@ -15,7 +15,7 @@ int main(void)
 	matrix_set(m, 3, 3, 4);
 	matrix_print(m, stdout);
 
-	matrix_transpose(&m);
+	// matrix_transpose(&m);
 	matrix_print(m, stdout);
 
 	matrix_delete(m);

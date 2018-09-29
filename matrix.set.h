@@ -8,4 +8,5 @@
 #define ERR_OUT_OF_RANGE -2
 #define ERR_INCORRECT_DESCRIPTION -3
 
+int matrix_set(MATRIX, int row, int col, int val);
 #endif
