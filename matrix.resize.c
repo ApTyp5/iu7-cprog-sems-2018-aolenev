@@ -32,5 +32,7 @@ int matrix_resize(MATRIX* matrix, int rows, int cols)
     matrix_delete(*matrix);
 
     *matrix = m;
+
+    return SUCCESS;
 }
 
