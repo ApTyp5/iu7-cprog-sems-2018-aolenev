@@ -1,5 +1,17 @@
+KEYS := -std=c99 -Wall -Werror
+CC := gcc
+RM := rm
+
+ifeq ($(mode), debug)
+    KEYS += -g3
+endif
+
+ifeq ($(mode), release)
+    KEYS += -g0
+endif
+
 %.o: %.c %.h
-	gcc -c $^ 
+	$(CC) $(KEYS) -c $^ 
 
 all: matrix*.c sem02.c
-	gcc -o matrix $^
+	$(CC) -o matrix $^
