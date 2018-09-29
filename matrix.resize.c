@@ -2,11 +2,6 @@
 
 #include "matrix.h"
 
-#define SUCCESS 0
-#define NULLPTR_ERR -1
-#define INVALID_DIMENSIONS_ERR -2
-#define ALLOC_ERROR -3
-
 int min(int a, int b)
 {
     return a > b ? b : a;

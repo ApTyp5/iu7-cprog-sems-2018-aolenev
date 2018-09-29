@@ -2,12 +2,18 @@
 #define __MATRIX_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef int* MATRIX;
 
 #define ROW_OFFSET -1
 #define COL_OFFSET -2
 #define TYPE_OFFSET -3
+
+#define SUCCESS 0
+#define NULLPTR_ERR -1
+#define INVALID_DIMENSIONS_ERR -2
+#define ALLOC_ERROR -3
 
 MATRIX matrix_create(int row, int col);
 MATRIX matrix_create_from_file(FILE* file);
