@@ -1,3 +1,5 @@
-all:
-	gcc -o matrix sem02.c matrix.c matrix.create.c matrix.print.c matrix.get.c matrix.size.c
+%.o: %.c %.h
+	gcc -c $^ 
 
+all: matrix*.c sem02.c
+	gcc -o matrix $^
