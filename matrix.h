@@ -20,6 +20,9 @@ typedef int* MATRIX;
 #define NULLPTR_ERR -6
 #define INVALID_DIMENSIONS_ERR -7
 #define ALLOC_ERROR -8
+#define ERR_INCORRECT_DESCRIPTION -9
+#define ERR_MATRIX_NULL -10
+#define ERR_OUT_OF_RANGE -11
 
 MATRIX matrix_create(int row, int col);
 MATRIX matrix_create_from_file(FILE* file);
