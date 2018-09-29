@@ -9,7 +9,13 @@
  */
 MATRIX matrix_create(int row, int col)
 {
+    if (!(col > 0 && row > 0))
+        return NULL;
+
     MATRIX matr = malloc((2+row*col)*sizeof(int));
+
+    if (!matr)
+        return NULL;
 
     *matr++ = row;
     *matr++ = col;
