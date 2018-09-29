@@ -13,5 +13,5 @@ endif
 %.o: %.c %.h
 	$(CC) $(KEYS) -c $^ 
 
-all: matrix*.c sem02.c
+all: matrix*.o sem02.o
 	$(CC) -o matrix $^
