@@ -6,10 +6,13 @@
 
 int matrix_delete(MATRIX matrix)
 {
-    if (matrix - 2 == NULL)
+    if (matrix == NULL)
         return ERROR_FREE;
     
-    free(matrix - 2);
+    if (matrix + TYPE_OFFSET == NULL)
+        return ERROR_FREE;
+    
+    free(matrix + TYPE_OFFSET);
     
     return SUCCESS;
 }
