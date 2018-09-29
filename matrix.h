@@ -8,6 +8,8 @@ typedef int* MATRIX;
 #define ROW_OFFSET -1
 #define COL_OFFSET -2
 #define TYPE_OFFSET -3
+#define WRONG_MATRIX -4
+#define MATRIX_SIZE_ERROR -5
 
 #define SUCCESS 0
 #define FAIL 10

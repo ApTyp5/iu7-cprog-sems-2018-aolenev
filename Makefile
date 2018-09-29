@@ -1,3 +1,17 @@
-all:
-	gcc -o matrix sem02.c matrix.c matrix.create.c matrix.print.c matrix.get.c matrix.size.c
+KEYS := -std=c99 -Wall -Werror
+CC := gcc
+RM := rm
 
+ifeq ($(mode), debug)
+    KEYS += -g3
+endif
+
+ifeq ($(mode), release)
+    KEYS += -g0
+endif
+
+%.o: %.c %.h
+	$(CC) $(KEYS) -c $^ 
+
+all: matrix*.o sem02.o
+	$(CC) -o matrix $^
