@@ -1,6 +1,7 @@
 #ifndef __MATRIX_H
 #define __MATRIX_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -38,7 +39,7 @@ int matrix_append_column(MATRIX* matrix);
 int matrix_remove_row(MATRIX* matrix);
 int matrix_remove_column(MATRIX* matrix);
 
-MATRIX matrix_delete(MATRIX matrix);
+int matrix_delete(MATRIX matrix);
 
 
 #endif // __MATRIX_H
