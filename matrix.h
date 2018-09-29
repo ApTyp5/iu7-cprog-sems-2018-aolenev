@@ -2,6 +2,7 @@
 #define __MATRIX_H
 
 #include <stdlib.h>
+#include <stdio.h>
 
 typedef int* MATRIX;
 
@@ -10,6 +11,9 @@ typedef int* MATRIX;
 #define TYPE_OFFSET -3
 #define WRONG_MATRIX -4
 #define MATRIX_SIZE_ERROR -5
+#define NULLPTR_ERR -6
+#define INVALID_DIMENSIONS_ERR -7
+#define ALLOC_ERROR -8
 
 #define SUCCESS 0
 #define FAIL 10
