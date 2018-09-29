@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include "matrix.h"
+
+void print_res(int r, int c, int r_r, int r_c)
+{
+	printf("Expected: %d %d", r, c);
+	printf("Receied: %d %d", r_r, r_c);
+}
+
+void pos_test(int *err)
+{
+	int rows = 3;
+	int cols = 4;
+	int res_rows;
+	int res_cols;
+	
+	MATRIX m = matrix_create(rows, cols);
+	
+	matrix_size(m, &res_rows, &res_cols);
+	
+	if (rows != res_rows || res_cols != cols)
+		(*err)++;
+	
+	if (*err)
+		print_res(rows, cols, res_rows, res_cols);
+}
+
+int main(void)
+{
+	int err = 0;
+	
+	pos_test(&err);
+	
+	if (err)
+		return FAIL;
+	
+	return SUCCESS;
+}
