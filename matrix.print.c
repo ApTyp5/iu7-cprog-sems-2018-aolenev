@@ -13,7 +13,7 @@ int matrix_print(MATRIX matrix, FILE* output)
 
     for (int i = 0; i < rows; i++)
         for(int j = 0; j < cols; j++)
-            fprintf(output, "%d &s", matrix_get(matrix, i, j),
+            fprintf(output, "%d %s", matrix_get(matrix, i, j),
                 j == cols - 1 ? "\n" : " ");
         
     return 0;
