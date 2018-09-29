@@ -12,7 +12,7 @@ typedef int* MATRIX;
 MATRIX matrix_create(int row, int col);
 MATRIX matrix_create_from_file(FILE* file);
 
-int matrix_get(MATRIX, int row, int col);
+int matrix_get(MATRIX matrix, int row, int col);
 int matrix_set(MATRIX, int row, int col, int val);
 
 int matrix_resize(MATRIX* matrix, int rows, int cols);
