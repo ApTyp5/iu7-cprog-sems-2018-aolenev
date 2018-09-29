@@ -1,5 +1,3 @@
-#include <stdlib.h>
-
 #include "matrix.h"
 
 int min(int a, int b)

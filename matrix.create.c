@@ -12,7 +12,7 @@ MATRIX matrix_create(int row, int col)
     if (!(col > 0 && row > 0))
         return NULL;
 
-    MATRIX matr = malloc((3+row*col)*sizeof(int));
+    MATRIX matr = calloc((3+row*col), sizeof(int));
 
     if (!matr)
         return NULL;
