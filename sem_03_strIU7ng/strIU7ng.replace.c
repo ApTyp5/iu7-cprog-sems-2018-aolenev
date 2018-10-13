@@ -4,17 +4,32 @@
 strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
 {
     char *find = NULL;
-    char *beg;
-    char *end;
+    char *beg = NULL;
+    char *end = NULL;
     int n;
     int l;
-    char *new;
+    char *new = NULL;
 
+    if (search == replace)
+        return source;
+    
+    if (source.len < 0 || source.head == NULL)
+        return source;
+    
+    if (search.len < 0 || search.head == NULL)
+        return source;
+    
+    if (replace.len < 0 || replace.head == NULL)
+        return source;
+    
     find = find_substrIU7ng(source, search);
     
     while (find != NULL)
     {
         beg = malloc((source.head - find) * sizeof(char));
+        
+        if (!beg)
+            return source;
         
         for (int i = 0; i < source.head - find; i++)
         {
@@ -24,6 +39,9 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
         n = source.len - (source.head - find) - search.len;
         end = malloc(n * sizeof(char));
         
+        if (!end)
+            return source;
+        
         for (int i = 0; i < n; i++)
         {
             end[i] = (find + search.len)[i];
@@ -32,6 +50,9 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
         l = source.len + (replace.len - search.len);
         
         new = malloc((l + 1) * sizeof(char));
+        
+        if (!new)
+            return source;
         
         for (int i = 0; i < source.head - find; i++)
         {
@@ -53,6 +74,11 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
         source = strIU7ng_create(new);
         
         find = find_substrIU7ng(source, search);
+        
+        free(new);
+        free(end);
+        free(beg);
     }
+    
     return source;
 }
