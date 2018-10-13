@@ -33,7 +33,7 @@ strIU7ng* split(strIU7ng string, char delimiter, int *new_size);
 /*
 Replace all occurences of replace at source
 */
-strIU7ng* replace(strIU7ng source, strIU7ng replace);
+strIU7ng* replace(strIU7ng source, strIU7ng search, strIU7ng replace);
 
 /*
 Returns repeated source multiply times
