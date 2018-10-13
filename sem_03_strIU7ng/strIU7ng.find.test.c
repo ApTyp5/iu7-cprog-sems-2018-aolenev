@@ -11,14 +11,14 @@ int str_find_test()
     strIU7ng test_string_a1;
     char test_head1[20] = "test data 1 is here";
     test_string_a1.head = test_head1;
-    test_string_a1.len = 20;
+    test_string_a1.len = 19;
 
     strIU7ng test_string_b1;
     char test_head2[5] = "data";
     test_string_b1.head = test_head2;
-    test_string_b1.len = 5;
+    test_string_b1.len = 4;
 
-    char * const expected = test_string_a1.head + 5;
+    char * expected = test_string_a1.head + 5;
     
     char * result;
     
@@ -29,6 +29,8 @@ int str_find_test()
         printf("Error testing find_substrIU7ng!\n");
         printf("String 1 is %.*s\n", test_string_a1.len, test_string_a1.head);
         printf("Substr 1 is %.*s\n", test_string_b1.len, test_string_b1.head);
+	printf("Pointer 1 offset is %ld\n", result - test_string_a1.head);
+	printf("%s\n", result);
         printf("Result and expected pointer do not match\n");
         errorcount += 1;
     }
@@ -36,7 +38,7 @@ int str_find_test()
     /*
       test2
     */
-
+    
     strIU7ng test_string_a2;
     char test_head_a2[20] = "test data 2 is here";
     test_string_a2.head = test_head_a2;
@@ -106,7 +108,7 @@ int main()
     errorcount += str_find_test(); 
     if (errorcount != SUCCESS)
     {
-        printf("find_substrIU7ng test success\n");
+	printf("Test find_substrIU7ng() failed\n");
         return errorcount;
     }
 
