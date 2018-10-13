@@ -10,7 +10,7 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
     int l;
     char *new = NULL;
 
-    if (search == replace)
+    if ((search.len == replace.len) && (search.head == replace.head))
         return source;
     
     if (source.len < 0 || source.head == NULL)
