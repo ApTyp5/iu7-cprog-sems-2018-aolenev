@@ -2,17 +2,23 @@
 
 #include "strIU7ng.h"
 
-strIU7ng* split(strIU7ng string, char delimiter, int *new_size)
-{
+int byte_replace(strIU7ng str, char what, char on_what)
+{   
     int n = 0;
-    for (int i = 0; i < strIU7ng_len(string); i++)
-    {
-        if (string.head[i] == delimiter)
+    for (int i = 0; i < strIU7ng_len(str); i++)
+        if (str.head[i] == what)
         {
             n++;
-            string.head[i] = '\0';
+            str.head[i] = on_what;
         }
-    }
+
+    return n;
+}
+
+
+strIU7ng* split(strIU7ng string, char delimiter, int *new_size)
+{
+    int n = byte_replace(string, delimiter, 0);
 
     strIU7ng *array = malloc(sizeof(strIU7ng) * n);
     if (array == NULL)
@@ -29,9 +35,7 @@ strIU7ng* split(strIU7ng string, char delimiter, int *new_size)
         beg += strIU7ng_len(array[i]) + 1;
     }
 
-    for (int i = 0; i < strIU7ng_len(string); i++)
-        if (string.head[i] == '\0')
-            string.head[i] = delimiter;
+    byte_replace(string, 0, delimiter);
 
     *new_size = n;
     return array;
