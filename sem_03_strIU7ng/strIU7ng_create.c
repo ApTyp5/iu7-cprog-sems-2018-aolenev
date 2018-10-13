@@ -16,6 +16,12 @@ strIU7ng strIU7ng_create(char *str)
     
     result_string.head = malloc(sizeof(char) * len);
     
+    if (!(result_string.head))
+    {
+        result_string.head = NULL;
+        return result_string;
+    }
+    
     for (i = 0; i < len; i++)
         result_string.head[i] = str[i];
     
