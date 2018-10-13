@@ -3,6 +3,12 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+
+#define SUCCESS 0
+#define ERR_ALLOCATION -1
+#define ERR_OVERFLOW -2
+#define ERR_DEFAULT -3
+
 /*
 Structure that keeps dynamic string
 */
