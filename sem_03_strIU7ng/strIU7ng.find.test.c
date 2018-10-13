@@ -29,8 +29,8 @@ int str_find_test()
         printf("Error testing find_substrIU7ng!\n");
         printf("String 1 is %.*s\n", test_string_a1.len, test_string_a1.head);
         printf("Substr 1 is %.*s\n", test_string_b1.len, test_string_b1.head);
-	printf("Pointer 1 offset is %ld\n", result - test_string_a1.head);
-	printf("%s\n", result);
+        printf("Pointer 1 offset is %ld\n", result - test_string_a1.head);
+        printf("%s\n", result);
         printf("Result and expected pointer do not match\n");
         errorcount += 1;
     }
@@ -108,7 +108,7 @@ int main()
     errorcount += str_find_test(); 
     if (errorcount != SUCCESS)
     {
-	printf("Test find_substrIU7ng() failed\n");
+        printf("Test find_substrIU7ng() failed\n");
         return errorcount;
     }
 
