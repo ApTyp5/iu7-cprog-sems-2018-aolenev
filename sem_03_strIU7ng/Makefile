@@ -5,6 +5,15 @@ CC := gcc
 app.exe: $(OBJ)
 	$(CC) $(COMPIL) -o $@ $^
 
+strIU7ng.create.test.exe: strIU7ng.create.test.c strIU7ng.create.c
+	$(CC) $(COMPIL) -o $@ $^
+
+strIU7ng.free.test.exe: strIU7ng.free.c strIU7ng.free.test.c
+	$(CC) $(COMPIL) -o $@ $^
+
+strIU7ng.reverse.test.exe: strIU7ng.reverse.c strIU7ng.reverse.test.c strIU7ng.create.c
+	$(CC) $(COMPIL) -o $@ $^
+
 %.o: %.c *.h
 	$(CC) $(COMPIL) -c $<
 
