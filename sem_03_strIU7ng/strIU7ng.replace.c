@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "strIU7ng.h"
 
 strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
