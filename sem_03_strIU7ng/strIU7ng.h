@@ -1,6 +1,8 @@
 #ifndef __STRIU7NG_H__
 #define __STRIU7NG_H__
 
+#include <stdlib.h>
+#include <stdio.h>
 /*
 Structure that keeps dynamic string
 */
@@ -19,6 +21,11 @@ strIU7ng strIU7ng_create(char *);
 Frees dynamic string
 */
 void strIU7ng_free(strIU7ng string);
+
+/*
+Concatenates str1 and str2
+*/
+strIU7ng concat(strIU7ng str1, strIU7ng str2);
 
 /*
 Calculates length of the string
