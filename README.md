@@ -23,4 +23,5 @@ String library by IU7 Next Gen
 * strIU7ng_split  
 * strIU7ng_find
 * strIU7ng_replace
+* strIU7ng_reverse @sao17u328 @sag17u762
 
