@@ -31,7 +31,7 @@ void strIU7ng_free(strIU7ng *string);
 /*
 Concatenates str1 and str2
 */
-strIU7ng concat(strIU7ng str1, strIU7ng str2);
+strIU7ng strIU7ng_concat(strIU7ng str1, strIU7ng str2);
 
 /*
 Calculates length of the string
