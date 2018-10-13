@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <STRIU7NG.h>
+#include "strIU7ng.h"
 
 void test_replace_ordinary(void)
 {
