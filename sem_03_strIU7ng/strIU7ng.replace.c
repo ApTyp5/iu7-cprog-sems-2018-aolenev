@@ -40,7 +40,10 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
         end = malloc(n * sizeof(char));
         
         if (!end)
+        {
+            free(beg);
             return source;
+        }
         
         for (int i = 0; i < n; i++)
         {
@@ -52,7 +55,11 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
         new = malloc((l + 1) * sizeof(char));
         
         if (!new)
+        {
+            free(end);
+            free(beg);
             return source;
+        }
         
         for (int i = 0; i < source.head - find; i++)
         {
