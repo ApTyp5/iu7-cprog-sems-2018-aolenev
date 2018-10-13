@@ -12,12 +12,14 @@ void test_replace_ordinary(void)
 		printf("Test test_replace_ordinary success.\n");
     }
     else
-	printf("Test test_replace_ordinary is failed.\n);
-)
+	printf("Test test_replace_ordinary is failed.\n");
+}
     
 }
 
 int  main(void)
 {
-    test_replace_ordinary();    
+    test_replace_ordinary(); 
+    
+    return 0;
 }
