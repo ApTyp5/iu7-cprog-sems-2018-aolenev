@@ -1,6 +1,6 @@
-#include "striu7ng.h"
+#include "strIU7ng.h"
 
-striu7ng striu7ng_concat(striu7ng str1, striu7ng str2)
+strIU7ng strIU7ng_concat(strIU7ng str1, strIU7ng str2)
 {
     int n = str1.len + str2.len;
     char str3[n + 1];
@@ -16,5 +16,5 @@ striu7ng striu7ng_concat(striu7ng str1, striu7ng str2)
     
     str3[n] = '\0';
     
-    return striu7ng_create(str3);
+    return strIU7ng_create(str3);
 }   
