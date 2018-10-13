@@ -46,7 +46,7 @@ strIU7ng* split(strIU7ng string, char delimiter, int *new_size);
 /*
 Replace all occurences of replace at source
 */
-strIU7ng* replace(strIU7ng source, strIU7ng search, strIU7ng replace);
+strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace);
 
 /*
 Returns repeated source multiply times
@@ -57,5 +57,10 @@ strIU7ng mult(strIU7ng source, int multiply);
 Returns reversed string
 */
 strIU7ng reverse(strIU7ng string);
+
+/*
+Find first occurence search at source
+*/
+char* find_substrIU7ng(strIU7ng source, strIU7ng search);
 
 #endif
