@@ -28,9 +28,6 @@ strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
     {
         beg = malloc((source.head - find) * sizeof(char));
         
-        if (!beg)
-            return source;
-        
         for (int i = 0; i < source.head - find; i++)
         {
             beg[i] = source.head[i];
