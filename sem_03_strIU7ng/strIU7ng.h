@@ -26,7 +26,7 @@ strIU7ng strIU7ng_create(char *);
 /*
 Frees dynamic string
 */
-void strIU7ng_free(strIU7ng string);
+void strIU7ng_free(strIU7ng *string);
 
 /*
 Concatenates str1 and str2
