@@ -4,11 +4,11 @@
 /*
 Structure that keeps dynamic string
 */
-typedef struct strIU7ng
+typedef struct
 {
     int len;
     char *head;
-};
+}  strIU7ng;
 
 /*
 Creates string from
