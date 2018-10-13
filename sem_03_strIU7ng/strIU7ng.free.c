@@ -2,10 +2,10 @@
 
 #include "strIU7ng.h"
 
-void strIU7ng_free(strIU7ng string)
+void strIU7ng_free(strIU7ng *string)
 {
-    if (!string.head)
-        free(string.head);
-    string.head = NULL;
-    string.len = 0;
+    if (!string->head)
+        free(string->head);
+    string->head = NULL;
+    string->len = 0;
 }
