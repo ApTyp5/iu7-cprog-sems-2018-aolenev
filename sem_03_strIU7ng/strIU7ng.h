@@ -58,4 +58,9 @@ Returns reversed string
 */
 strIU7ng reverse(strIU7ng string);
 
+/*
+Find first occurence search at source
+*/
+char* find_substrIU7ng(strIU7ng source, strIU7ng search);
+
 #endif
