@@ -1,12 +1,18 @@
 #ifndef __STRIU7NG_H__
 #define __STRIU7NG_H__
 
-struct strIU7ng
+/*
+Structure that keeps dynamic string
+*/
+typedef struct strIU7ng
 {
     int len;
     char *head;
-}
+};
 
+/*
+Creates string from
+*/
 strIU7ng strIU7ng_create(char *);
 
 void strIU7ng_free(strIU7ng string);
