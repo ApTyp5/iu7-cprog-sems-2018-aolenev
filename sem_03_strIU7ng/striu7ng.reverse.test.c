@@ -2,7 +2,7 @@
 
 int check(strIU7ng structn, strIU7ng structend)
 {
-    structn = reverse(structn);
+    structn = strIU7ng_everse(structn);
 
     for (int i = 0; i < (structn.len); i++)
         if (structn.head[i] != structend.head[i])
