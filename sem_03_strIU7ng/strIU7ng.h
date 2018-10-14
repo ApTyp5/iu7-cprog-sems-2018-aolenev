@@ -41,22 +41,22 @@ int strIU7ng_len(strIU7ng string);
 /*
 Splits string by the delimiter
 */
-strIU7ng* split(strIU7ng string, char delimiter, int *new_size);
+strIU7ng* strIU7ng_split(strIU7ng string, char delimiter, int *new_size);
 
 /*
 Replace all occurences of replace at source
 */
-strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace);
+strIU7ng strIU7ng_replace(strIU7ng source, strIU7ng search, strIU7ng replace);
 
 /*
 Returns repeated source multiply times
 */
-strIU7ng mult(strIU7ng source, int multiply);
+strIU7ng strIU7ng_mult(strIU7ng source, int multiply);
 
 /*
 Returns reversed string
 */
-strIU7ng reverse(strIU7ng string);
+strIU7ng strIU7ng_reverse(strIU7ng string);
 
 /*
 Find first occurence search at source
