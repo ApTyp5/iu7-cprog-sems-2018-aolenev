@@ -22,11 +22,11 @@ int str_find_test()
     
     char * result;
     
-    result = find_substrIU7ng(test_string_a1, test_string_b1);
+    result = strIU7ng_find_substr(test_string_a1, test_string_b1);
 
     if (expected != result)
     {
-        printf("Error testing find_substrIU7ng!\n");
+        printf("Error testing strIU7ng_find_substr!\n");
         printf("String 1 is %.*s\n", test_string_a1.len, test_string_a1.head);
         printf("Substr 1 is %.*s\n", test_string_b1.len, test_string_b1.head);
         printf("Pointer 1 offset is %ld\n", result - test_string_a1.head);
@@ -53,11 +53,11 @@ int str_find_test()
     
     char * result2;
     
-    result2 = find_substrIU7ng(test_string_a2, test_string_b2);
+    result2 = strIU7ng_find_substr(test_string_a2, test_string_b2);
 
     if (expected2 != result2)
     {
-        printf("Error testing find_substrIU7ng!\n");
+        printf("Error testing strIU7ng_find_substr!\n");
         printf("String 2 is %.*s\n", test_string_a2.len, test_string_a2.head);
         printf("Substr 2 is %.*s\n", test_string_b2.len, test_string_b2.head);
         printf("Result and expected pointer do not match\n");
@@ -82,11 +82,11 @@ int str_find_test()
     
     char * result3;
     
-    result3 = find_substrIU7ng(test_string_a3, test_string_b3);
+    result3 = strIU7ng_find_substr(test_string_a3, test_string_b3);
 
     if (expected3 != result3)
     {
-        printf("Error testing find_substrIU7ng!\n");
+        printf("Error testing strIU7ng_find_substr!\n");
         printf("String 3 is %.*s\n", test_string_a3.len, test_string_a3.head);
         printf("Substr 3 is %.*s\n", test_string_b3.len, test_string_b3.head);
         printf("Result and expected pointer do not match\n");
@@ -103,12 +103,12 @@ int str_find_test()
 int main()
 {
     int errorcount = 0;
-    printf("Testing find_substrIU7ng()\n");
+    printf("Testing strIU7ng_find_substr()\n");
     
     errorcount += str_find_test(); 
     if (errorcount != SUCCESS)
     {
-        printf("Test find_substrIU7ng() failed\n");
+        printf("Test strIU7ng_find_substr() failed\n");
         return errorcount;
     }
 

@@ -1,6 +1,16 @@
 #include "strIU7ng.h"
 
-char* find_substrIU7ng(strIU7ng source, strIU7ng search)
+/**
+\class strIU7ng_find_substr
+
+\brief Функция выполняет поиск подстроки в строке.
+
+\param source Строка, в которой проводится поиск.
+\param search Подстрока, которую нужно найти.
+ 
+\return Указатель на начало первого вхождения, или NULL.
+*/
+char* strIU7ng_find_substr(strIU7ng source, strIU7ng search)
 {
     char *p1, *p2, *p3, *p4;
     
@@ -45,12 +55,12 @@ char* find_substrIU7ng(strIU7ng source, strIU7ng search)
             if (j == search.len)
             {
                 return p4;
-            
             }
         }
         
         p1++; 
     }
+    
     return NULL;
 }
 
