@@ -62,4 +62,5 @@ strIU7ng strIU7ng_reverse(strIU7ng string);
 Find first occurence search at source
 */
 char* strIU7ng_find_substr(strIU7ng source, strIU7ng search);
+
 #endif
