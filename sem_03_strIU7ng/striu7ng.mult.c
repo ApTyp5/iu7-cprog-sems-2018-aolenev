@@ -14,7 +14,7 @@ source - в случае ошибки.
 strIU7ng mult(strIU7ng source, int multiply)
 {
     // проверка входных данных
-    if (source.len <= 0 || source.head == NULL || multiply <= 0)
+    if (source.len < 0 || source.head == NULL || multiply < 0)
         return source;
 
     // объявление и инициализация новой строки
@@ -29,5 +29,6 @@ strIU7ng mult(strIU7ng source, int multiply)
         new_str.head[i] = source.head[i % source.len];
     new_str.head[new_str.len] = 0;
 
+    // если source.len или multiply === 0, то итоговая строка пустая ""
     return new_str;
 }
