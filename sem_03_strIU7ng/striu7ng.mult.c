@@ -21,6 +21,8 @@ strIU7ng mult(strIU7ng source, int multiply)
     strIU7ng new_str;
     new_str.len = source.len * multiply;
     new_str.head = malloc(new_str.len * sizeof(char) + 1 * sizeof(char));
+    if (new_str.head == NULL)
+        return source;
 
     // заполнение новой строки
     for (int i = 0; i < new_str.len; i++)
