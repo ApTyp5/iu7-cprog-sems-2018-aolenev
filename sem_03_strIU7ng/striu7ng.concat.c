@@ -1,5 +1,17 @@
+/**
+ * \file strIU7ng.c
+ * \brief Содержит функцию strIU7ng_concat()
+ */
+
 #include "strIU7ng.h"
 
+/**
+ * \fn strIU7ng strIU7ng_concat(strIU7ng str1, strIU7ng str2)
+ * \brief Складывает две строки типа strIU7ng  
+ * \param [in] str1 Первая строка типа strIU7ng
+ * \param [in] str2 Вторая строка типа strIU7ng 
+ * \return Сложенная строка типа strIU7ng 
+ */
 strIU7ng strIU7ng_concat(strIU7ng str1, strIU7ng str2)
 {
     int n = str1.len + str2.len;
