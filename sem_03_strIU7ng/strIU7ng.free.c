@@ -3,8 +3,8 @@
 
 /**
  * @fn strIU7ng_free(strIU7ng *string)
- * @brief Очищает строку и освобождает выделенную память
- * @param string указатель на строку
+ * @brief Очищает строку, обнуяет длину строки и освобождает память, выделенную под структуру.
+ * @param string указатель на строку.
  */
 void strIU7ng_free(strIU7ng *string)
 {
