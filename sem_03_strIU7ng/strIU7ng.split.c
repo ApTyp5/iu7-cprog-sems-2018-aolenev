@@ -18,7 +18,7 @@ int byte_replace(strIU7ng str, char what, char on_what)
 
 strIU7ng* split(strIU7ng string, char delimiter, int *new_size)
 {
-    int n = byte_replace(string, delimiter, 0);
+    int n = 1 + byte_replace(string, delimiter, 0);
 
     strIU7ng *array = malloc(sizeof(strIU7ng) * n);
     if (array == NULL)

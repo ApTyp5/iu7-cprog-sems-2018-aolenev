@@ -1,6 +1,14 @@
 #include "striu7ng.h"
 
-strIU7ng reverse(strIU7ng string)
+/*
+ * Функция переворачивает строку и возвращает ее
+ *
+ * @param string [in]
+ *
+ * @return возвращается перевернутая строка
+*/
+
+strIU7ng strIU7ng_reverse(strIU7ng string)
 {
     if (string == NULL)
         return NULL;
