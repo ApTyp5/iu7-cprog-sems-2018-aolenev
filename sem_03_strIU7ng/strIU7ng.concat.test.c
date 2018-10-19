@@ -4,7 +4,7 @@
 void strIU7ng_concat_test_1(int *success)
 {
     strIU7ng str1 = strIU7ng_create("M&M");
-    strIU7ng str2 = strIU7ng_create("rules");
+    strIU7ng str2 = strIU7ng_create(" rules");
 
     strIU7ng str_res = strIU7ng_concat(str1, str2);
 	
