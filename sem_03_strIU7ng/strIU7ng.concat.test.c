@@ -1,4 +1,5 @@
 #include "strIU7ng.h"
+#include <string.h>
 
 int main(void)
 {
