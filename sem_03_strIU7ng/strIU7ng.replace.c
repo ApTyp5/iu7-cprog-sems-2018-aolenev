@@ -1,8 +1,18 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <string.h>
 #include "strIU7ng.h"
 
-strIU7ng replace(strIU7ng source, strIU7ng search, strIU7ng replace)
+/**
+ @brief Функция заменяет подстроку search на подстроку replace во всей строке source
+ 
+ @param source [in]
+ @param search [in]
+ @param replace [in]
+
+ @return Функция возвращает получившуюся строку с заменами
+ */
+
+strIU7ng strIU7ng_replace(strIU7ng source, strIU7ng search, strIU7ng replace)
 {
     char *find = NULL;
     char *beg = NULL;
