@@ -1,0 +1,29 @@
+image: alpine
+
+stages:
+  - test
+  - documentation
+
+test:
+  stage: compile_test
+  script:
+  - cd sem_03_strIU7ng/
+  - make test
+  - cd
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+documentation:
+  stage: documentation
+  script:
+  - apk update && apk add doxygen
+  - doxygen sem_03_strIU7ng/doxygen/Doxyfile
+  - mv sem_03_strIU7ng/doxygen/html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
