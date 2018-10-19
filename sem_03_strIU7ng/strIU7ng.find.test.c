@@ -44,7 +44,7 @@ int str_find_test2()
       test2
     */
     printf("strIU7ng_find_substr test 2: substr is not present\n");
-    int error = 1;
+    int error = 0;
     
     strIU7ng test_string_a2;
     char test_head_a2[20] = "test data 2 is here";
@@ -81,7 +81,7 @@ int str_find_test3()
       test3
     */
     printf("strIU7ng_find_substr test 3: substr is too big\n");
-    int error = 1;
+    int error = 0;
 
     strIU7ng test_string_a3;
     char test_head_a3[20] = "test data 3 is here";
