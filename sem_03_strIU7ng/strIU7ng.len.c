@@ -1,4 +1,14 @@
 #include "srtIU7ng.h"
+/**
+\class strIU7ng_len
+
+\brief Функция возвращающая длинну строки.
+
+\param string Строка, чья длинна будет возвращена.
+
+ 
+\return Длинна строки или код ошибки.
+*/
 int strIU7ng_len( strIU7ng string )
 {
     //Минимальная строчка как минимум ноль, иначе ошибка
