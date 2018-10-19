@@ -9,6 +9,7 @@ test:
   script:
   - cd sem_03_strIU7ng/
   - make test
+  - cd
   artifacts:
     paths:
     - public
