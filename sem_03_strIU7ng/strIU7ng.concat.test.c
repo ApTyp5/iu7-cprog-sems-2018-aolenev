@@ -11,6 +11,9 @@ void strIU7ng_concat_test_1(int *success)
     if (str1.len + str2.len == str_res.len &&
 	    strcmp(str_res.head, "M&M rules") == 0)
     	(*success)++;	
+	else
+		printf("'%s' + '%s'\nExpected: 'M&M rules'\nActual: '%s'",
+	        str1.head, str2.head, str_res.head);
 }
 
 void strIU7ng_concat_test_2(int *success)
@@ -22,7 +25,10 @@ void strIU7ng_concat_test_2(int *success)
 	
     if (str1.len + str2.len == str_res.len &&
 	    strcmp(str_res.head, "M&M") == 0)
-    	(*success)++;	
+    	(*success)++;
+	else
+		printf("'%s' + '%s'\nExpected: 'M&M'\nActual: '%s'",
+	        str1.head, str2.head, str_res.head);		
 }
 
 int main(void)
