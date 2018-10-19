@@ -12,7 +12,7 @@ int main()
     int len;
     int exp_len = 3;
 
-    strIU7ng *arr = split(str, ' ', &len);
+    strIU7ng *arr = strIU7ng_split(str, ' ', &len);
 
     result = len == exp_len ? HAPPY_END : NON_HAPPY_END;
     result = strcmp(arr[1], "&"));
