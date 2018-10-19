@@ -9,6 +9,19 @@ strIU7ng strIU7ng_create(char *str)
     int i;
     int len = 0;
     
+    if (str[0] == 0)
+    {
+        result_string.len = 0;
+        result_string.head = malloc(sizeof(char));
+        if (!(result_string.head))
+        {
+            result_string.head = NULL;
+            return result_string;
+        }
+        result_string.head[0] = 0;
+        return result_string;
+    }
+    
     if (str == NULL)
     {
         result_string.head = NULL;
