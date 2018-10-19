@@ -9,6 +9,12 @@ strIU7ng strIU7ng_create(char *str)
     int i;
     int len = 0;
     
+    if (str == NULL)
+    {
+        result_string.head = NULL;
+        return result_string;
+    }
+    
     for (i = 0; str[i] != '\0'; i++)
         len = len + 1;
         
