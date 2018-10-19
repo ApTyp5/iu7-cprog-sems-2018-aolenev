@@ -17,12 +17,11 @@ int strIU7ng_len( strIU7ng string )
         return ERR_DEFAULT;
     }
 
-
     // проверим  вдруг это какая то сломаная строчка
     if ( string.head == NULL )
     {
         return ERR_DEFAULT;
     }
+    
     return string.len;
-
 }
