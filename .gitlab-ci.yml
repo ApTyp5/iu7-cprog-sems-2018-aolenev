@@ -1,12 +1,27 @@
-# This file is a template, and might need editing before it works on your project.
-# Full project: https://gitlab.com/pages/doxygen
 image: alpine
 
-pages:
+stages:
+  - test
+  - documentation
+
+test:
+  stage: compile_test
+  script:
+  - cd sem_03_strIU7ng/
+  - make test
+  - cd
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+documentation:
+  stage: documentation
   script:
   - apk update && apk add doxygen
-  - doxygen doxygen/Doxyfile
-  - mv doxygen/documentation/html/ public/
+  - doxygen sem_03_strIU7ng/doxygen/Doxyfile
+  - mv sem_03_strIU7ng/doxygen/html/ public/
   artifacts:
     paths:
     - public
