@@ -9,27 +9,26 @@ int test_strIU7ng_len()
     test1.len = 9;
     test1.head = test_str1;
 
-    if (strIU7ng(test1) != 9)
+    if (strIU7ng_len(test1) != 9)
         errorcount += 1;
 
     strIU7ng test2;
-    test.len = 9000;
-    test.head = NULL;
+    test2.len = 9000;
+    test2.head = NULL;
 
-    if (strIU7ng(test2) != ERR_DEFAULT)
+    if (strIU7ng_len(test2) != ERR_DEFAULT)
         errorcount += 1;
 
     strIU7ng test3;
     char test_str3[4] = "hey";
-    test.len = -2134;
-    test.head = test_str3;
+    test3.len = -2134;
+    test3.head = test_str3;
 
-    if (strIU7ng(test3) != ERR_DEFAULT)
+    if (strIU7ng_len(test3) != ERR_DEFAULT)
         errorcount += 1;
 
     return errorcount;
 }
-
 
 int main()
 {
