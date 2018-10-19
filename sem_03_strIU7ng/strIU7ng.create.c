@@ -1,6 +1,6 @@
 /**
  * \file strIU7ng.create.c
- * \brief Функция strIU7ng_create, создающая strIU7ng-строку
+ * \brief Р¤СѓРЅРєС†РёСЏ strIU7ng_create, СЃРѕР·РґР°СЋС‰Р°СЏ strIU7ng-СЃС‚СЂРѕРєСѓ
  */
 
 #include <stdio.h>
@@ -10,9 +10,9 @@
 
 /**
  * \fn strIU7ng strIU7ng_create(char *str)
- * \brief Создаёт из обычной Си-строки строку типа strIU7ng  
- * \param [in] str Стандартная Си-строка
- * \return Строка типа strIU7ng 
+ * \brief РЎРѕР·РґР°С‘С‚ РёР· РѕР±С‹С‡РЅРѕР№ РЎРё-СЃС‚СЂРѕРєРё СЃС‚СЂРѕРєСѓ С‚РёРїР° strIU7ng  
+ * \param [in] str РЎС‚Р°РЅРґР°СЂС‚РЅР°СЏ РЎРё-СЃС‚СЂРѕРєР°
+ * \return РЎС‚СЂРѕРєР° С‚РёРїР° strIU7ng 
  */
 strIU7ng strIU7ng_create(char *str)
 {
