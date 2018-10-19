@@ -4,7 +4,7 @@
 /class strIU7ng_len
 /brief Возвращает длину строки
 /param string Строка, для которой нужно найти длину
-/return длина строки int
+/return Длина строки или код ошибки
 */
 
 int strIU7ng_len(strIU7ng string)
