@@ -1,8 +1,19 @@
+/**
+ * \file strIU7ng.create.c
+ * \brief Функция strIU7ng_create, создающая strIU7ng-строку
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 #include "strIU7ng.h"
 
+/**
+ * \fn strIU7ng strIU7ng_create(char *str)
+ * \brief Создаёт из обычной Си-строки строку типа strIU7ng  
+ * \param [in] str Стандартная Си-строка
+ * \return Строка типа strIU7ng 
+ */
 strIU7ng strIU7ng_create(char *str)
 {
     strIU7ng result_string;
