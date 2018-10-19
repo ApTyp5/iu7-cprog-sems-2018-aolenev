@@ -11,7 +11,7 @@
 source - в случае ошибки.
 */
 
-strIU7ng mult(strIU7ng source, int multiply)
+strIU7ng strIU7ng_mult(strIU7ng source, int multiply)
 {
     // проверка входных данных
     if (source.len < 0 || source.head == NULL || multiply < 0)
