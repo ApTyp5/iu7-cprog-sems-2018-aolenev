@@ -1,11 +1,11 @@
 image: alpine
 
 stages:
-  - build
+  - build_and_launch
   - documentation
 
-bulid:
-  stage: build
+build_and_launch:
+  stage: build_and_launch
   script:
   - apk add --update make
   - apk add --no-cache gcc musl-dev
