@@ -1,23 +1,23 @@
 image: alpine
 
 stages:
-  - build
+  - build_and_launch
   - documentation
 
-bulid:
-  stage: build
+build_and_launch:
+  stage: build_and_launch
   script:
   - apk add --update make
   - apk add --no-cache gcc musl-dev
   - cd sem_03_strIU7ng/
   - make app.exe
+  - ./start_app.sh
   - make test
+  - ./start_all_tests.sh
   - cd
   artifacts:
     paths:
     - public
-  only:
-  - master
 
 documentation:
   stage: documentation
