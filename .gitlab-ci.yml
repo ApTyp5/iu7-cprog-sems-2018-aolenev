@@ -18,8 +18,6 @@ bulid:
   artifacts:
     paths:
     - public
-  only:
-  - patch-4
 
 documentation:
   stage: documentation
