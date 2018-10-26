@@ -1,13 +1,16 @@
 image: alpine
 
 stages:
-  - test
+  - build
   - documentation
 
-test:
-  stage: compile_test
+bulid:
+  stage: build
   script:
+  - apk add --update make
+  - apk add --no-cache gcc musl-dev
   - cd sem_03_strIU7ng/
+  - make app.exe
   - make test
   - cd
   artifacts:
