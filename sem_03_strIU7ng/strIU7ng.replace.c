@@ -36,14 +36,14 @@ strIU7ng strIU7ng_replace(strIU7ng source, strIU7ng search, strIU7ng replace)
 
     while (find != NULL)
     {
-        beg = malloc((source.head - find) * sizeof(char));
+        beg = malloc((find - source.head) * sizeof(char));
 
-        for (int i = 0; i < source.head - find; i++)
+        for (int i = 0; i < find - source.head; i++)
         {
             beg[i] = source.head[i];
         }
 
-        n = source.len - (source.head - find) - search.len;
+        n = source.len - (find - source.head) - search.len;
         end = malloc(n * sizeof(char));
 
         if (!end)
@@ -68,19 +68,19 @@ strIU7ng strIU7ng_replace(strIU7ng source, strIU7ng search, strIU7ng replace)
             return source;
         }
 
-        for (int i = 0; i < source.head - find; i++)
+        for (int i = 0; i < find - source.head; i++)
         {
             new[i] = beg[i];
         }
 
         for (int i = 0; i < replace.len; i++)
         {
-            new[i + source.head - find] = replace.head[i];
+            new[i + find - source.head] = replace.head[i];
         }
 
         for (int i = 0; i < n; i++)
         {
-            new[i + source.head - find + replace.len] = end[i];
+            new[i + find - source.head + replace.len] = end[i];
         }
 
         new[l] = '\0';
