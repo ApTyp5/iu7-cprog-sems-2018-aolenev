@@ -16,16 +16,10 @@ int strIU7ng_replace_test1()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
-    int error = 1;
+    int error = 0;
 
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -33,6 +27,12 @@ int strIU7ng_replace_test1()
         printf("Expected string is %s\n", expected.head);
         printf("Result string is %s\n", result.head);
     }
+    
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
     
     return error;
 }
@@ -46,16 +46,10 @@ int strIU7ng_replace_test2()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
-    int error = 1;
+    int error = 0;
 
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -63,6 +57,12 @@ int strIU7ng_replace_test2()
         printf("Expected string is %s\n", expected.head);
         printf("Result string is %s\n", result.head);
     }
+    
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
     
     return error;
 }
@@ -76,17 +76,10 @@ int strIU7ng_replace_test3()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
+    int error = 0;
 
-    int error = 1;
-
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -95,6 +88,12 @@ int strIU7ng_replace_test3()
         printf("Result string is %s\n", result.head);
     }
     
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
     return error;
 }
 
@@ -107,16 +106,10 @@ int strIU7ng_replace_test4()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
-    int error = 1;
+    int error = 0;
 
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -125,6 +118,12 @@ int strIU7ng_replace_test4()
         printf("Result string is %s\n", result.head);
     }
     
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
     return error;
 }
 
@@ -137,16 +136,10 @@ int strIU7ng_replace_test5()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
-    int error = 1;
+    int error = 0;
 
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -155,6 +148,12 @@ int strIU7ng_replace_test5()
         printf("Result string is %s\n", result.head);
     }
     
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
     return error;
 }
 
@@ -167,16 +166,10 @@ int strIU7ng_replace_test6()
 
     strIU7ng result = strIU7ng_replace(str, search, replace);
 
-    int error = 1;
+    int error = 0;
 
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
+    if (strIU7ng_cmp(expected, result))
+        error = 1;
 
     if (error == 1)
     {
@@ -185,36 +178,12 @@ int strIU7ng_replace_test6()
         printf("Result string is %s\n", result.head);
     }
     
-    return error;
-}
-
-int strIU7ng_replace_test7()
-{
-    strIU7ng str = strIU7ng_create("bbbb");
-    strIU7ng search = strIU7ng_create("");
-    strIU7ng replace = strIU7ng_create("aaa");
-    strIU7ng expected = strIU7ng_create("");
-
-    strIU7ng result = strIU7ng_replace(str, search, replace);
-
-    int error = 1;
-
-    if (!strIU7ng_cmp(expected, str))
-        error = 0;
-
     strIU7ng_free(&str);
     strIU7ng_free(&search);
     strIU7ng_free(&replace);
     strIU7ng_free(&expected);
     strIU7ng_free(&result);
 
-    if (error == 1)
-    {
-        printf("Str replace test failed!\n");
-        printf("Expected string is %s\n", expected.head);
-        printf("Result string is %s\n", result.head);
-    }
-    
     return error;
 }
 
@@ -228,9 +197,15 @@ int main(void)
     errorcount += strIU7ng_replace_test4();
     errorcount += strIU7ng_replace_test5();
     errorcount += strIU7ng_replace_test6();
-    errorcount += strIU7ng_replace_test7();                        
     
-    printf("%d of 7 tests passed successfully.\n", errorcount);
-    
-    return 0;
+    if (errorcount > 0)
+    {
+        printf("Encountered %d errors in 6 tests(str_replace)!\n", errorcount);
+        return errorcount;
+    }
+    else
+    {
+        printf("strIU7ng_replace all tests passed!\n");
+        return SUCCESS;
+    }
 }
