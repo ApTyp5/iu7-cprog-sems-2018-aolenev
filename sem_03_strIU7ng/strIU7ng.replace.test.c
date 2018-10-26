@@ -2,68 +2,235 @@
 
 int strIU7ng_cmp(strIU7ng s1, strIU7ng s2)
 {
-    int i;
+    int i; 
     for (i = 0; i < s1.len && i < s2.len && s1.head[i] == s2.head[i]; i++);
     return (i == s1.len ? '\0' : s1.head[i]) - (i == s2.len ? '\0' : s2.head[i]);
 }
 
-void strIU7ng_replace_test1(int *success_tests)
+int strIU7ng_replace_test1()
 {
-    strIU7ng str1 = {0, NULL};
-    strIU7ng search1 = {0, NULL};
-    strIU7ng replace1 = {0, NULL};
+    strIU7ng str = {0, NULL};
+    strIU7ng search = {0, NULL};
+    strIU7ng replace = {0, NULL};
+    strIU7ng expected = {0, NULL};
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
     
-    strIU7ng expect_str = strIU7ng_replace(str1, search1, replace1);
-    if (!strIU7ng_cmp(expect_str, str1))
-        (*success_tests)++;
-    
-    strIU7ng_free(&expect_str);
+    return error;
 }
 
-void strIU7ng_replace_test2(int *success_tests)
+int strIU7ng_replace_test2()
 {
-    strIU7ng str2 = strIU7ng_create("grandgrandpa");
-    strIU7ng search2 = strIU7ng_create("grand");
-    strIU7ng replace2 = strIU7ng_create("grand");
+    strIU7ng str = strIU7ng_create("bbbbb");
+    strIU7ng search = strIU7ng_create("bbb");
+    strIU7ng replace = strIU7ng_create("a"); 
+    strIU7ng expected = strIU7ng_create("abb");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
     
-    strIU7ng expect_str = strIU7ng_replace(str2, search2, replace2);
-    if (!strIU7ng_cmp(expect_str, str2))
-        (*success_tests)++;
-    
-    strIU7ng_free(&str2);
-    strIU7ng_free(&search2);
-    strIU7ng_free(&replace2);
-    strIU7ng_free(&expect_str);
+    return error;
 }
 
-void strIU7ng_replace_test3(int *success_tests)
+int strIU7ng_replace_test3()
 {
-    strIU7ng str3_res = strIU7ng_create("ability");
-    strIU7ng str3 = strIU7ng_create("able");
-    strIU7ng search3 = strIU7ng_create("le");
-    strIU7ng replace3 = strIU7ng_create("ility");
+    strIU7ng str = strIU7ng_create("bbbb");
+    strIU7ng search = strIU7ng_create("b");
+    strIU7ng replace = strIU7ng_create("a");
+    strIU7ng expected = strIU7ng_create("aaaa");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
     
-    strIU7ng expect_str = strIU7ng_replace(str3, search3, replace3);
-    if (!strIU7ng_cmp(expect_str, str3_res))
-        (*success_tests)++;
+    return error;
+}
+
+int strIU7ng_replace_test4()
+{
+    strIU7ng str = strIU7ng_create("bbbb");
+    strIU7ng search = strIU7ng_create("b");
+    strIU7ng replace = strIU7ng_create("aaaa");
+    strIU7ng expected = strIU7ng_create("aaaaaaaaaaaaaaaa");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
     
-    strIU7ng_free(&str3);
-    strIU7ng_free(&str3_res);
-    strIU7ng_free(&search3);
-    strIU7ng_free(&replace3);
-    strIU7ng_free(&expect_str);
+    return error;
+}
+
+int strIU7ng_replace_test5()
+{
+    strIU7ng str = strIU7ng_create("bbb");
+    strIU7ng search = strIU7ng_create("bb");
+    strIU7ng replace = strIU7ng_create("");
+    strIU7ng expected = strIU7ng_create("b");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
+    
+    return error;
+}
+
+int strIU7ng_replace_test6()
+{
+    strIU7ng str = strIU7ng_create("bbbb");
+    strIU7ng search = strIU7ng_create("bb");
+    strIU7ng replace = strIU7ng_create("");
+    strIU7ng expected = strIU7ng_create("");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
+    
+    return error;
+}
+
+int strIU7ng_replace_test7()
+{
+    strIU7ng str = strIU7ng_create("bbbb");
+    strIU7ng search = strIU7ng_create("");
+    strIU7ng replace = strIU7ng_create("aaa");
+    strIU7ng expected = strIU7ng_create("");
+
+    strIU7ng result = strIU7ng_replace(str, search, replace);
+
+    int error = 1;
+
+    if (!strIU7ng_cmp(expected, str))
+        error = 0;
+
+    strIU7ng_free(&str);
+    strIU7ng_free(&search);
+    strIU7ng_free(&replace);
+    strIU7ng_free(&expected);
+    strIU7ng_free(&result);
+
+    if (error == 1)
+    {
+        printf("Str replace test failed!\n");
+        printf("Expected string is %s\n", expected.head);
+        printf("Result string is %s\n", result.head);
+    }
+    
+    return error;
 }
 
 int main(void)
 {
-    int success_tests = 0;
-    int count_tests = 3;
+    int errorcount = 0;
+
+    errorcount += strIU7ng_replace_test1();
+    errorcount += strIU7ng_replace_test2();
+    errorcount += strIU7ng_replace_test3();
+    errorcount += strIU7ng_replace_test4();
+    errorcount += strIU7ng_replace_test5();
+    errorcount += strIU7ng_replace_test6();
+    errorcount += strIU7ng_replace_test7();                        
     
-    strIU7ng_replace_test1(&success_tests);
-    strIU7ng_replace_test2(&success_tests);
-    strIU7ng_replace_test3(&success_tests);
-    
-    printf("%d of  %d tests passed successfully.\n", success_tests, count_tests);
+    printf("%d of 7 tests passed successfully.\n", errorcount);
     
     return 0;
 }
