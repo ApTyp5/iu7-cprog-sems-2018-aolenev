@@ -68,7 +68,7 @@ int str_find_test2()
         printf("String 2 is %.*s\n", test_string_a2.len, test_string_a2.head);
         printf("Substr 2 is %.*s\n", test_string_b2.len, test_string_b2.head);
         printf("Result and expected pointer do not match\n");
-	printf("resulting pointer is not NULL and is %p\n", result2);
+	printf("resulting pointer is not NULL and is %s\n", result2);
 	error = 1;
     }
 
@@ -105,7 +105,7 @@ int str_find_test3()
         printf("String 3 is %.*s\n", test_string_a3.len, test_string_a3.head);
         printf("Substr 3 is %.*s\n", test_string_b3.len, test_string_b3.head);
         printf("Result and expected pointer do not match\n");
-	printf("Resulting pointer is not NULL and is %p\n", result3);
+	printf("Resulting pointer is not NULL and is %s\n", result3);
 	error = 1;
     }
 
@@ -142,7 +142,7 @@ int str_find_test4()
         printf("String 4 is %.*s\n", test_string_a4.len, test_string_a4.head);
         printf("Substr 4 is %.*s\n", test_string_b4.len, test_string_b4.head);
         printf("Result and expected pointer do not match\n");
-	printf("Resulting pointer is not NULL and is %p\n", result4);
+	printf("Resulting pointer is not NULL and is %s\n", result4);
 	error = 1;
     }
 

@@ -29,7 +29,7 @@ strIU7ng.split.test.exe: strIU7ng.split.o strIU7ng.split.test.o strIU7ng.create.
 strIU7ng.mult.test.exe: strIU7ng.mult.o strIU7ng.mult.test.o strIU7ng.create.o strIU7ng.free.o
 	$(CC) $(COMPIL) -o $@ $^
 
-strIU7ng.replace.test.exe: strIU7ng.replace.o strIU7ng.replace.test.o strIU7ng.find.o strIU7ng.create.o
+strIU7ng.replace.test.exe: strIU7ng.replace.o strIU7ng.replace.test.o strIU7ng.find.o strIU7ng.free.o strIU7ng.create.o
 	$(CC) $(COMPIL) -o $@ $^
 
 strIU7ng.len.test.exe: strIU7ng.len.o strIU7ng.len.test.o
