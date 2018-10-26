@@ -69,8 +69,11 @@ int main(void)
     strIU7ng_reverse_test4(&err_cnt);
 
     if (4 == err_cnt)
+    {
+        printf("Reverce test: Success!");
         return SUCCESS;
+    }
 
-    printf("Failed tests");
+    printf("Reverce test: Failed!");
     return ERR_DEFAULT;
 }
