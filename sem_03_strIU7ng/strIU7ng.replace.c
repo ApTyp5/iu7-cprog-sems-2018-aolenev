@@ -20,18 +20,15 @@ strIU7ng strIU7ng_replace(strIU7ng source, strIU7ng search, strIU7ng replace)
     int l;
     char *new = NULL;
 
-    if (strcmp(search.head, replace.head) == 0)
-        return source;
-
     if (source.len < 0 || source.head == NULL)
         return source;
 
     if (search.len < 0 || search.head == NULL)
         return source;
 
-    if (replace.len < 0 || replace.head == NULL)
+    if (strcmp(search.head, replace.head) == 0)
         return source;
-
+    
     find = strIU7ng_find_substr(source, search);
 
     while (find != NULL)

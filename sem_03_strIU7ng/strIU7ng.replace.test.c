@@ -157,36 +157,6 @@ int strIU7ng_replace_test5()
     return error;
 }
 
-int strIU7ng_replace_test6()
-{
-    strIU7ng str = strIU7ng_create("bbbb");
-    strIU7ng search = strIU7ng_create("bb");
-    strIU7ng replace = strIU7ng_create("");
-    strIU7ng expected = strIU7ng_create("");
-
-    strIU7ng result = strIU7ng_replace(str, search, replace);
-
-    int error = 0;
-
-    if (strIU7ng_cmp(expected, result))
-        error = 1;
-
-    if (error == 1)
-    {
-        printf("Str replace test failed!\n");
-        printf("Expected string is %s\n", expected.head);
-        printf("Result string is %s\n", result.head);
-    }
-    
-    strIU7ng_free(&str);
-    strIU7ng_free(&search);
-    strIU7ng_free(&replace);
-    strIU7ng_free(&expected);
-    strIU7ng_free(&result);
-
-    return error;
-}
-
 int main(void)
 {
     int errorcount = 0;
@@ -196,11 +166,10 @@ int main(void)
     errorcount += strIU7ng_replace_test3();
     errorcount += strIU7ng_replace_test4();
     errorcount += strIU7ng_replace_test5();
-    errorcount += strIU7ng_replace_test6();
-    
+
     if (errorcount > 0)
     {
-        printf("Encountered %d errors in 6 tests(str_replace)!\n", errorcount);
+        printf("Encountered %d errors in 5 tests(str_replace)!\n", errorcount);
         return errorcount;
     }
     else
