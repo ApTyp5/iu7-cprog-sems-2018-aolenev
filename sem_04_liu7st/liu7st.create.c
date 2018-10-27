@@ -1,5 +1,8 @@
 #include "liu7st.h"
 
+/**
+Создание пустого списка
+*/
 liu7st liu7st_create()
 {
     liu7st list;
