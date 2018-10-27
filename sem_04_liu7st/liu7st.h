@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define FREE_LIST 0
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
