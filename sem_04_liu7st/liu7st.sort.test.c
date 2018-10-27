@@ -27,11 +27,12 @@ int main()
     int count = 0, success = 0;
     liu7st list;
     list = liu7st_create();
-    liu7st_append(&list, 3);
-    liu7st_append(&list, 2);
-    liu7st_append(&list, 1);
+    int a[3] = {1, 2, 3};
+    liu7st_append(&list, a);
+    liu7st_append(&list, a + 1);
+    liu7st_append(&list, a + 2);
     
-    success += sort_test(list, count)
+    success += sort_test(&list, &count);
     
     printf("\nSort func test:\n");
     
