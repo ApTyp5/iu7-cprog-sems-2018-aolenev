@@ -54,7 +54,7 @@ int liu7st_has_cycle(liu7st list);
 liu7st liu7st_revert(liu7st list);
 
 // Ilyasov & Ignatiev
-void liu7st_sort(liu7st *list, int compare(void*, void*));
+void liu7st_sort(liu7st *list, int (*compare)(const void*, const void*));
 
 // Kosorykov & Coraev & Furdik
 void *liu7st_get(liu7st list, int i);
