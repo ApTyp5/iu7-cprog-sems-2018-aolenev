@@ -3,7 +3,7 @@
 int test()
 {
     liu7st list = liu7st_create();
-    if (NULL == list.first && NULL == list.last && list.size = 0)
+    if (NULL == list.first && NULL == list.last && 0 == list.size)
     {
 	printf("SUCCESS");
 	return SUCCESS;
