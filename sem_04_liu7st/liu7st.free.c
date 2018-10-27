@@ -1,5 +1,12 @@
 #include <liu7st.h>
 
+/*!Очищает память, выделенную для списка list.
+
+@param list [in, out]
+
+@return Ничего.
+*/
+
 void liu7st_free(liu7st *list)
 {
     if (list == NULL || list->first == NULL || list->last == NULL || size == 0)
