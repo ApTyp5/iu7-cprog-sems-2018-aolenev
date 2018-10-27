@@ -60,8 +60,6 @@ void test_circular(int *passed)
     free(list.first);
 }
 
-void 
-
 int main()
 {
     int passed = 0;
@@ -70,6 +68,11 @@ int main()
     test_no_cycle(&passed);
     test_circular(&passed);
     
+    if (passed != 3)
+    {
+        printf("Error\n");
+        return -1;
+    }
     
     return 0;
 }
