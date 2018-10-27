@@ -1,10 +1,7 @@
 #include <stdio.h>
 
-#include "liu7st.create.h"
 #include "liu7st.h"
-#include "liu7st.append.h"
-#include "liu7st.free.h"
-#include "liu7st.sort.h"
+
 
 int sort_test(liu7st *list, int *count)
 {
