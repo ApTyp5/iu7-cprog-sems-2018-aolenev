@@ -13,12 +13,15 @@
  * \param [in] i Индекс удаляемого элемента 
  * \return Код выполнения
  */
-int liu7st_remove(striu7st *list, int i)
+int liu7st_remove(liu7st *list, int i)
 {
     liu7st_element *p = list->first; //< Указатель на удаляемый элемент
     
     if (i >= list->size || i < 0)
         return WRONG_INDEX;
+    
+    if (list == NULL)
+        return WRONG_LIST;
     
     for (int a = 0; a < i; a++)
         p = p->next;
@@ -26,12 +29,12 @@ int liu7st_remove(striu7st *list, int i)
     if (i)
         (p->prev)->next = p->next;
     else
-        list->begin = p->next;
+        list->first = p->next;
    
-    if (p != list->size - 1)
+    if (i != list->size - 1)
         (p->next)->prev = p->prev;
     else
-        list->end = p->prev;
+        list->last = p->prev;
     
     free(p->data);
     free(p);
