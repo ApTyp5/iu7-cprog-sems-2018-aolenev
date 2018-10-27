@@ -7,7 +7,7 @@
 #define FREE_LIST 0
 
 #define SUCCESS 0
-#define WRONG -1
+#define FAILED -1
 
 typedef struct liu7st_element liu7st_element;
 
