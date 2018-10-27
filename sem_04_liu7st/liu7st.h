@@ -4,12 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct 
+typedef struct liu7st_element liu7st_element;
+
+struct liu7st_element
 {
     void *data;
-    liu7st *prev;
-    liu7st *next;
-} liu7st_element;
+    liu7st_element *prev;
+    liu7st_element *next;
+};
 
 typedef struct
 {
@@ -22,7 +24,7 @@ typedef struct
 liu7st liu7st_create();
 
 // Nabiev & Kyprii
-void liu7st_free(liu7st list);
+void liu7st_free(liu7st *list);
 
 // Kosorykov & Coraev & 
 void liu7st_append(liu7st *list, void *data);
@@ -31,16 +33,16 @@ void liu7st_append(liu7st *list, void *data);
 int liu7st_remove(liu7st *list, int i);
 
 // Neklepaeva & Konovalova
-int liu7st_insert(liu7st *list, void *data, int i);
+void liu7st_insert(liu7st *list, void *data, int i);
 
 // Potapchyk & Drozdov
-lui7st liu7st_concat(liu7st first, liu7st second);
+liu7st liu7st_concat(liu7st first, liu7st second);
 
 // Pudov & Grunkovsky
 int liu7st_has_cycle(liu7st list);
 
 // Gorbynov &  Chernenko
-lui7st liu7st_revert(liu7st list);
+liu7st liu7st_revert(liu7st list);
 
 // Ilyasov & Ignatiev
 void liu7st_sort(liu7st *list);
