@@ -36,6 +36,8 @@ void liu7st_sort(liu7st *list)
 
         if (!flag)
             break;
+        
+        flag = 0;
     }
 }
 
