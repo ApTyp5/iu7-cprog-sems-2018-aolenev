@@ -70,10 +70,10 @@ int main(void)
 
     if (4 == err_cnt)
     {
-        printf("Reverce test: Success!");
+        printf("Reverse test: SUCCESS\n");
         return SUCCESS;
     }
 
-    printf("Reverce test: Failed!");
+    printf("Reverse test: FAILED\n");
     return ERR_DEFAULT;
 }
