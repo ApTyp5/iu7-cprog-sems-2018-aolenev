@@ -55,4 +55,3 @@ void *get(liu7st list, int i);
 void set(liu7st list, int i, void *data);
 
 #endif
-
