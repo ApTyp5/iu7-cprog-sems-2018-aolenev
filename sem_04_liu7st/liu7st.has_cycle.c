@@ -1,6 +1,11 @@
 #include "liu7st.h"
 #include <stdio.h>
 
+/*
+* \brief Определение наличия зацикленности списка
+* \param [in] list - Список, который принимается в качестве испытуемого
+* \return 0 - если нет цикла. 1 - если есть цикл.
+*/
 int liu7st_has_cycle(liu7st list)
 {
     if (list.size <= 0)
