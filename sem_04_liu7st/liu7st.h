@@ -59,7 +59,7 @@ void *liu7st_get(liu7st list, int i);
 void liu7st_set(liu7st list, int i, void *data);
 
 // Drozdov
-int liu7st_compare(liu7st list1, liu7st list2, int *comparator(void*, void*))
+int liu7st_compare(liu7st list1, liu7st list2, int *comparator(void*, void*));
 
 #endif
 
