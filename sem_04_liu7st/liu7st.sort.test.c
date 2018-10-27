@@ -3,6 +3,18 @@
 #include "liu7st.h"
 
 /**
+ * @fn int int_comp(const void *a, const void *b)
+ * @brief Сравнение двух int
+ * @param a первое число
+ * @param b второе число
+ * @return разница между a и b
+ */
+int int_comp(const void *a, const void *b)
+{
+    return *(int*)a - *(int*)b;
+}
+
+/**
  * @fn int sort_test(liu7st *list, int *count)
  * @brief тест сортировки
  * @param list список
@@ -13,7 +25,7 @@ int sort_test(liu7st *list, int *count)
 {
     int key = 0;
     liu7st_element *elem = list->first;
-    liu7st_sort(list);
+    liu7st_sort(list, int_comp);
     
     for (int i = 0; i < list->size; i++)
     {
