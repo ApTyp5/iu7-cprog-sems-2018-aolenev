@@ -56,7 +56,7 @@ void liu7st_sort(liu7st *list);
 void *liu7st_get(liu7st list, int i);
 
 // Kosorykov & Coraev & Furdik
-void liu7st_set(liu7st list, int i, void *data);
+int liu7st_set(liu7st list, int i, void *data);
 
 // Drozdov
 int liu7st_compare(liu7st list1, liu7st list2, int *comparator(void*, void*));
