@@ -1,4 +1,4 @@
-#include "tst.liu7st.concat.h"
+#include "liu7st.tst.concat.h"
 #include "liu7st.h"
 
 
@@ -10,9 +10,11 @@ int main()
     return 0;
 }
 
-int int_cmp(void *int1, void *int2)
+int int_cmp(void *ptr1, void *ptr2)
 {
-    return *int1 - int2;
+    int *int1 = (int *)ptr1;
+    int *int2 = (int *)ptr2;
+    return *int1 - *int2;
 }
 
 void tst_1_liu7st_concat()
@@ -39,7 +41,7 @@ void tst_1_liu7st_concat()
     liu7st ans = liu7st_concat(lst1, lst2);
     
     int res = HAPPY_END;
-    int exp_res = compare(ans, exp_ans,) == 0 ? HAPPY_END : NON_HAPPY_END;
+    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? HAPPY_END : NON_HAPPY_END;
 
     PVERD(%d, res, exp_res);
 }
