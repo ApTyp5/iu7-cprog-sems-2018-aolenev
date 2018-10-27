@@ -4,45 +4,54 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct 
+typedef struct liu7st_element liu7st_element;
+
+struct liu7st_element
 {
     void *data;
-    lui7st *prev;
-    liu7st *next;
-} liu7st_element
+    liu7st_element *prev;
+    liu7st_element *next;
+};
 
 typedef struct
 {
     int size;
     liu7st_element *first;
     liu7st_element *last;
-} liu7st
+} liu7st;
 
-liu7st create();
+// Sidenko
+liu7st liu7st_create();
 
-// Nabiev
-void free(liu7st list);
+// Nabiev & Kyprii
+void liu7st_free(liu7st *list);
 
-// Kosor
-void append(truiu7st *list, striu7st_element striu7st_element;
+// Kosorykov & Coraev & 
+void liu7st_append(liu7st *list, void *data);
 
-// Moroz
-int remove(striu7st *list, int i);
+// Moroz & Zlyh
+int liu7st_remove(liu7st *list, int i);
 
-// Nekl Konov
-int insert(liu7st *list, liu7st_element element, int i);
+// Neklepaeva & Konovalova
+void liu7st_insert(liu7st *list, void *data, int i);
 
-// Potatoch Drozdov
-lui7st concat(liu7st first, liu7st second);
+// Potapchyk & Drozdov
+liu7st liu7st_concat(liu7st first, liu7st second);
 
-// Pudov Grunk
-int has_cycle(liu7st list);
+// Pudov & Grunkovsky
+int liu7st_has_cycle(liu7st list);
 
-// Gorb Chern
-lui7st revert(liu7st list);
+// Gorbynov &  Chernenko
+liu7st liu7st_revert(liu7st list);
 
-// Ilyasov Ignatiev
-void sort(liu7st *list);
+// Ilyasov & Ignatiev
+void liu7st_sort(liu7st *list);
 
-#ifndef
+// Kosorykov
+void *get(liu7st list, int i);
+
+// Kosorykov
+void set(liu7st list, int i, void *data);
+
+#endif
 
