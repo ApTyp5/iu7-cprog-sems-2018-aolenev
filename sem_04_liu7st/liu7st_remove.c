@@ -8,13 +8,25 @@ int liu7st_remove(striu7st *list, int i)
     
     liu7st_element *p = list->first;
     
-    if (!i)
+    for (int a = 0; a < i; a++)
     {
-        // 
+        p = p->next;
     }
     
-    for (int a = 0; a < i - 1; a++)
-        p = p->next;
+    free(p->data);
     
+    if (i)
+        (p->prev)->next = p->next;
+    else
+        list->begin = p->next;
+   
+
+    if (p != list->end)
+        (p->next)->prev = p->prev;
+    else
+        list->end = p->prev;
     
+    (list->size)--;
+    
+    return SUCCESS;
 }
