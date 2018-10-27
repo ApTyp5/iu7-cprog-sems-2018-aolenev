@@ -5,7 +5,7 @@
  * @brief Сортировка списка пузырьком
  * @param list список для сортировки
  */
-void liu7st_sort(liu7st *list)
+void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
 {
     liu7st_element *elem = list->first;
     int flag = 0;
@@ -16,10 +16,11 @@ void liu7st_sort(liu7st *list)
         {
             liu7st_element *nelem = elem->next;
 
-            if (elem->data > nelem->data)
+            if (comp(elem->data, nelem->data) > 0)
             {
                 if (elem == list->first)
                     list->first = nelem;
+
                 if (nelem == list->last)
                     list->last = elem;
 
@@ -36,7 +37,7 @@ void liu7st_sort(liu7st *list)
 
         if (!flag)
             break;
-        
+
         flag = 0;
     }
 }
