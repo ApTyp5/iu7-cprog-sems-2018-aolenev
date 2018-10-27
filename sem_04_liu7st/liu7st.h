@@ -10,6 +10,8 @@
 #define FAILED -1
 
 #define SET_ERROR -2
+#define WRONG_INDEX -3
+#define WRONG_LIST -4
 
 typedef struct liu7st_element liu7st_element;
 
