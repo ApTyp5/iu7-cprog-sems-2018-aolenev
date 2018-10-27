@@ -9,6 +9,8 @@
 #define SUCCESS 0
 #define FAILED -1
 
+#define SET_ERROR -2
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
@@ -50,16 +52,13 @@ int liu7st_has_cycle(liu7st list);
 liu7st liu7st_revert(liu7st list);
 
 // Ilyasov & Ignatiev
-void liu7st_sort(liu7st *list);
+void liu7st_sort(liu7st *list, int compare(void*, void*));
 
 // Kosorykov & Coraev & Furdik
 void *liu7st_get(liu7st list, int i);
 
 // Kosorykov & Coraev & Furdik
 int liu7st_set(liu7st list, int i, void *data);
-
-// Drozdov
-int liu7st_compare(liu7st list1, liu7st list2, int *comparator(void*, void*));
 
 #endif
 
