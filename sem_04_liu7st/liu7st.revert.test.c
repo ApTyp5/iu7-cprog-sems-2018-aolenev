@@ -79,16 +79,16 @@ int test_1()
     liu7st_element bb;
     liu7st_element bbb;
     
-    b.next = &bb;
+    b.next = &aa;
     b.prev = NULL;
     b.data = &(aaai);
     
-    bb.next = &bbb;
-    bb.prev = &b;
+    bb.next = &aaa;
+    bb.prev = &a;
     bb.data = &(aai);
     
     bbb.next = NULL;
-    bbb.prev = &bb;
+    bbb.prev = &aa;
     bbb.data = &(ai);
 
     expect.first=&b;
