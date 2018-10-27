@@ -2,7 +2,13 @@
 
 #include "liu7st.h"
 
-
+/**
+ * @fn int sort_test(liu7st *list, int *count)
+ * @brief тест сортировки
+ * @param list список
+ * @param count счетчик удачных тестов
+ * @return результат теста
+ */
 int sort_test(liu7st *list, int *count)
 {
     int key = 0;
