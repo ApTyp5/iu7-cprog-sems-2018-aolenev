@@ -42,6 +42,9 @@ liu7st liu7st_revert(liu7st list)
     // на следующий и предыдущий элементы, считается размер списка
     while (head->next != NULL)
     {
+        if (head->prev == NULL)
+            return list;
+        
         tmp = head->prev;
         head->prev = head->next;
         head->next = tmp;

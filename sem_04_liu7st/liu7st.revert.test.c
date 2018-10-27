@@ -33,9 +33,6 @@ int cmp_list_int(liu7st a, liu7st b)
         if (beg_1->next == NULL && beg_2->next != NULL)
             return NOT_EQ;
 
-        if (beg_1->next != NULL && beg_2->next == NULL)
-            return NOT_EQ;
-
         beg_1 = beg_1->next;
         beg_2 = beg_2->next;
     }
@@ -43,8 +40,38 @@ int cmp_list_int(liu7st a, liu7st b)
     return SUCCESS;
 }
 
-int test_1()
+int negative_test_free_list()
 {
+    printf("negative_test_free_list: ");
+    liu7st source;
+    liu7st expect;
+    liu7st result;
+    
+    source.first = NULL;
+    source.last = NULL;
+    
+    source.size = 0;
+    expect.size = 0;
+    
+    expect.first = NULL;
+    expect.last = NULL;
+    
+    result = liu7st_revert(source);
+    
+    if (result.size != expect.size || result.first != expect.first ||\
+        result.last != expect.last)
+    {
+        printf("Test failed\n");
+        return NOT_EQ;
+    }
+    
+    printf("Test success\n");
+    return SUCCESS;
+}
+
+int positive_test()
+{
+    printf("positive_test: ");
     liu7st source;
     liu7st expect;
     liu7st result;
@@ -56,9 +83,7 @@ int test_1()
     liu7st_element aa;
     liu7st_element aaa;
     
-    int ai = 1;
-    int aai = 2;
-    int aaai = 3;
+    int ai = 1, aai = 2, aaai = 3;
 
     a.next = &aa;
     a.prev = NULL;
@@ -72,8 +97,8 @@ int test_1()
     aaa.prev = &aa;
     aaa.data = &(aaai);
 
-    source.first=&a;
-    source.last=&aaa;
+    source.first = &a;
+    source.last = &aaa;
     
     liu7st_element b;
     liu7st_element bb;
@@ -91,22 +116,64 @@ int test_1()
     bbb.prev = &aa;
     bbb.data = &(ai);
 
-    expect.first=&b;
-    expect.last=&bbb;
+    expect.first = &b;
+    expect.last = &bbb;
 
     result = liu7st_revert(source);
 
-    return cmp_list_int(result, expect);
+    if (cmp_list_int(result, expect))
+    {
+        printf("Test failed\n");
+        return NOT_EQ;
+    }
+    else
+    {
+        printf("Test success\n");
+        return SUCCESS;
+    }
 }
+
+int negative_test_free_pointer()
+{
+    printf("negative_test_free_pointer: ");
+    liu7st source;
+    liu7st expect;
+    liu7st result;
+    
+    source.first = NULL;
+    source.last = NULL;
+    
+    source.size = 3;
+    expect.size = 3;
+    
+    expect.first = NULL;
+    expect.last = NULL;
+    
+    result = liu7st_revert(source);
+    
+    if (result.size != expect.size || result.first != expect.first ||\
+        result.last != expect.last)
+    {
+        printf("Test failed\n");
+        return NOT_EQ;
+    }
+    
+    printf("Test success\n");
+    return SUCCESS;
+}
+
 
 int main()
 {
     int errorcount = 0;
     
-    printf("Testing revert \n");
+    printf("Testing liu7st_revert \n");
     
-    errorcount += test_1();
-    printf("%d errors encountered in 1 revert tests\n", errorcount);
+    errorcount += positive_test();
+    errorcount += negative_test_free_list();
+    errorcount += negative_test_free_pointer();
+    
+    printf("%d errors encountered in 3 revert tests\n", errorcount);
 
     return errorcount;
 }
