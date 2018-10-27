@@ -3,6 +3,7 @@
 void liu7st_sort(liu7st *list)
 {
     liu7st_element *elem = list->first;
+    
     for (int i = 0; i < list->size; i++)
     {
         for (int j = 0; j < list->size - i - 1; j++)
@@ -20,9 +21,8 @@ void liu7st_sort(liu7st *list)
                 nelem->next = elem;
             }
         }
+
         elem = list->first;
     }
-
-
 }
 
