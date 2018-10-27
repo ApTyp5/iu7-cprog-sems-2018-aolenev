@@ -26,7 +26,7 @@ liu7st liu7st_create();
 // Nabiev & Kyprii
 void liu7st_free(liu7st *list);
 
-// Kosorykov & Coraev & 
+// Drozdov
 void liu7st_append(liu7st *list, void *data);
 
 // Moroz & Zlyh
@@ -47,10 +47,11 @@ liu7st liu7st_revert(liu7st list);
 // Ilyasov & Ignatiev
 void liu7st_sort(liu7st *list);
 
-// Kosorykov
+
+// Kosorykov & Coraev & Furdik
 void *get(liu7st list, int i);
 
-// Kosorykov
+// Kosorykov & Coraev & Furdik
 void set(liu7st list, int i, void *data);
 
 #endif
