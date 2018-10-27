@@ -1,5 +1,10 @@
 #include "liu7st.h"
 
+/**
+ * @fn void liu7st_sort(liu7st *list)
+ * @brief Сортировка списка пузырьком
+ * @param list список для сортировки
+ */
 void liu7st_sort(liu7st *list)
 {
     liu7st_element *elem = list->first;
@@ -16,7 +21,7 @@ void liu7st_sort(liu7st *list)
                     list->first = nelem;
                 if (nelem == list->last)
                     list->last = elem;
-                
+
                 nelem->prev = elem->prev;
                 elem->next = nelem->next;
                 elem->prev = nelem;
