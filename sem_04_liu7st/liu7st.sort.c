@@ -34,7 +34,7 @@ void liu7st_sort(liu7st *list)
 
         elem = list->first;
 
-        if (flag)
+        if (!flag)
             break;
     }
 }
