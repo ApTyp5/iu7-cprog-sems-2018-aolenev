@@ -21,7 +21,7 @@ typedef struct
 } liu7st;
 
 // Sidenko
-liu7st liu7st_create();
+liu7st liu7st_create(int size);
 
 // Nabiev & Kyprii
 void liu7st_free(liu7st *list);
