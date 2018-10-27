@@ -6,6 +6,9 @@
 
 #define FREE_LIST 0
 
+#define SUCCESS 0
+#define WRONG -1
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
@@ -48,7 +51,6 @@ liu7st liu7st_revert(liu7st list);
 
 // Ilyasov & Ignatiev
 void liu7st_sort(liu7st *list);
-
 
 // Kosorykov & Coraev & Furdik
 void *get(liu7st list, int i);
