@@ -47,5 +47,11 @@ liu7st liu7st_revert(liu7st list);
 // Ilyasov & Ignatiev
 void liu7st_sort(liu7st *list);
 
+// Kosorykov
+void *get(liu7st list, int i);
+
+// Kosorykov
+void set(liu7st list, int i, void *data);
+
 #endif
 
