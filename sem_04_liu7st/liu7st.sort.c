@@ -10,14 +10,19 @@ void liu7st_sort(liu7st *list)
             liu7st_element *nelem = elem->next;
             if (elem->data > nelem->data)
             {
+                if (elem == list->first)
+                    list->first = nelem;
+                if (nelem == list->last)
+                    list->last = elem;
                 nelem->prev = elem->prev;
                 elem->next = nelem->next;
                 elem->prev = nelem;
                 nelem->next = elem;
             }
         }
+        elem = list->first;
     }
 
-    
+
 }
 
