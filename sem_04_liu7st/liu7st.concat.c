@@ -1,6 +1,6 @@
 #include "liu7st.h"
 
-lui7st liu7st_concat(liu7st first, liu7st second)
+liu7st liu7st_concat(liu7st first, liu7st second)
 {
     liu7st result = liu7st_create();
 
