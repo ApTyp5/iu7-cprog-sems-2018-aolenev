@@ -63,4 +63,3 @@ void *liu7st_get(liu7st list, int i);
 int liu7st_set(liu7st list, int i, void *data);
 
 #endif
-
