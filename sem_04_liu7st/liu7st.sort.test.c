@@ -19,7 +19,7 @@ int sort_test(liu7st *list, int *count)
     }
     *count += 1;
     
-    return (key > 0);
+    return (key == 0);
 }
 
 int main()
