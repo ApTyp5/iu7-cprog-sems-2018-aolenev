@@ -4,6 +4,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define FREE_LIST 0
+
+#define SUCCESS 0
+#define FAILED -1
+
+#define SET_ERROR -2
+#define WRONG_INDEX -3
+#define WRONG_LIST -4
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
@@ -45,14 +54,13 @@ int liu7st_has_cycle(liu7st list);
 liu7st liu7st_revert(liu7st list);
 
 // Ilyasov & Ignatiev
-void liu7st_sort(liu7st *list);
-
-
-// Kosorykov & Coraev & Furdik
-void *get(liu7st list, int i);
+void liu7st_sort(liu7st *list, int (*compare)(const void*, const void*));
 
 // Kosorykov & Coraev & Furdik
-void set(liu7st list, int i, void *data);
+void *liu7st_get(liu7st list, int i);
+
+// Kosorykov & Coraev & Furdik
+int liu7st_set(liu7st list, int i, void *data);
 
 #endif
 
