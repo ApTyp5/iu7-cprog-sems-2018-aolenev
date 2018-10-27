@@ -3,6 +3,9 @@
 
 int liu7st_insert(liu7st *list, void *data, int i)
 {
+   if (i < 0)
+       return FAILED;
+   
    int count = 0;
    liu7st_element *sup = list->first;
    liu7st_element *node = malloc(sizeof(liu7st_element));
