@@ -10,13 +10,11 @@ void liu7st_free(liu7st *list)
     walk = list->first;
     do
     {
+        liu7st_element tmp = walk;
         walk = walk->next;
 
-        if (walk)
-        {
-            free(walk->prev->data);
-            free(walk->prev);
-        }
+        free(tmp->data);
+        free(tmp);
     }
     while (walk != NULL);
 
