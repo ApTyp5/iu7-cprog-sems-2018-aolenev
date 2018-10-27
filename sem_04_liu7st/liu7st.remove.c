@@ -3,7 +3,6 @@
  * \brief Содержит функцию liu7st_remove()
  */
 
-#include "liu7st_remove.h"
 #include "liu7st.h"
 
 /**
