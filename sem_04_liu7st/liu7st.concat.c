@@ -1,5 +1,10 @@
 #include "liu7st.h"
 
+/**
+ * Concatenates two lists
+ * \param [in] first, second
+ * \return Returns new list
+ */
 liu7st liu7st_concat(liu7st first, liu7st second)
 {
     liu7st result = liu7st_create();
