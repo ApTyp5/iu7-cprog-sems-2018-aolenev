@@ -33,7 +33,7 @@ typedef struct
 liu7st liu7st_create();
 
 // Nabiev & Kyprii
-void liu7st_free(liu7st *list);
+void liu7st_free(liu7st *list, void (*free_data)(void*));
 
 // Drozdov
 void liu7st_append(liu7st *list, void *data);
