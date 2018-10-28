@@ -1,15 +1,17 @@
-#include <liu7st.h>
+#include "liu7st.h"
 
-/*!Очищает память, выделенную для списка list.
+/*!Очищает память, выделенную для списка list. 
+Память для элементов списка очищается при помощи функции free_data.
 
 @param list [in, out]
+@param free_data [in]
 
 @return Ничего.
-*/
+*/  
 
-void liu7st_free(liu7st *list)
+void liu7st_free(liu7st *list, void (*free_data)(void*))
 {
-    if (list == NULL || list->first == NULL || list->last == NULL || size == 0)
+    if (list == NULL || list->first == NULL || list->last == NULL || list->size == 0)
         return;
 
     liu7st_element *walk;
@@ -17,10 +19,10 @@ void liu7st_free(liu7st *list)
     walk = list->first;
     do
     {
-        liu7st_element tmp = walk;
+        liu7st_element *tmp = walk;
         walk = walk->next;
 
-        free(tmp->data);
+        free_data(tmp->data);
         free(tmp);
     }
     while (walk != NULL);
