@@ -19,7 +19,7 @@ int liu7st_insert(liu7st *list, void *data, int i)
    
    node->prev = sup;
    sup = sup->next;
-   node->prev = sup;
+   node->next = sup;
    sup->prev = node;
    sup = sup->prev;
    sup = sup->prev;
