@@ -1,6 +1,6 @@
 #include "liu7st.h"
 
-void liu7st_remove_test_1(int *success)
+void liu7st_remove_test(int *success)
 {
 	int status;
 	int a[3] = {2, 3, 4};
@@ -54,11 +54,7 @@ int main(void)
     int success = 0;
     int musttests = 5;
 
-    liu7st_remove_test_1(&success);
-    //liu7st_remove_test_2(&success);
-    //liu7st_remove_test_3(&success);
-    //liu7st_remove_test_4(&success);
-    //liu7st_remove_test_5(&success);
+    liu7st_remove_test(&success);
     
     printf("\n Function liu7st_remove() works at %d of %d tests\n", success, musttests);
 
