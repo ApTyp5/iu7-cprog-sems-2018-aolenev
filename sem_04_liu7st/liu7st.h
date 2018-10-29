@@ -33,7 +33,7 @@ typedef struct
 liu7st liu7st_create();
 
 // Nabiev & Kyprii
-void liu7st_free(liu7st *list);
+void liu7st_free(liu7st *list, void (*free_data)(void*));
 
 // Drozdov
 void liu7st_append(liu7st *list, void *data);
@@ -42,7 +42,7 @@ void liu7st_append(liu7st *list, void *data);
 int liu7st_remove(liu7st *list, int i);
 
 // Neklepaeva & Konovalova
-void liu7st_insert(liu7st *list, void *data, int i);
+int liu7st_insert(liu7st *list, void *data, int i);
 
 // Potapchyk & Drozdov
 liu7st liu7st_concat(liu7st first, liu7st second);
@@ -63,4 +63,3 @@ void *liu7st_get(liu7st list, int i);
 int liu7st_set(liu7st list, int i, void *data);
 
 #endif
-
