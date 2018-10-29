@@ -71,8 +71,8 @@ int main()
     if (passed != 3)
     {
         printf("Error\n");
-        return -1;
+        return FAILED;
     }
     
-    return 0;
+    return SUCCESS;
 }
