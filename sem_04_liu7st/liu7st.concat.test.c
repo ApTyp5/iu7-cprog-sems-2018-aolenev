@@ -6,7 +6,7 @@
 
 // PVERD --> PRINT VERDICT
 #define     PVERD(ftype, res, exp_res)   printf(#ftype"\t"#ftype"\t%s\n", res, exp_res, \
-    res == exp_res ? "SUCCESS" : "FAIL")
+    res == exp_res ? "IU7_SUCCESS" : "IU7_FAIL")
 
 
 void tst_1_liu7st_concat();
@@ -48,8 +48,8 @@ void tst_1_liu7st_concat()
 
     liu7st ans = liu7st_concat(lst1, lst2);
     
-    int res = SUCESS;
-    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? SUCCESS : FAIL;
+    int res = IU7_SUCESS;
+    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? IU7_SUCCESS : IU7_FAIL;
 
     PVERD(%d, res, exp_res);
 }
