@@ -2,7 +2,6 @@
 
 #include "liu7st.h"
 
-
 int sort_test(liu7st *list, int *count)
 {
     int key = 0;
@@ -18,7 +17,7 @@ int sort_test(liu7st *list, int *count)
             break;
         }
     }
-    count += 1;
+    *count += 1;
     
     return (key > 0);
 }
@@ -28,9 +27,9 @@ int main()
     int count = 0, success = 0;
     liu7st list;
     list = liu7st_create();
-    liu7st_append(list, 3);
-    liu7st_append(list, 2);
-    liu7st_append(list, 1);
+    liu7st_append(&list, 3);
+    liu7st_append(&list, 2);
+    liu7st_append(&list, 1);
     
     success += sort_test(list, count)
     
