@@ -44,8 +44,11 @@ int liu7st_has_cycle(liu7st list)
         while (current_element->next != NULL && (found == 0 || it_1 < list.size + 1))
         {
             it_1 += 1;
-            it_2 += 2;
+            it_1 %= list.size;
 
+            it_2 += 2;
+            it_2 %= list.size;
+ 
             if (it_1 == it_2)
                 found = 1;
         }
@@ -55,3 +58,4 @@ int liu7st_has_cycle(liu7st list)
 
     return 0;
 }
+
