@@ -1,7 +1,15 @@
-#include "liu7st.tst.concat.h"
 #include "liu7st.h"
 
+// STEST --> START TEST
+// STEST рекомендуется ставить сразу после открывающей скобки функции
+#define     STEST       printf("%d --> %s(): ", __LINE__, __func__)
 
+// PVERD --> PRINT VERDICT
+#define     PVERD(ftype, res, exp_res)   printf(#ftype"\t"#ftype"\t%s\n", res, exp_res, \
+    res == exp_res ? "SUCCESS" : "FAIL")
+
+
+void tst_1_liu7st_concat();
 
 int main()
 {
@@ -40,8 +48,8 @@ void tst_1_liu7st_concat()
 
     liu7st ans = liu7st_concat(lst1, lst2);
     
-    int res = HAPPY_END;
-    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? HAPPY_END : NON_HAPPY_END;
+    int res = SUCESS;
+    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? SUCCESS : FAIL;
 
     PVERD(%d, res, exp_res);
 }
