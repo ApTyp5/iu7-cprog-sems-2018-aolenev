@@ -1,6 +1,17 @@
 ﻿#include <stdlib.h>
 #include "liu7st.h"
 
+/**
+ @brief Функция добавляет элемент в список list по индексу i
+ 
+ @param list [out]
+ @param data [in]
+ @param i [in]
+ 
+ @return Функция возвращает SUCCESS в случае успешного завершения
+ FAILED если входные данные были некорректны
+ */
+ 
 int liu7st_insert(liu7st *list, void *data, int i)
 {
    if ((i < 0) || (i > list->size))
