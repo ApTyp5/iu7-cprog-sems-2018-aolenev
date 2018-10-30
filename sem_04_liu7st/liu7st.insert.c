@@ -58,12 +58,12 @@ int liu7st_insert(liu7st *list, void *data, int i)
        sup->next = node;
    }
    
-   list->size += 1;
-   
    if (i == 0)
        list->first = node;
    if (i == list->size)
        list->last = node;
+   
+   list->size += 1;
    
    return SUCCESS;
 }
