@@ -24,7 +24,7 @@ TEST_OBJ += liu7st.has_cycle.test.exe
 TEST_OBJ += liu7st.revert.test.exe
 TEST_OBJ += liu7st.sort.test.exe
 TEST_OBJ += liu7st.set.test.exe
-TEST_OBJ += liu7.get.test.exe
+TEST_OBJ += liu7st.get.test.exe
 
 ifeq ($(mode), debug)
     KEYS += -g3
@@ -43,7 +43,7 @@ app.exe: $(OBJ) main.o
 test.exe: $(TEST_OBJ)
 
 %.test.exe: $(OBJ) %.test.o
-	$(CC) -o %.test.exe $^
+	$(CC) -o $@ $^
 
 clean:
 	$(RM) *.o *.exe *.gch
