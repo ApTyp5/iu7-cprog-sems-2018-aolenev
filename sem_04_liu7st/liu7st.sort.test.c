@@ -166,10 +166,10 @@ int main()
     success += sort_test_3(&list_3, &count);
     success += sort_test_4(&list_4, &count);
     
-    liu7st_free(&list_1);
-    liu7st_free(&list_2);
-    liu7st_free(&list_3);
-    liu7st_free(&list_4);
+    liu7st_free(&list_1, free);
+    liu7st_free(&list_2, free);
+    liu7st_free(&list_3, free);
+    liu7st_free(&list_4, free);
     
     printf("\nSort func test:\n");
     
