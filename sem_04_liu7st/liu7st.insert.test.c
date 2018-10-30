@@ -11,12 +11,12 @@ void insert_test1(int *success_tests)
         data = i;
         liu7st_insert(&list, &data, i);
     }
-    void *pointer;
+    int *pointer;
     
     for (int i = 0; i < size; i++)
     {
-        liu7st_get(&list, i, &pointer);
-        if (*((int*)pointer) = i)
+        pointer = (int*)get(&list, i);
+        if (*pointer == i)
             success++;
     }
     
@@ -31,7 +31,7 @@ void insert_test2(int *success_tests)
     int data = 2;
     int code_mistake = liu7st_insert(&list, &data, i);
     
-    if ((code_mistake != 0) && (list->size == 0))
+    if ((code_mistake != 0) && (list.size == 0))
         (*success_tests)++;
 }
 
@@ -42,7 +42,7 @@ void insert_test3(int *success_tests)
     int data = 2;
     int code_mistake = liu7st_insert(&list, &data, i);
     
-    if ((code_mistake != 0) && (list->size == 0))
+    if ((code_mistake != 0) && (list.size == 0))
         (*success_tests)++;
 }
 
@@ -54,12 +54,12 @@ void insert_test4(int *success_tests)
     int size = 5;
     for (int i = 0; i < size; i++)
         liu7st_insert(&list, &data[i], i);
-    void *pointer;
+    float *pointer;
     
     for (int i = 0; i < size; i++)
     {
-        liu7st_get(&list, i, &pointer);
-        if (*((float*)pointer) = data[i])
+        pointer = (float*)get(&list, i);
+        if (*pointer == data[i])
             success++;
     }
     
