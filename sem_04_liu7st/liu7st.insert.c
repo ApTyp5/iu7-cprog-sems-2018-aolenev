@@ -14,10 +14,13 @@
  
 int liu7st_insert(liu7st *list, void *data, int i)
 {
+   if (list == NULL)
+       return FAILED;
+   
    if ((i < 0) || (i > list->size))
        return FAILED;
    
-   if ((list->first == NULL) || (list->last == NULL) || (list == NULL))
+   if ((list->first == NULL) || (list->last == NULL))
        return FAILED;
    
    int count = 0;
