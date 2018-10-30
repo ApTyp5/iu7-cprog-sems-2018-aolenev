@@ -37,11 +37,11 @@ int liu7st_insert(liu7st *list, void *data, int i)
    {
        node->prev = sup;
        
-       if (i < size)
+       if (i < list->size)
            sup = sup->next;
    }
    
-   if (i < size)
+   if (i < list->size)
    {
        node->next = sup;
        sup->prev = node;
@@ -49,7 +49,7 @@ int liu7st_insert(liu7st *list, void *data, int i)
    
    if (i != 0)
    {
-       if (i < size)
+       if (i < list->size)
        {
            sup = sup->prev;
            sup = sup->prev;
@@ -62,7 +62,7 @@ int liu7st_insert(liu7st *list, void *data, int i)
    
    if (i == 0)
        list->first = node;
-   if (i == size)
+   if (i == list->size)
        list->last = node;
    
    return SUCCESS;
