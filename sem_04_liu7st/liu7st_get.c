@@ -1,6 +1,6 @@
 #include "liu7st.h"
 
-int set(liu7st list, int i, void *data)
+int get(liu7st list, int i, void *data)
 
 {
     if (i >= list.size)
