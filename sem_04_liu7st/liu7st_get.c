@@ -1,17 +1,18 @@
 #include "liu7st.h"
 
-int get(liu7st list, int i, void *data)
+void *get(liu7st list, int i, void *data)
 
 {
+    if (i < 0)
+    {
+        i = list.size + i;
+    }
+    
     if (i >= list.size)
     {
         return NULL;	
     }
     
-    if (i < 0)
-    {
-        i = list.size + i;
-    }
     
     if(list.size - i < list.size / 2)
     {
@@ -37,5 +38,5 @@ int get(liu7st list, int i, void *data)
         return curr;
         }
         
-        return SET_ERROR;
+        return NULL;
 }
