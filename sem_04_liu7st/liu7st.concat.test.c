@@ -49,7 +49,7 @@ void tst_1_liu7st_concat()
     liu7st ans = liu7st_concat(lst1, lst2);
     
     int res = SUCCESS;
-    int exp_res = liu7st_compare(ans, exp_ans, int_cmp) == 0 ? SUCCESS : FAIL;
+    int exp_res = lst1->first->data != data1 || lst1->last->data != data2;
 
     PVERD(%d, res, exp_res);
 }
