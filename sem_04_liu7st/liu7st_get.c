@@ -1,15 +1,18 @@
 #include "liu7st.h"
-void set(liu7st list, int i, void *data)
+
+int set(liu7st list, int i, void *data)
 
 {
     if (i >= list.size)
     {
         return NULL;	
     }
+    
     if (i < 0)
     {
         i = list.size + i;
-    }    
+    }
+    
     if(list.size - i < list.size / 2)
     {
         liu7st_element curr = *(list.first);
@@ -21,6 +24,7 @@ void set(liu7st list, int i, void *data)
 		
         return curr;	
 	}
+	
     else
     {
         liu7st_element curr = *(list.last);
@@ -33,5 +37,5 @@ void set(liu7st list, int i, void *data)
         return curr;
         }
         
-        return NULL;
+        return SET_ERROR;
 }
