@@ -12,7 +12,7 @@ void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
 
     for (int i = 0; i < list->size; i++)
     {
-        for (int j = 0; j < list->size - i - 1; j++)
+        for (int j = 0; j < list->size - i - 2; j++)
         {
             liu7st_element *nelem = elem->next;
 
@@ -30,7 +30,11 @@ void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
                 nelem->next = elem;
 
                 flag = 1;
+
+                elem = nelem;
             }
+
+            elem = elem->next;
         }
 
         elem = list->first;
