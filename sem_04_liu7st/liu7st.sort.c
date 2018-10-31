@@ -1,9 +1,10 @@
 #include "liu7st.h"
 
 /**
- * @fn void liu7st_sort(liu7st *list)
+ * @fn void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
  * @brief Сортировка списка пузырьком
  * @param list список для сортировки
+ * @param comp указатель на функцию-компаратор
  */
 void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
 {
