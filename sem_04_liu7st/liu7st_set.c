@@ -23,7 +23,7 @@ int set(liu7st list, int i, void *data)
         }
 		
         curr.data = data;
-        return FREE_LIST;	
+        return SUCESS;	
 	}
 	
     else
@@ -36,7 +36,7 @@ int set(liu7st list, int i, void *data)
         }
 	
         curr.data = data;
-        return FREE_LIST;
+        return SUCESS;
         }
         
         return  SET_ERROR;
