@@ -15,7 +15,7 @@ void insert_test1(int *success_tests)
     
     for (int i = 0; i < size; i++)
     {
-        pointer = (int*)get(&list, i);
+        pointer = (int*)liu7st_get(list, i);
         if (*pointer == i)
             success++;
     }
@@ -58,7 +58,7 @@ void insert_test4(int *success_tests)
     
     for (int i = 0; i < size; i++)
     {
-        pointer = (float*)get(&list, i);
+        pointer = (float*)liu7st_get(list, i);
         if (*pointer == data[i])
             success++;
     }
