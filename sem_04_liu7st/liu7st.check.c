@@ -20,11 +20,11 @@ int liu7st_check(liu7st list)
         
         for (int i = 0; i < 2; i++)
         {
-            if (p2->next != NULL && p2->next->prev != p2)
-                return WRONG_LIST;
-
             if (p2->next == NULL)
                 return list.last == p2 && list.size == size ? SUCCESS : WRONG_LIST;
+
+            if (p2->next->prev != p2)
+                return WRONG_LIST;
 
             p2 = p2->next;
             size++;
