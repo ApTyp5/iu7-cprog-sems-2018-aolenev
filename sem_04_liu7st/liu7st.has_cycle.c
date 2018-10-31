@@ -26,7 +26,7 @@ int liu7st_has_cycle(liu7st list)
     liu7st_element *current_element = list.first;
 
     int counter = 0;
-    while (current_element->next != NULL || counter <= list.size + 1)
+    while (current_element->next != NULL && counter <= list.size + 1)
     {
         counter++;
     }
