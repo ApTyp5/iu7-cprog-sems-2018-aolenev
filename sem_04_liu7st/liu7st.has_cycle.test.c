@@ -87,8 +87,11 @@ int main()
     if (passed != 3)
     {
         printf("Error\n");
-        return -1;
+        return FAILED;
     }
-    
-    return 0;
+    else 
+    {
+        printf("All tests passed.\n");
+        return SUCCESS;
+    }
 }
