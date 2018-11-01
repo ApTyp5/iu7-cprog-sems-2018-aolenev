@@ -26,6 +26,7 @@ TEST_OBJ += liu7st.revert.test.exe
 TEST_OBJ += liu7st.sort.test.exe
 TEST_OBJ += liu7st.set.test.exe
 TEST_OBJ += liu7st.get.test.exe
+TEST_OBJ += liu7st.iterator.test.c
 
 ifeq ($(mode), debug)
     KEYS += -g3
