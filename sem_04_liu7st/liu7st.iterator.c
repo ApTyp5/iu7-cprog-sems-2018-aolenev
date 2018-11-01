@@ -1,19 +1,21 @@
 #include "liu7st.h"
 
-#define OFFSET(STRUCT, MEMBER) (size_t)(&((STRUCT*)NULL)->MEMBER)
+#define OFFSET(STRUCT, MEMBER) (size_t)(&((STRUCT*)0)->MEMBER)
 
 void *liu7st_begin(liu7st *list)
 {
     if (list == NULL)
         return NULL;
-    return &list->first->data;;
+    
+    return &list->first->data;
 }
 
 void *liu7st_end(liu7st *list)
 {
     if (list == NULL)
         return NULL;
-    return &list->last->data;;
+
+    return &list->last->data;
 }
 
 void *liu7st_next(void *iterator)
