@@ -6,11 +6,14 @@
 * \return data - элемент списка.
 */
 
-
-void *get(liu7st list, int i)
-
+void *liu7st_get(liu7st list, int i)
 {
-    if (list == NULL && list->first == NULL && list->last == NULL)
+    if (list == NULL)
+    {
+        return NULL;
+    }
+    
+    if (list->first == NULL || list->last == NULL)
     {
         return NULL;
     }
@@ -29,8 +32,6 @@ void *get(liu7st list, int i)
     {
         return NULL;
     }
-    
-    
     
     if (list.size - i < list.size / 2)
     {
@@ -57,5 +58,5 @@ void *get(liu7st list, int i)
         return curr->data;
     }
         
-        return NULL;
+    return NULL;
 }
