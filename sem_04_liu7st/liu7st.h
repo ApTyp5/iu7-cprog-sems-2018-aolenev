@@ -57,7 +57,7 @@ liu7st liu7st_revert(liu7st list);
 void liu7st_sort(liu7st *list, int (*compare)(const void*, const void*));
 
 // Kosorykov & Coraev & Furdik
-void *liu7st_get(liu7st *list, int i);
+void *liu7st_get(liu7st list, int i);
 
 // Kosorykov & Coraev & Furdik
 int liu7st_set(liu7st list, int i, void *data);
