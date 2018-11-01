@@ -6,7 +6,7 @@
 * \return data - элемент списка.
 */
 
-void *liu7st_get(liu7st *list, int i)
+void *liu7st_get(liu7st list, int i)
 {
     if (list == NULL)
     {
@@ -20,10 +20,10 @@ void *liu7st_get(liu7st *list, int i)
     
     if (i < 0)
     {
-        i = list->size + i;
+        i = list.size + i;
     }
     
-    if (i >= list->size)
+    if (i >= list.size)
     {
         return NULL;	
     }
@@ -33,7 +33,7 @@ void *liu7st_get(liu7st *list, int i)
         return NULL;
     }
     
-    if (list->size - i < list->size / 2)
+    if (list.size - i < list.size / 2)
     {
         liu7st_element *curr = list->first;
 
@@ -48,7 +48,7 @@ void *liu7st_get(liu7st *list, int i)
     else
     {
         liu7st_element *curr = list->last;
-        i = list->size - i;
+        i = list.size - i;
         
         for (int x = 0; x != i; x++)
         {
