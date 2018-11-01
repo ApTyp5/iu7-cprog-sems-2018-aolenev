@@ -6,9 +6,17 @@ void test_empty(int *passed)
     int expected = 0;
     liu7st list;
     
+    list.size = 0;
+    list.first = NULL;
+    list.last = NULL;
+    
     if (liu7st_has_cycle(list) == expected)
     {
         *passed = *passed + 1;
+    }
+    else 
+    {
+        printf("Empty test not passed!\n");
     }
 }
 
@@ -29,6 +37,10 @@ void test_no_cycle(int *passed)
     if (liu7st_has_cycle(list) == expected)
     {
         *passed = *passed + 1;
+    }
+    else 
+    {
+        printf("No cycle test not passed!\n");
     }
     
     free(list.first->next->next);
@@ -54,6 +66,10 @@ void test_circular(int *passed)
     {
         *passed = *passed + 1;
     }
+    else 
+    {
+        printf("Circular test not passed!\n");
+    }
     
     free(list.first->next->next);
     free(list.first->next);
@@ -71,8 +87,8 @@ int main()
     if (passed != 3)
     {
         printf("Error\n");
-        return FAILED;
+        return -1;
     }
     
-    return SUCCESS;
+    return 0;
 }
