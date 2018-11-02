@@ -13,6 +13,17 @@
 #define WRONG_INDEX -3
 #define WRONG_LIST -4
 
+#define LIU7ST_CYCLED            (1 << 0)
+#define LIU7ST_BACK_CYCLED       (1 << 1)
+#define LIU7ST_LAST_UNREACHABLE  (1 << 2)
+#define LIU7ST_FIRST_UNREACHABLE (1 << 3)
+#define LIU7ST_INVALID_LAST      (1 << 4)
+#define LIU7ST_INVALID_FIRST     (1 << 5)
+#define LIU7ST_MISSED_FIRST      (1 << 6)
+#define LIU7ST_MISSED_LAST       (1 << 7)
+#define LIU7ST_NONLINEAR         (1 << 8)
+#define LIU7ST_INVALID_COUNT     (1 << 9)
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
@@ -61,5 +72,8 @@ void *liu7st_get(liu7st list, int i);
 
 // Kosorykov & Coraev & Furdik
 int liu7st_set(liu7st list, int i, void *data);
+
+// Drozdov
+int liu7st_check(liu7st list);
 
 #endif
