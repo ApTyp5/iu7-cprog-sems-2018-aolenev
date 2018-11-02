@@ -12,7 +12,7 @@ OBJ += liu7st.has_cycle.o
 OBJ += liu7st.revert.o
 OBJ += liu7st.sort.o
 OBJ += liu7st.set.o
-OBJ += liu7.get.o
+OBJ += liu7st.get.o
 OBJ += liu7st.iterator.c
 
 TEST_OBJ := liu7st.create.test.exe
