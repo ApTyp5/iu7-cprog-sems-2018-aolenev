@@ -1,9 +1,10 @@
 #include "liu7st.h"
 
 /**
- * @fn void liu7st_sort(liu7st *list)
+ * @fn void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
  * @brief Сортировка списка пузырьком
  * @param list список для сортировки
+ * @param comp указатель на функцию-компаратор
  */
 void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
 {
@@ -20,9 +21,13 @@ void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
             {
                 if (elem == list->first)
                     list->first = nelem;
+                else
+                    elem->prev->next = nelem;
 
                 if (nelem == list->last)
                     list->last = elem;
+                else
+                    nelem->next->prev = elem;
 
                 nelem->prev = elem->prev;
                 elem->next = nelem->next;
@@ -30,7 +35,11 @@ void liu7st_sort(liu7st *list, int (*comp)(const void*, const void*))
                 nelem->next = elem;
 
                 flag = 1;
+
+                elem = nelem;
             }
+
+            elem = elem->next;
         }
 
         elem = list->first;

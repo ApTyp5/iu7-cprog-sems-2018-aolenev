@@ -24,6 +24,9 @@
 #define LIU7ST_NONLINEAR         (1 << 8)
 #define LIU7ST_INVALID_COUNT     (1 << 9)
 
+#define LIU7ST_FOREACH(TYPE, ITER, LIST_PTR) \
+    for (TYPE ITER = liu7st_begin(LIST_PTR); ITER != NULL; ITER = liu7st_next(ITER))
+
 typedef struct liu7st_element liu7st_element;
 
 struct liu7st_element
@@ -72,6 +75,12 @@ void *liu7st_get(liu7st list, int i);
 
 // Kosorykov & Coraev & Furdik
 int liu7st_set(liu7st list, int i, void *data);
+
+// Drozdov
+void *liu7st_begin(liu7st *list);
+void *liu7st_end(liu7st *list);
+void *liu7st_next(void *iterator);
+void *liu7st_prev(void *iterator);
 
 // Drozdov
 int liu7st_check(liu7st list);
