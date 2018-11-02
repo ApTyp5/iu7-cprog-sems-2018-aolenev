@@ -13,6 +13,7 @@ OBJ += liu7st.revert.o
 OBJ += liu7st.sort.o
 OBJ += liu7st.set.o
 OBJ += liu7.get.o
+OBJ += liu7st.iterator.c
 
 TEST_OBJ := liu7st.create.test.exe
 TEST_OBJ += liu7st.free.test.exe
@@ -25,6 +26,7 @@ TEST_OBJ += liu7st.revert.test.exe
 TEST_OBJ += liu7st.sort.test.exe
 TEST_OBJ += liu7st.set.test.exe
 TEST_OBJ += liu7st.get.test.exe
+TEST_OBJ += liu7st.iterator.test.c
 
 ifeq ($(mode), debug)
     KEYS += -g3
