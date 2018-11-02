@@ -28,7 +28,7 @@ void *liu7st_get(liu7st list, int i)
         return NULL;
     }
     
-    if (list.size - i < list.size / 2)
+    if (i < list.size / 2)
     {
         liu7st_element *curr = list.first;
 
