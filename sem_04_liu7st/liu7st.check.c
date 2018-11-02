@@ -59,20 +59,29 @@ int liu7st_check(liu7st list)
         {
             liu7st_element *meet = p1;
             p1 = list.first;
+            
+            int meet_reached = 0;
+            int linear_segment_size = 1, cycle_size = 1;
 
-            size = 0;
             while (p1 != p2)
             {
-                size += 2;
                 p1 = p1->next;
+                linear_segment_size++;
+
+                p2 = p2->next;
+                meet_reached |= p2 == meet;
+
+                if (!meet_reached)
+                    cycle_size++;
+            }
+
+            while (!meet_reached && p2 != meet)
+            {
+                cycle_size++;
                 p2 = p2->next;
             }
 
-            while (p2 != meet)
-            {
-                size++;
-                p2 = p2->next;
-            }
+            size = cycle_size + linear_segment_size;
         }
 
         if (list.size != size)
