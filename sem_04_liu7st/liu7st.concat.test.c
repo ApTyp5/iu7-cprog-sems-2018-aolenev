@@ -9,6 +9,7 @@
     res == exp_res ? "SUCCESS" : "FAIL")
 
 
+
 void tst_1_liu7st_concat();
 
 int main()
