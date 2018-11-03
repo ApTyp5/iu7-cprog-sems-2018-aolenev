@@ -49,15 +49,7 @@ void tst_1_liu7st_concat()
     liu7st ans = liu7st_concat(lst1, lst2);
     
     int res = SUCCESS;
-    int exp_res = lst1.first->data != data_ptr_1 || lst1.last->data != data_ptr_2;
-    // Почему не :
-    // int exp_res = *(int *)(lst1->first.data) != data1 // etc
-    // То есть, если lst1 содержит указатель на структуру liu7st_element *first, то запись 
-    // 'lst1.first' должна означать неразыменованный указатель на структуру в то время как
-    // 'lst1->first' есть сама структура first, в которой уже можно найти указатель на data.
-    // Однако компилятор забраковал первый логичный с моей точки зрения вариант, и каким-то 
-    // образом получает указатель на data через неразыменованный указатель на предшествующую
-    // ей структуру
+    int exp_res = !(lst1.first->data == data_ptr_1 && lst1.last->data == data_ptr_2);
 
     PVERD(%d, res, exp_res);
 }
