@@ -28,7 +28,7 @@ void *liu7st_get(liu7st list, int i)
         return NULL;
     }
     
-    if (list.size - i < list.size / 2)
+    if (i < list.size / 2)
     {
         liu7st_element *curr = list.first;
 
@@ -36,15 +36,14 @@ void *liu7st_get(liu7st list, int i)
         {
             curr = curr->next;
         }
-		
+
         return curr->data;	
-	}
-	
+    }
     else
     {
         liu7st_element *curr = list.last;
-        i = list.size - i;
-        
+        i = list.size - i - 1;
+
         for (int x = 0; x != i; x++)
         {
             curr = curr->prev;
@@ -52,6 +51,6 @@ void *liu7st_get(liu7st list, int i)
 	
         return curr->data;
     }
-        
+
     return NULL;
 }
