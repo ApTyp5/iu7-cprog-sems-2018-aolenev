@@ -4,13 +4,10 @@ void insert_test1(int *success_tests)
 {
     liu7st list = liu7st_create();
     int success = 0;
-    int data;
+    int data[] = {0, 1, 2, 3, 4 };
     int size = 5;
     for (int i = 0; i < size; i++)
-    {
-        data = i;
-        liu7st_insert(&list, &data, i);
-    }
+        liu7st_insert(&list, data + i, i);
     int *pointer;
     
     for (int i = 0; i < size; i++)
