@@ -7,9 +7,9 @@ void incor_i_less_null()
     
     list.size = 5;
     int pos = -10;
-    void *data;
+    int data = 100;
     
-    int err = liu7st_set(list, pos, data);
+    int err = liu7st_set(list, pos, &data);
     
     if (err != SET_ERROR)
         printf("%s: Test failed\n Actual: SUCCESS\n Expected: SET_ERROR\n", name);
@@ -25,9 +25,9 @@ void incor_i_more_size()
     
     list.size = 5;
     int pos = 10;
-    void *data;
+    int data = 100;
     
-    int err = liu7st_set(list, pos, data);
+    int err = liu7st_set(list, pos, &data);
     
     if (err != SET_ERROR)
         printf("%s: Test failed\n Actual: SUCCESS\n Expected: SET_ERROR\n", name);
@@ -40,19 +40,19 @@ void correct_test()
     char name[] = "correct_test";
     
     liu7st list = liu7st_create();
-    void *data = NULL;
+    int data[] = {1, 2, 3};
     int err, is_continue = 1;
     
     liu7st_append(&list, data);
-    liu7st_append(&list, data);
-    liu7st_append(&list, data);
+    liu7st_append(&list, data + 1);
+    liu7st_append(&list, data + 2);
     
     int new_data = 3;
-    
+
     for (int i = 0; i < list.size; i++)
     {
-        err = liu7st_set(list, i, (void*)(&new_data));
-        
+        err = liu7st_set(list, i, &new_data);
+
         if (err != SUCCESS)
         {
             is_continue = 0;
