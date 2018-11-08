@@ -32,7 +32,6 @@ void tst_1_liu7st_concat()
 
     int data1 = 5;
     int data2 = 10;
-    int len = 2;
 
     void *data_ptr_1 = &data1;
     void *data_ptr_2 = &data2;
