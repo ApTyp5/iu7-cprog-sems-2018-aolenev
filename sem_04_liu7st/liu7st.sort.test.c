@@ -33,16 +33,16 @@ int double_comp(const void *a, const void *b)
  * @param count счетчик удачных тестов
  * @return результат теста
  */
-int sort_test_1(liu7st *list, int *count)
+int sort_test_1(liu7st *list, int *count, int (*comp)(const void*, const void*))
 {
     int key = 0;
-    liu7st_element *elem = list->first;
     liu7st_sort(list, int_comp);
+    liu7st_element *elem = list->first;
     
-    for (int i = 0; i < list->size; i++)
+    for (int i = 0; i < list->size - 1; i++)
     {
         liu7st_element *nelem = elem->next;
-        if (elem->data > nelem->data)
+        if (comp(elem->data, nelem->data) > 0)
         {
             key = 1;
             break;
@@ -60,16 +60,16 @@ int sort_test_1(liu7st *list, int *count)
  * @param count счетчик удачных тестов
  * @return результат теста
  */
-int sort_test_2(liu7st *list, int *count)
+int sort_test_2(liu7st *list, int *count, int (*comp)(const void*, const void*))
 {
     int key = 0;
-    liu7st_element *elem = list->first;
     liu7st_sort(list, int_comp);
+    liu7st_element *elem = list->first;
     
     for (int i = 0; i < list->size; i++)
     {
         liu7st_element *nelem = elem->next;
-        if (elem->data > nelem->data)
+        if (comp(elem->data, nelem->data) > 0)        
         {
             key = 1;
             break;
@@ -87,16 +87,18 @@ int sort_test_2(liu7st *list, int *count)
  * @param count счетчик удачных тестов
  * @return результат теста
  */
-int sort_test_3(liu7st *list, int *count)
+int sort_test_3(liu7st *list, int *count, int (*comp)(const void*, const void*))
 {
     int key = 0;
-    liu7st_element *elem = list->first;
+    
     liu7st_sort(list, double_comp);
+    liu7st_element *elem = list->first;
     
     for (int i = 0; i < list->size; i++)
     {
         liu7st_element *nelem = elem->next;
-        if (elem->data > nelem->data)
+
+        if (comp(elem->data, nelem->data) > 0)        
         {
             key = 1;
             break;
@@ -114,16 +116,19 @@ int sort_test_3(liu7st *list, int *count)
  * @param count счетчик удачных тестов
  * @return результат теста
  */
-int sort_test_4(liu7st *list, int *count)
+int sort_test_4(liu7st *list, int *count, int (*comp)(const void*, const void*))
 {
     int key = 0;
-    liu7st_element *elem = list->first;
-    liu7st_sort(list, double_comp);
     
-    for (int i = 0; i < list->size; i++)
+    liu7st_sort(list, double_comp);
+    liu7st_element *elem;
+    elem = list->first;
+    
+    for (int i = 0; i < list->size - 1; i++)
     {
         liu7st_element *nelem = elem->next;
-        if (elem->data > nelem->data)
+   
+        if (comp(elem->data, nelem->data) > 0)        
         {
             key = 1;
             break;
@@ -161,15 +166,10 @@ int main()
     liu7st_append(&list_4, b + 1);
     liu7st_append(&list_4, b);
     
-    success += sort_test_1(&list_1, &count);
-    success += sort_test_2(&list_2, &count);
-    success += sort_test_3(&list_3, &count);
-    success += sort_test_4(&list_4, &count);
-    
-    liu7st_free(&list_1, free);
-    liu7st_free(&list_2, free);
-    liu7st_free(&list_3, free);
-    liu7st_free(&list_4, free);
+    success += sort_test_1(&list_1, &count, int_comp);
+    success += sort_test_2(&list_2, &count, int_comp);
+    success += sort_test_3(&list_3, &count, double_comp);
+    success += sort_test_4(&list_4, &count, double_comp);
     
     printf("\nSort func test:\n");
     
@@ -177,6 +177,11 @@ int main()
         printf("Test passed.\nPassed tests: %d/%d\n", success, count);
     else
         printf("Test failed.\nPassed tests: %d/%d\n", success, count);
+    
+    // liu7st_free(&list_1, free);
+    // liu7st_free(&list_2, free);
+    // liu7st_free(&list_3, free);
+    // liu7st_free(&list_4, free);
     
     return 0;
 }
