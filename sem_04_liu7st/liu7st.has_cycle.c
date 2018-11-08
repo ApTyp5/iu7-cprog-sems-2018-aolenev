@@ -23,10 +23,10 @@ int liu7st_has_cycle(liu7st list)
         return 1;
     }
 
-    liu7st_element current_element = *(list.first);
+    liu7st_element *current_element = list.first;
 
     int counter = 0;
-    while (current_element->next != NULL || counter <= list.size + 1)
+    while (current_element->next != NULL && counter <= list.size + 1)
     {
         counter++;
     }
@@ -48,7 +48,7 @@ int liu7st_has_cycle(liu7st list)
 
             it_2 += 2;
             it_2 %= list.size;
- 
+
             if (it_1 == it_2)
                 found = 1;
         }
@@ -58,4 +58,3 @@ int liu7st_has_cycle(liu7st list)
 
     return 0;
 }
-
