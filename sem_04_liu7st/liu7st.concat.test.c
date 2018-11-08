@@ -9,6 +9,7 @@
     res == exp_res ? "SUCCESS" : "FAIL")
 
 
+
 void tst_1_liu7st_concat();
 
 int main()
@@ -31,7 +32,6 @@ void tst_1_liu7st_concat()
 
     int data1 = 5;
     int data2 = 10;
-    int len = 2;
 
     void *data_ptr_1 = &data1;
     void *data_ptr_2 = &data2;
@@ -49,7 +49,7 @@ void tst_1_liu7st_concat()
     liu7st ans = liu7st_concat(lst1, lst2);
     
     int res = SUCCESS;
-    int exp_res = lst1->first->data != data1 || lst1->last->data != data2;
+    int exp_res = !(ans.first->data == data_ptr_1 && ans.last->data == data_ptr_2);
 
     PVERD(%d, res, exp_res);
 }
