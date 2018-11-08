@@ -52,8 +52,8 @@ int main()
     success += get_test_int(&list_1, &count);
     success += get_test_double(&list_1, &count);
     
-    liu7st_free(&list_1);
-    liu7st_free(&list_2);
+    liu7st_free(&list_1, free);
+    liu7st_free(&list_2, free);
     
     printf("\nGet func test:\n");
     
@@ -63,4 +63,3 @@ int main()
         printf("Test failed.\nPassed tests: %d/%d\n", success, count);
     
     return 0;
-}
