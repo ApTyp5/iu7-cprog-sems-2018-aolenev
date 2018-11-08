@@ -101,16 +101,11 @@ int positive_test()
     source.last = &aaa;
     
     liu7st_element b;
-    liu7st_element bb;
     liu7st_element bbb;
     
     b.next = &aa;
     b.prev = NULL;
     b.data = &(aaai);
-    
-    bb.next = &aaa;
-    bb.prev = &a;
-    bb.data = &(aai);
     
     bbb.next = NULL;
     bbb.prev = &aa;
