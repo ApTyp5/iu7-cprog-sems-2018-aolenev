@@ -27,6 +27,8 @@ sem_03:
 sem_04:
   stage: sem_04_liu7st
   script:
+  - apk add --update make
+  - apk add --no-cache gcc musl-dev
   - cd sem_04_liu7st
   - make test.exe
   - cd
