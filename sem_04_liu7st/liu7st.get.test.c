@@ -12,7 +12,7 @@ int get_test_int(liu7st list, int *count)
 {
     void *result;
     
-    result = liu7st_get(list, 1);
+    result = liu7st_get(list, 0);
     
     if (result == NULL)
     {
@@ -37,7 +37,7 @@ int get_test_double(liu7st list, int *count)
 {
     void *result;
     
-    result = liu7st_get(list, 1);
+    result = liu7st_get(list, 2);
     
     if (result == NULL)
     {
@@ -47,7 +47,7 @@ int get_test_double(liu7st list, int *count)
     else
     {    
         *count += 1;
-        return (*(double*)result == 5.3);
+        return (*(double*)result == 3.2);
     }
 }
 
