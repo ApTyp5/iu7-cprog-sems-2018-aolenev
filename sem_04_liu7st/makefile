@@ -14,6 +14,7 @@ OBJ += liu7st.sort.o
 OBJ += liu7st.set.o
 OBJ += liu7st.get.o
 OBJ += liu7st.iterator.o
+OBJ += liu7st.check.o
 
 TEST_OBJ := liu7st.create.test.exe
 TEST_OBJ += liu7st.free.test.exe
@@ -27,6 +28,7 @@ TEST_OBJ += liu7st.sort.test.exe
 TEST_OBJ += liu7st.set.test.exe
 TEST_OBJ += liu7st.get.test.exe
 TEST_OBJ += liu7st.iterator.test.exe
+TEST_OBJ += liu7st.check.test.exe
 
 ifeq ($(mode), debug)
     KEYS += -g3

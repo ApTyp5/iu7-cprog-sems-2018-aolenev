@@ -13,6 +13,17 @@
 #define WRONG_INDEX -3
 #define WRONG_LIST -4
 
+#define LIU7ST_CYCLED            (1 << 0)
+#define LIU7ST_BACK_CYCLED       (1 << 1)
+#define LIU7ST_LAST_UNREACHABLE  (1 << 2)
+#define LIU7ST_FIRST_UNREACHABLE (1 << 3)
+#define LIU7ST_INVALID_LAST      (1 << 4)
+#define LIU7ST_INVALID_FIRST     (1 << 5)
+#define LIU7ST_MISSED_FIRST      (1 << 6)
+#define LIU7ST_MISSED_LAST       (1 << 7)
+#define LIU7ST_NONLINEAR         (1 << 8)
+#define LIU7ST_INVALID_COUNT     (1 << 9)
+
 #define LIU7ST_FOREACH(TYPE, ITER, LIST_PTR) \
     for (TYPE ITER = liu7st_begin(LIST_PTR); ITER != NULL; ITER = liu7st_next(ITER))
 
@@ -70,5 +81,8 @@ void *liu7st_begin(liu7st *list);
 void *liu7st_end(liu7st *list);
 void *liu7st_next(void *iterator);
 void *liu7st_prev(void *iterator);
+
+// Drozdov
+int liu7st_check(liu7st list);
 
 #endif
