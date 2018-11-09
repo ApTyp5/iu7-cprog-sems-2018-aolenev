@@ -21,8 +21,6 @@ sem_03:
   artifacts:
     paths:
     - public
-  only:
-  - master
 
 sem_04:
   stage: sem_04_liu7st
@@ -39,6 +37,4 @@ sem_04:
   artifacts:
     paths:
     - public
-  only:
-  - master
 
