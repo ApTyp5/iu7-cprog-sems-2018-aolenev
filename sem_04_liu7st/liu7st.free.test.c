@@ -2,24 +2,43 @@
 
 #include "liu7st.h"
 
-void test_liu7st_free();
+void negative_test(void);
+
+void positive_test(void);
+
+void free_data(void* data);
 
 int main(void)
 {
-    test_liu7st_free();
+    negative_test();
+    positive_test();
 
     return 0;
 }
 
-void test_liu7st_free()
+void negative_test(void)
 {
-    int value = 0;
     liu7st list = liu7st_create();
 
-    printf("Testing liu7st_free. ");
-
-    liu7st_insert(&list, &value, 1);
     liu7st_free(&list, free);
 
-    printf("Success.\n");
+    printf("Negative test success.\n");
+}
+
+void positive_test(void)
+{
+    int value[] = {1, 2, 3, 4, 5};
+    liu7st list = liu7st_create();
+
+    for (int i = 0; i < 5; i++)
+        liu7st_append(&list, value + i);
+    
+    liu7st_free(&list, free_data);
+
+    printf("Positive test success.\n");
+}
+
+void free_data(void *data)
+{
+    return;
 }
