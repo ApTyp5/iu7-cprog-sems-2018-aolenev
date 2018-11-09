@@ -42,7 +42,7 @@ int liu7st_set(liu7st list, int i, void *data)
   else
   {
         liu7st_element *curr = list.last;
-        i = list.size - i;
+        i = list.size - i - 1;
         
         for (int x = 0; x != i; x++)
         {
