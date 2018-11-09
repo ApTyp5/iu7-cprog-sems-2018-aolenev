@@ -31,7 +31,7 @@ int main(void)
     liu7st_print(list, print_data);
     printf("\n");
 
-    //printf("Has cycle?: %d\n", liu7st_has_cycle(list));
+    printf("Has cycle?: %d\n", liu7st_has_cycle(list));
 
     printf("Sort inc: ");
     liu7st_sort(&list, compare_inc);
@@ -79,6 +79,14 @@ int main(void)
             *(int*)liu7st_get(list_sum, 0), \
             *(int*)liu7st_get(list_sum, 12), \
             *(int*)liu7st_get(list_sum, 16));
+
+    printf("Remove some elements [16, 10, 5, 0]: ");
+    liu7st_remove(&list_sum, 16, free_data);
+    liu7st_remove(&list_sum, 10, free_data);
+    liu7st_remove(&list_sum, 5, free_data);
+    liu7st_remove(&list_sum, 0, free_data);
+    liu7st_print(list_sum, print_data);
+    printf("\n");
 
     printf("Set to 0: ");
     int arr_new[17] = {0};
