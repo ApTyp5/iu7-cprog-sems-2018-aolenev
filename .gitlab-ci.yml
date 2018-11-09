@@ -33,7 +33,12 @@ sem_04:
   - make test.exe
   - ./start_testing.sh
   - cd
+  - apk update && apk add doxygen
+  - doxygen sem_04_liu7st/doxygen/Doxyfile
+  - mv sem_04_liu7st/doxygen/html/ public/
   artifacts:
     paths:
     - public
+  only:
+  - master
 
