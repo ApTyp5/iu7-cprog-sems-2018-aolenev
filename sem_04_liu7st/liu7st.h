@@ -86,6 +86,6 @@ void *liu7st_prev(void *iterator);
 int liu7st_check(liu7st list);
 
 // Stepanov
-void liu7st_print(liu7st list, void (*print_data)(const void*));
+int liu7st_print(liu7st list, void (*print_data)(const void*));
 
 #endif
