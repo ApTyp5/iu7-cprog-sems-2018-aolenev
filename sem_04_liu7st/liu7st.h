@@ -53,7 +53,7 @@ void liu7st_free(liu7st *list, void (*free_data)(void*));
 void liu7st_append(liu7st *list, void *data);
 
 // Moroz & Zlyh
-int liu7st_remove(liu7st *list, int i);
+int liu7st_remove(liu7st *list, int i, void (*free_data)(void *));
 
 // Neklepaeva & Konovalova
 int liu7st_insert(liu7st *list, void *data, int i);
