@@ -31,6 +31,8 @@ int main(void)
     liu7st_print(list, print_data);
     printf("\n");
 
+    //printf("Has cycle?: %d\n", liu7st_has_cycle(list));
+
     printf("Sort inc: ");
     liu7st_sort(&list, compare_inc);
     liu7st_print(list, print_data);
@@ -48,12 +50,12 @@ int main(void)
     liu7st_insert(&list, &c, 9);
     liu7st_print(list, print_data);
     printf("\n");
-/*
+
     printf("Revert list: ");
-    liu7st_revert(&list);
+    list = liu7st_revert(list);
     liu7st_print(list, print_data);
     printf("\n");
-*/
+
     liu7st new_list = liu7st_create();
     int arr1[] = {100, 101, 102, 103};
 
@@ -72,15 +74,20 @@ int main(void)
     liu7st_sort(&list_sum, compare_dec);
     liu7st_print(list_sum, print_data);
     printf("\n");
-    printf("Set to 0: ");
 
+    printf("Get[0]: %d; get[12]: %d; get[16]: %d\n", \
+            *(int*)liu7st_get(list_sum, 0), \
+            *(int*)liu7st_get(list_sum, 12), \
+            *(int*)liu7st_get(list_sum, 16));
+
+    printf("Set to 0: ");
     int arr_new[17] = {0};
     for (int i = 0; i < 17; i++)
         liu7st_set(list_sum, i, arr_new + i);
     liu7st_print(list_sum, print_data);
     printf("\n");
 
-    printf("Has cycle?: %d\n", liu7st_has_cycle(list_sum));
+    //printf("Has cycle?: %d\n", liu7st_has_cycle(list_sum));
     
     liu7st_free(&list, free_data);
     liu7st_free(&new_list, free_data);
