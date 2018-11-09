@@ -1,16 +1,27 @@
 image: alpine
 
 stages:
+  - tools_install
   - sem_03_build
   - sem_03_documentation
   - sem_04_build
   - sem_04_documentation
 
-sem_03_build:
-  stage: sem_03_build
+tools_install:
+  stage: tools_install
   script:
   - apk add --update make
   - apk add --no-cache gcc musl-dev
+  - apk update && apk add doxygen
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+sem_03_build:
+  stage: sem_03_build
+  script:
   - cd sem_03_strIU7ng/
   - make app.exe
   - ./start_app.sh
@@ -26,7 +37,6 @@ sem_03_build:
 sem_03_documentation:
   stage: sem_03_documentation
   script:
-  - apk update && apk add doxygen
   - doxygen sem_03_strIU7ng/doxygen/Doxyfile
   - mv sem_03_strIU7ng/doxygen/html/ public/
   artifacts:
@@ -34,12 +44,10 @@ sem_03_documentation:
     - public
   only:
   - master
-  
+
 sem_04_build:
   stage: sem_04_build
   script:
-  - apk add --update make
-  - apk add --no-cache gcc musl-dev
   - cd sem_04_liu7st
   - make
   - ./app.exe
@@ -55,7 +63,6 @@ sem_04_build:
 sem_04_documentation:
   stage: sem_04_documentation
   script:
-  - apk update && apk add doxygen
   - doxygen sem_04_liu7st/doxygen/Doxyfile
   - mv sem_04_liu7st/doxygen/html/ public/
   artifacts:
@@ -63,4 +70,3 @@ sem_04_documentation:
     - public
   only:
   - master
-
