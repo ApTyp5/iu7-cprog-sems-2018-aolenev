@@ -20,6 +20,8 @@ sem_03_build:
   artifacts:
     paths:
     - public
+  only:
+  - master
 
 sem_03_documentation:
   stage: sem_03_documentation
@@ -30,6 +32,8 @@ sem_03_documentation:
   artifacts:
     paths:
     - public
+  only:
+  - master
   
 sem_04_build:
   stage: sem_04_build
@@ -45,6 +49,8 @@ sem_04_build:
   artifacts:
     paths:
     - public
+  only:
+  - master
 
 sem_04_documentation:
   stage: sem_04_documentation
@@ -55,3 +61,6 @@ sem_04_documentation:
   artifacts:
     paths:
     - public
+  only:
+  - master
+
