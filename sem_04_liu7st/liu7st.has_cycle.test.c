@@ -30,9 +30,10 @@ void test_no_cycle(int *passed)
     list.first->next = malloc(sizeof(liu7st_element));
     list.first->prev = NULL;
     list.first->next->next = malloc(sizeof(liu7st_element));
-    list.first->next->prev = list.first->next;
+    list.first->next->prev = list.first;
     list.first->next->next->next = NULL;
-    list.first->next->next->prev = list.first->next->next->prev;
+    list.first->next->next->prev = list.first->next;
+    list.last = list.first->next->next;
     
     if (liu7st_has_cycle(list) == expected)
     {

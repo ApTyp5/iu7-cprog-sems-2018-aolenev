@@ -11,7 +11,7 @@
 
 void liu7st_free(liu7st *list, void (*free_data)(void*))
 {
-    if (list == NULL || list->first == NULL || list->last == NULL || list->size == 0)
+    if (list->first == NULL || list->last == NULL || list->size == 0)
         return;
 
     liu7st_element *walk;
@@ -27,5 +27,7 @@ void liu7st_free(liu7st *list, void (*free_data)(void*))
     }
     while (walk != NULL);
 
-    free(list);
+    list->size = 0;
+    list->first = NULL;
+    list->last = NULL;
 }
