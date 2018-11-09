@@ -2,7 +2,6 @@
 
 void free_data(void *p)
 {
-	free(p);
 }
 
 void liu7st_remove_test(int *success)

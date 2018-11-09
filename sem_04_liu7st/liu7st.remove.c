@@ -35,8 +35,8 @@ int liu7st_remove(liu7st *list, int i, void (*free_data)(void *))
     else
         (*list).last = p->prev;
     
-    //free_data(p->data);
-    //free(p);
+    free_data(p->data);
+    free(p);
     (*list).size--;
     
     return SUCCESS;
