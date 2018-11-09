@@ -7,11 +7,11 @@
 #define FREE_LIST 0
 
 #define SUCCESS 0
-#define FAILED -1
+#define FAILED  -1
 
-#define SET_ERROR -2
+#define SET_ERROR   -2
 #define WRONG_INDEX -3
-#define WRONG_LIST -4
+#define WRONG_LIST  -4
 
 #define LIU7ST_CYCLED            (1 << 0)
 #define LIU7ST_BACK_CYCLED       (1 << 1)
@@ -84,5 +84,8 @@ void *liu7st_prev(void *iterator);
 
 // Drozdov
 int liu7st_check(liu7st list);
+
+// Stepanov
+void liu7st_print(liu7st list, void (*print_data)(const void*));
 
 #endif
