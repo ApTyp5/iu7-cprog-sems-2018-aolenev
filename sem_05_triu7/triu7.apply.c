@@ -9,7 +9,7 @@ int triu7_apply(triu7 tree_head, void func(void*))
 
     for (int i = 0; i < num_of_leaves; i++)
     {
-        triu7_apply(*(leavs[i]), func);
+        triu7_apply(tree_head.leavs[i], func);
     }
 
     return SUCCESS;
