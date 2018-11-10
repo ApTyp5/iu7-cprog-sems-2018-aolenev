@@ -1,4 +1,3 @@
-
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
@@ -32,6 +31,7 @@ int size(triu7 tree);
 // Горбунов
 int depth(triu7 tree);
 
+#endif
 
 
 
