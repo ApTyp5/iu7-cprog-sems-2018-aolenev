@@ -20,6 +20,11 @@ int compare_dec(const void *data1, const void* data2)
     return *(int*)data2 - *(int*)data1;
 }
 
+void action(void *data)
+{
+    *(int*)data -= 23;
+}
+
 int main(void)
 {
     liu7st list = liu7st_create();
@@ -96,6 +101,11 @@ int main(void)
     printf("\n");
 
     printf("Has cycle?: %d\n", liu7st_has_cycle(list_sum));
+
+    printf("Apply -23 from 5th element: ");
+    liu7st_apply(list_sum, 5, action);
+    liu7st_print(list_sum, print_data);
+    printf("\n");
 
     liu7st_free(&list, free_data);
     liu7st_free(&new_list, free_data);
