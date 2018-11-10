@@ -16,6 +16,9 @@ int triu7_create(void);
 // Пудов, Грунковский
 int has_cycle(triu7 tree);
 
+// Дроздов, Степанов
+int apply(triu7 tree_head, void func(void *data))
+
 
 
 
