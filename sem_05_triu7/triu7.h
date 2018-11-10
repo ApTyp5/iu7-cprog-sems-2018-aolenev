@@ -1,6 +1,8 @@
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
+#define     SUCCESS         0
+#define     FAIL            -1
 
 
 typedef struct triu7 triu7;
@@ -23,6 +25,7 @@ void triu7_free(triu7 *tree);
 triu7 triu7_create(void *data);
 
 // Пудов, Грунковский
+
 int triu7_has_cycle(triu7 tree);
 
 // Дроздов, Степанов
