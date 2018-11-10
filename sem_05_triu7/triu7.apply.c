@@ -2,7 +2,10 @@
 
 int triu7_apply(triu7 tree_head, void func(void*))
 {
-    func(tree_head);
+    if (func == NULL)
+        return WRONG_FUNCTION;
+
+    func(tree_head.data);
 
     for (int i = 0; i < num_of_leaves; i++)
     {
