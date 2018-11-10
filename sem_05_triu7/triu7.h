@@ -26,7 +26,7 @@ int triu7_has_cycle(triu7 tree);
 int apply(triu7 tree_head, void func(void *data))
 
 // Мороз, Москаленко
-int triu7_size(triu7 tree);
+int triu7_size(triu7 *tree);
 
 // Горбунов
 int depth(triu7 tree);
