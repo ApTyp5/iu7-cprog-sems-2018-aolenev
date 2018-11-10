@@ -7,6 +7,8 @@ git pull
 git merge origin/master
 ```
 
+Канал разработки https://t.me/joinchat/AAAAAEoo1Z1CQw0pCthbYA
+
 ## Семинар 1. Массивы.
 ## Семинар 2. Матрицы.
 ## Семинар 3. Строки и структуры.
