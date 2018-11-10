@@ -6,6 +6,7 @@ stages:
   - sem_04_build
   - sem_04_documentation
   - cloc
+  - cppcheck
 
 sem_03_build:
   stage: sem_03_build
@@ -73,4 +74,10 @@ cloc:
   - cat report.txt
   only:
   - master
+
+cppcheck:
+  stage: cppcheck
+  script:
+  - apk add --update cppcheck
+  - cppcheck */*.c
   
