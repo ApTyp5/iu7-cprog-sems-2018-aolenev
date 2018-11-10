@@ -15,6 +15,7 @@ int test_free(triu7 *tree)
 
 int main(void)
 {
+    printf("Total tests : %d\n", 2);
     triu7 *tree = malloc(sizeof(triu7));
 
     tree->data = malloc(sizeof(int));
@@ -26,7 +27,11 @@ int main(void)
         (tree->leavs)[i] = malloc(sizeof(triu7));
     }
 
-    printf("%d", test_free(tree));
+    printf("%d\n", test_free(tree));
+
+    int *data = malloc(sizeof(int));
+    tree = triu7_create(data);
+    printf("%d\n", test_free(tree));
 
     return 0;
 }
