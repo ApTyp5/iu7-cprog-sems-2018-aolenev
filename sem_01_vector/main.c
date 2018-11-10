@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "vector.h"
+#include "darriu7.h"
 
 /**
 create()
@@ -17,15 +17,20 @@ sort()
 
 int main(void)
 {
-    DARR arr = create();
-    print(arr);
-    for(int i = 0; i < 20; i++)
+    DARR darr = darriu7_create(0);
+    darriu7_print(darr);
+
+    for(int i = 0; i < 25; i++)
     {
-        append(arr, 777);
+        darr = darriu7_append(darr, i);
     }
-    print(arr);
-    printf("%d\n", arr[0]); //10
-    printf("%d\n", arr[1]); //???
-    printf("%d\n", arr[2]); //777?
+
+    darriu7_print(darr);
+    printf("darr len = %d\n", darriu7_len(darr));
+    printf("darr[-2] = %d\n", darr[-2]); 
+    printf("darr[3] = %d\n", darr[3]);
+
+    darriu7_release(darr);
+
     return 0;
 }
