@@ -13,6 +13,9 @@ void triu7_free(triu7 tree);
 // Коновалова, Неклепаева
 int triu7_create(void);
 
+// Пудов, Грунковский
+int has_cycle(triu7 tree);
+
 
 
 
