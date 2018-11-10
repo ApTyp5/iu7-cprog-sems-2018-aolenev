@@ -22,6 +22,8 @@ int apply(triu7 tree_head, void func(void *data))
 // Мороз, Москаленко
 int size(triu7 tree);
 
+// Горбунов
+int depth(triu7 tree);
 
 
 
