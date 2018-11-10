@@ -6,7 +6,7 @@
 #define GREEN "\x1B[32m"
 #define RESET "\x1B[0m"
 
-#define STRESS_SIZE 100000
+#define STRESS_SIZE 10000000
 
 void free_data(void *data)
 {
@@ -92,10 +92,8 @@ int main(void)
     liu7st_print(list_sum, print_data);
     printf("\n");
 
-    printf("Get[0]: %d; get[12]: %d; get[16]: %d\n", \
-            *(int*)liu7st_get(list_sum, 0), \
-            *(int*)liu7st_get(list_sum, 12), \
-            *(int*)liu7st_get(list_sum, 16));
+    printf("Get[0]: %d;", \
+            *(int*)liu7st_get(list_sum, 0));
 
     printf("Remove some elements [16, 10, 5, 0]: ");
     liu7st_remove(&list_sum, 16, free_data);
@@ -135,7 +133,7 @@ int main(void)
 
     printf("%d elements test: \n", STRESS_SIZE);
 
-    int stress_array[STRESS_SIZE];
+    int *stress_array = malloc(STRESS_SIZE * sizeof(int));
 
     for (int i = 0; i < STRESS_SIZE; i++)
         stress_array[i] = rand() % 1000;
@@ -154,6 +152,9 @@ int main(void)
     clock_t stress_end = clock();
 
     printf(GREEN "\nliu7st time: %f sec\n", (float)(stress_end - stress_start) / CLOCKS_PER_SEC);
+    printf(RESET "\n");
+
+    free(stress_array);
 
     return SUCCESS;
 }
