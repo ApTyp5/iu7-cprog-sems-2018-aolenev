@@ -6,6 +6,9 @@ void test_no_cycle(int *passed)
 {
     int expected = FALSE;
     triu7 tree;
+    int *fake_data;
+    
+    tree = triu7_create(fake_data);
     
     if(triu7_has_cycle(tree) != expected)
     {
@@ -13,7 +16,7 @@ void test_no_cycle(int *passed)
     }
     else
     {
-        printf("No cycle test:        passed.\n")
+        printf("No cycle test:        passed.\n");
         *passed = *passed + 1;
     }
 }
