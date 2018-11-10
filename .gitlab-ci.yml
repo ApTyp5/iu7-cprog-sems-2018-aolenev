@@ -79,5 +79,5 @@ cppcheck:
   stage: cppcheck
   script:
   - apk add --update cppcheck
-  - cppcheck --language=c --enable=warning --std=c99 --enable=missingInclude --inconclusive --error-exitcode=1 */*.c
+  - cppcheck --language=c --enable=warning,missingInclude,style --std=c99 --inconclusive --error-exitcode=1s */*.c
   
