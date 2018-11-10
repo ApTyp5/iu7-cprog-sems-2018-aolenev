@@ -21,8 +21,8 @@ void triu7_free(triu7 *tree)
     {
         free((tree->leavs)[i]);
     }
-    free(tree->data);
-    free(tree->leavs);
     tree->num_of_leaves = 0;
+    free(tree->leavs);
+    free(tree->data);
     free(tree);
 }
