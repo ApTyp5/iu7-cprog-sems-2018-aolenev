@@ -3,7 +3,7 @@
 void incor_i_less_null()
 {
     char name[] = "incor_i_less_null";
-    liu7st list;
+    liu7st list = liu7st_create();
     
     list.size = 5;
     int pos = -10;
@@ -21,7 +21,7 @@ void incor_i_less_null()
 void incor_i_more_size()
 {
     char name[] = "incor_i_more_size";
-    liu7st list;
+    liu7st list = liu7st_create();
     
     list.size = 5;
     int pos = 10;
