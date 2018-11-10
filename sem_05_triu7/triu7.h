@@ -1,6 +1,8 @@
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
+#define     SUCCESS         0
+#define     FAIL            -1
 
 
 typedef struct triu7 triu7;
@@ -14,16 +16,20 @@ struct triu7
 };
 
 // Ильясов, Игнатьев
-void triu7_free(triu7 tree);
+// Вход: указатель на дерево
+void triu7_free(triu7 *tree);
 
 // Коновалова, Неклепаева
-triu7 triu7_create(void *data);
+// Вход - указатель на даыыне первого листа
+// Выход - первый лист дерева
+triu7* triu7_create(void *data);
 
 // Пудов, Грунковский
+
 int triu7_has_cycle(triu7 tree);
 
 // Дроздов, Степанов
-int apply(triu7 tree_head, void func(void *data))
+int apply(triu7 *tree_head, void func(void *data))
 
 // Мороз, Москаленко
 int size(triu7 tree);
