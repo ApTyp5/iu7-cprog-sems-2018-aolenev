@@ -5,6 +5,7 @@ stages:
   - sem_03_documentation
   - sem_04_build
   - sem_04_documentation
+  - cloc
 
 sem_03_build:
   stage: sem_03_build
@@ -63,3 +64,13 @@ sem_04_documentation:
     - public
   only:
   - master
+
+cloc:
+  stage: cloc
+  script:
+  - apk add --update cloc
+  - cloc --report-file=report.txt *
+  - cat report.txt
+  only:
+  - master
+  
