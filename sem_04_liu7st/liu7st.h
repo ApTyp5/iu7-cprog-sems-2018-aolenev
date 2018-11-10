@@ -88,4 +88,7 @@ int liu7st_check(liu7st list);
 // Stepanov
 int liu7st_print(liu7st list, void (*print_data)(const void*));
 
+// Stepanov
+int liu7st_apply(liu7st list, int index, void (*action)(void*));
+
 #endif
