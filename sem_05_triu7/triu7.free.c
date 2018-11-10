@@ -16,9 +16,3 @@ void triu7_free(triu7 *tree)
     
     tree->num_of_leaves = 0;
 }
-
-int main(void)
-{
-    printf("Kek\n");
-    return SUCCESS;
-}
