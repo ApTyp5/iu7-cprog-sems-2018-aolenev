@@ -2,6 +2,7 @@
  @file
  */
 #include "triu7.h"
+#define NULL (void*)0
 
 /**
  @fn void count_depth(int *max, int n, triu7 tree)
@@ -10,10 +11,10 @@
  @param n [in] - текущая глубина
  @param tree [in] - текущее положение в дереве
  */
-void count_depth(int *max, int n, triu7 tree)
+void count_depth(int *max, int n, triu7 *tree)
 {
     for (int i = 0; i < tree->num_of_leaves; i++)
-        count_depth(max, n + 1, *(*((tree->leaves) + i)));
+        count_depth(max, n + 1, *((tree->leaves) + i));
     
     if (n > *max)
         *max = n;
@@ -26,8 +27,11 @@ void count_depth(int *max, int n, triu7 tree)
  
  @return Возвращает глубину дерева
  */
-int triu7_depth(triu7 tree)
+int triu7_depth(triu7 *tree)
 {
+    if (tree == NULL)
+        return FAIL;
+    
     int size = 0;
     int n = 0;
     
