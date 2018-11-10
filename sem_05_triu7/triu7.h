@@ -3,6 +3,8 @@
 
 #define     SUCCESS         0
 #define     FAIL            -1
+#define     WRONG_TREE      -2
+#define     WRONG_INDEX     -3
 
 
 typedef struct triu7 triu7;
