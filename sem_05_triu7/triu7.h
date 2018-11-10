@@ -14,7 +14,7 @@ struct triu7
 };
 
 // Ильясов, Игнатьев
-void triu7_free(triu7 tree);
+void triu7_free(triu7 *tree);
 
 // Коновалова, Неклепаева
 triu7 triu7_create(void *data);
