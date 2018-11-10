@@ -1,11 +1,15 @@
 image: alpine
 
 stages:
-  - build_and_launch
-  - documentation
+  - sem_03_build
+  - sem_03_documentation
+  - sem_04_build
+  - sem_04_documentation
+  - cloc
+  - cppcheck
 
-build_and_launch:
-  stage: build_and_launch
+sem_03_build:
+  stage: sem_03_build
   script:
   - apk add --update make
   - apk add --no-cache gcc musl-dev
@@ -18,9 +22,11 @@ build_and_launch:
   artifacts:
     paths:
     - public
+  only:
+  - master
 
-documentation:
-  stage: documentation
+sem_03_documentation:
+  stage: sem_03_documentation
   script:
   - apk update && apk add doxygen
   - doxygen sem_03_strIU7ng/doxygen/Doxyfile
@@ -30,3 +36,48 @@ documentation:
     - public
   only:
   - master
+  
+sem_04_build:
+  stage: sem_04_build
+  script:
+  - apk add --update make
+  - apk add --no-cache gcc musl-dev
+  - cd sem_04_liu7st
+  - make
+  - ./app.exe
+  - make test.exe
+  - ./start_testing.sh
+  - cd
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+sem_04_documentation:
+  stage: sem_04_documentation
+  script:
+  - apk update && apk add doxygen
+  - doxygen sem_04_liu7st/doxygen/Doxyfile
+  - mv sem_04_liu7st/doxygen/html/ public/
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+cloc:
+  stage: cloc
+  script:
+  - apk add --update cloc
+  - cloc --report-file=report.txt *
+  - cat report.txt
+  only:
+  - master
+
+cppcheck:
+  stage: cppcheck
+  script:
+  - apk add --update cppcheck
+  - cppcheck */*.c
+  

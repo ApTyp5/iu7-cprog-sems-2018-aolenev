@@ -7,11 +7,11 @@
 #define FREE_LIST 0
 
 #define SUCCESS 0
-#define FAILED -1
+#define FAILED  -1
 
-#define SET_ERROR -2
+#define SET_ERROR   -2
 #define WRONG_INDEX -3
-#define WRONG_LIST -4
+#define WRONG_LIST  -4
 
 #define LIU7ST_CYCLED            (1 << 0)
 #define LIU7ST_BACK_CYCLED       (1 << 1)
@@ -53,7 +53,7 @@ void liu7st_free(liu7st *list, void (*free_data)(void*));
 void liu7st_append(liu7st *list, void *data);
 
 // Moroz & Zlyh
-int liu7st_remove(liu7st *list, int i);
+int liu7st_remove(liu7st *list, int i, void (*free_data)(void *));
 
 // Neklepaeva & Konovalova
 int liu7st_insert(liu7st *list, void *data, int i);
@@ -84,5 +84,8 @@ void *liu7st_prev(void *iterator);
 
 // Drozdov
 int liu7st_check(liu7st list);
+
+// Stepanov
+int liu7st_print(liu7st list, void (*print_data)(const void*));
 
 #endif
