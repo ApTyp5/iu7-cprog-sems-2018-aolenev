@@ -1,4 +1,3 @@
-
 typedef struct triu7 triu7;
 
 struct triu7
@@ -9,8 +8,10 @@ struct triu7
 }
 
 // Ильясов, Игнатьев
-void free(triu7 tree);
+void triu7_free(triu7 tree);
 
+// Коновалова, Неклепаева
+int triu7_create(void);
 
 
 
