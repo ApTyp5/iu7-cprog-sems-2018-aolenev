@@ -21,19 +21,33 @@ int liu7st_insert(liu7st *list, void *data, int i)
     if (((list->first == NULL) || (list->last == NULL)) && (list->size != 0))
         return FAILED;
    
-    int count = 0;
+    //int count = 0;
     liu7st_element *sup = list->first;
     liu7st_element *node = malloc(sizeof(liu7st_element));
     node->data = data;
     node->prev = NULL;
     node->next = NULL;
-   
+   /*
     while (count < i - 1)
     {
         count++;
         sup = sup->next;    
     }
-    
+    */
+
+    if (i < list->size / 2)
+    {
+        for (int j = 0; j < i + 1; j++)
+            sup = sup->next;
+    }
+    else
+    {
+        sup = list->last;
+
+        for (int j = list->size; j > i; j--)
+            sup = sup->prev;
+    }
+
     if (i != 0)
     {
         node->prev = sup;

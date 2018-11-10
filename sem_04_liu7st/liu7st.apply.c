@@ -18,8 +18,26 @@ int liu7st_apply(liu7st list, int index, void (*action)(void*))
     if (index >= list.size || index < 0)
         return WRONG_INDEX;
 
-    for (int i = index; i < list.size; i++)
-        action(liu7st_get(list, i));
+    if (index < list.size / 2)
+    {
+        liu7st_element *temp = list.first;
+
+        for (int i = 0; i < index; i++)
+            temp = temp->next;
+
+        for (; temp != NULL; temp = temp->next)
+            action(temp->data);
+    }
+    else
+    {
+        liu7st_element *temp = list.last;
+
+        for (int i = list.size; i > index; i--)
+        {
+            action(temp->data);
+            temp = temp->prev;
+        }
+    }
 
     return SUCCESS;
 }

@@ -1,4 +1,12 @@
+#include <time.h>
+#include <stdlib.h>
+
 #include "liu7st.h"
+
+#define GREEN "\x1B[32m"
+#define RESET "\x1B[0m"
+
+#define STRESS_SIZE 10000000
 
 void free_data(void *data)
 {
@@ -27,6 +35,10 @@ void action(void *data)
 
 int main(void)
 {
+    srand(time(NULL));
+
+    clock_t start = clock();
+
     liu7st list = liu7st_create();
 
     int arr[] = {5, 9, 8, 2, 0, 6, 1, 7, 4, 3};
@@ -80,10 +92,8 @@ int main(void)
     liu7st_print(list_sum, print_data);
     printf("\n");
 
-    printf("Get[0]: %d; get[12]: %d; get[16]: %d\n", \
-            *(int*)liu7st_get(list_sum, 0), \
-            *(int*)liu7st_get(list_sum, 12), \
-            *(int*)liu7st_get(list_sum, 16));
+    printf("Get[0]: %d;", \
+            *(int*)liu7st_get(list_sum, 0));
 
     printf("Remove some elements [16, 10, 5, 0]: ");
     liu7st_remove(&list_sum, 16, free_data);
@@ -107,9 +117,44 @@ int main(void)
     liu7st_print(list_sum, print_data);
     printf("\n");
 
+    printf("Apply -23 from 9th element: ");
+    liu7st_apply(list_sum, 9, action);
+    liu7st_print(list_sum, print_data);
+    printf("\n");
+
     liu7st_free(&list, free_data);
     liu7st_free(&new_list, free_data);
     liu7st_free(&list_sum, free_data);
+
+    clock_t end = clock();
+
+    printf(GREEN "\nliu7st time: %f sec\n", (float)(end - start) / CLOCKS_PER_SEC);
+    printf(RESET "\n");
+
+    printf("%d elements test: \n", STRESS_SIZE);
+
+    int *stress_array = malloc(STRESS_SIZE * sizeof(int));
+
+    for (int i = 0; i < STRESS_SIZE; i++)
+        stress_array[i] = rand() % 1000;
+
+    clock_t stress_start = clock();
+    
+    liu7st stress_list = liu7st_create();
+
+    for (int i = 0; i < STRESS_SIZE; i++)
+        liu7st_append(&stress_list, stress_array + i);
+
+    liu7st_apply(stress_list, 0, action);
+
+    liu7st_free(&stress_list, free_data);
+
+    clock_t stress_end = clock();
+
+    printf(GREEN "\nliu7st time: %f sec\n", (float)(stress_end - stress_start) / CLOCKS_PER_SEC);
+    printf(RESET "\n");
+
+    free(stress_array);
 
     return SUCCESS;
 }
