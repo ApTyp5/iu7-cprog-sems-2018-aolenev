@@ -31,7 +31,7 @@ triu7* triu7_create(void *data);
 int triu7_has_cycle(triu7 tree);
 
 // Дроздов, Степанов
-int apply(triu7 *tree_head, void func(void *data))
+int apply(triu7 *tree_head, void func(void *data));
 
 // Мороз, Москаленко
 int size(triu7 tree);
