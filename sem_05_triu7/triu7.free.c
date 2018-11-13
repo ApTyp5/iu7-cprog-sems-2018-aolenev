@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ * @fn triu7_free(triu7 *tree)
+ * @brief Очищает память из-под дерева.
+ * @param tree указатель на корень (тип triu7).
+ */
 void triu7_free(triu7 *tree)
 {
     if (tree == NULL || tree->data == NULL || tree->num_of_leaves == 0 || \
