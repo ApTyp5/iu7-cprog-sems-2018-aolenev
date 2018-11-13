@@ -41,7 +41,7 @@ void correct_test()
     
     liu7st list = liu7st_create();
     int data[] = {1, 2, 3};
-    int err, is_continue = 1;
+    int is_continue = 1;
     
     liu7st_append(&list, data);
     liu7st_append(&list, data + 1);
@@ -51,9 +51,7 @@ void correct_test()
 
     for (int i = 0; i < list.size; i++)
     {
-        err = liu7st_set(list, i, &new_data);
-
-        if (err != SUCCESS)
+        if (liu7st_set(list, i, &new_data) != SUCCESS)
         {
             is_continue = 0;
             break;
