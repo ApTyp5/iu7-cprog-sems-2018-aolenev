@@ -4,7 +4,8 @@
 
 void triu7_free(triu7 *tree)
 {
-    if (tree->data == NULL || tree->num_of_leaves == 0 || tree->leavs == NULL)
+    if (tree == NULL || tree->data == NULL || tree->num_of_leaves == 0 || \
+        tree->leavs == NULL)
     {
         return;
     }
@@ -24,5 +25,5 @@ void triu7_free(triu7 *tree)
     tree->num_of_leaves = 0;
     free(tree->leavs);
     free(tree->data);
-    free(tree);
+    free(tree);    
 }
