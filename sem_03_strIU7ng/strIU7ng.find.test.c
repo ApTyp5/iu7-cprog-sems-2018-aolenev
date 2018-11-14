@@ -29,7 +29,7 @@ int str_find_test1()
         printf("Error testing strIU7ng_find_substr!\n");
         printf("String 1 is %.*s\n", test_string_a1.len, test_string_a1.head);
         printf("Substr 1 is %.*s\n", test_string_b1.len, test_string_b1.head);
-        printf("Pointer 1 offset is %ld\n", result - test_string_a1.head);
+        printf("Actual pointer: %p Expected pointer: %p\n", (void*)result, (void*)test_string_a1.head);
         printf("%s\n", result);
         printf("Result and expected pointer do not match\n");
 	error = 1;
