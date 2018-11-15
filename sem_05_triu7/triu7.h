@@ -36,7 +36,7 @@ struct triu7_node
 {
     void *data;
     darriu7 *con_wei; // == connection weight
-    liu7st leavs; 
+    liu7st *leavs; 
 };
 
 
