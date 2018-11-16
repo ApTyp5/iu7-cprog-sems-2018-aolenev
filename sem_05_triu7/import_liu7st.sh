@@ -9,10 +9,12 @@ make build
 
 cd -
 
-for obj in *.o
+for obj in $LIU7STDIR/*.o
 do
-    cp $LIU7STDIR/$obj ./
+    cp $obj ./
 done
+
+cp $LIU7STDIR/liu7st.h ./
 
 cd $LIU7STDIR
 
