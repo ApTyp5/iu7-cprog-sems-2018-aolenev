@@ -1,4 +1,3 @@
-// Внимание! Хедер еще не закончен. К выполнению не приступать
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
@@ -30,7 +29,7 @@
 // аналогично).
 
 typedef struct triu7_node triu7_node;
-typedef triu7_node *triu7;
+typedef triu7_node *triu7_ptr;
 
 struct triu7_node
 {
