@@ -14,10 +14,13 @@
  */
 int liu7st_remove(liu7st *list, int i, void (*free_data)(void *))
 {
+    if (list == NULL)
+        return WRONG_LIST;
+
     liu7st_element *p = list->first; //< Указатель на удаляемый элемент
     
-    if (list == NULL)
-        return WRONG_LIST;	
+//    if (list == NULL)
+//        return WRONG_LIST;
 	
     if (i >= list->size || i < 0)
         return WRONG_INDEX;

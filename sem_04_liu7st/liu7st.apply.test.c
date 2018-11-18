@@ -25,10 +25,12 @@ void positive_test(void)
     int right = 0;
 
     for (int i = 0; i < 10; i++)
-        if (a[i] == 0 && i < 7)
+    {
+        if (i < 7 && a[i] == 0)
             right++;
-        else if (a[i] == 1 && i >= 7)
+        else if (i >= 7 && a[i] == 1)
             right++;
+    }
 
     if (right == 10)
         success_tests++;
