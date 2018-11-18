@@ -8,12 +8,12 @@ void insert_test1(int *success_tests)
     int size = 5;
     for (int i = 0; i < size; i++)
         liu7st_insert(&list, data + i, i);
-    int *pointer;
+//    int *pointer;
     
     for (int i = 0; i < size; i++)
     {
-        pointer = (int*)liu7st_get(list, i);
-        if (*pointer == i)
+//        pointer = (int*)liu7st_get(list, i);
+        if (*(int*)liu7st_get(list, i) == i)
             success++;
     }
     
@@ -51,12 +51,12 @@ void insert_test4(int *success_tests)
     int size = 5;
     for (int i = 0; i < size; i++)
         liu7st_insert(&list, &data[i], i);
-    float *pointer;
+//    float *pointer;
     
     for (int i = 0; i < size; i++)
     {
-        pointer = (float*)liu7st_get(list, i);
-        if (*pointer == data[i])
+//        pointer = (float*)liu7st_get(list, i);
+        if (*(float*)liu7st_get(list, i) == data[i])
             success++;
     }
     
