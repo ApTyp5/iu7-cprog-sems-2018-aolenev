@@ -1,6 +1,10 @@
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
+// Временно!
+#include "../sem_01_vector/darriu7.h"
+#include "../sem_04_liu7st/liu7st.h"
+
 #define     IU7_TRUE            1
 #define     IU7_FALSE           0
 #define     IU7_SUCCESS         0

@@ -23,6 +23,9 @@ import_liu7:
     
 %.o: %.c
     $(CC) -c $<
+
+clean:
+	rm *.o *.exe *.gch
     
 
 
