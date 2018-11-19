@@ -24,7 +24,6 @@ OBJ += triu7_ptrint.o
 
 app.exe: $(OBJ) 
 	$(CC) -o $@ $^
-    
 
 %.o: %.c *.h
 	$(CC) -c $< $(FLAGS)
