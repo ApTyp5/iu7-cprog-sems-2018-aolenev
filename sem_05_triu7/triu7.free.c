@@ -3,32 +3,27 @@
 #include <stdlib.h>
 
 /**
- * @fn triu7_free(triu7 *tree)
+ * @fn triu7_free(triu7_ptr root)
  * @brief Очищает память из-под дерева.
- * @param tree указатель на корень (тип triu7).
+ * @param [in] узел дерева.
  */
-void triu7_free(triu7 *tree)
+void triu7_free(triu7_ptr root)
 {
-    if (tree == NULL || tree->data == NULL || tree->num_of_leaves == 0 || \
-        tree->leavs == NULL)
+    if (root == NULL || root->data == NULL || root->con_wei == NULL || \
+        root->leavs == NULL)
     {
         return;
     }
-    
-    for (int i = 0; i < tree->num_of_leaves; i++)
+
+    liu7st_element *now = root->leavs->first;
+
+    while (now != NULL && now->data != NULL)
     {
-        if ((tree->leavs)[i] == NULL)
-        {
-            return;
-        }
+        free(root->data);
+        free(root->con_wei);
+        free(root->leavs);
+        now = now->next;
     }
-    
-    for (int i = 0; i < tree->num_of_leaves; i++)
-    {
-        free((tree->leavs)[i]);
-    }
-    tree->num_of_leaves = 0;
-    free(tree->leavs);
-    free(tree->data);
-    free(tree);    
+
+    free(root);
 }
