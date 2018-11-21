@@ -17,12 +17,12 @@ int triu7_dat_apply(triu7_ptr node, void (*func)(void*))
     if (func == NULL)
         return WRONG_FUNCTION;
 
-    func(tree_head->data);
-
     for (int i = 0; i < darrliu7_len(node->con_wei); i++)
     {
-        triu7_apply(tree_head->leavs[i], func);
+        triu7_apply(node->leavs[i], func);
     }
+
+    func(node->data);
 
     return SUCCESS;
 }
