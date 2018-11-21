@@ -48,10 +48,13 @@ endif
 app.exe: $(OBJ) main.o
 	$(CC) -o app.exe $^
 
+libliu7st.a: $(OBJ)
+	ar rc $@ $^
+
 test.exe: $(TEST_OBJ)
 
 %.test.exe: $(OBJ) %.test.o
 	$(CC) -o $@ $^
 
 clean:
-	$(RM) *.o *.exe *.gch
+	$(RM) *.o *.exe *.gch *.a
