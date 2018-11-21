@@ -1,7 +1,7 @@
 #include "liu7st.h"
 
 #define TEST(CONDITION) \
-    printf("Test %d (" #CONDITION "): %s\n", ++tests_total, CONDITION ? ++tests_passed, "passed" : "failed")
+printf("Test %d (" #CONDITION "): %s\n", ++tests_total, CONDITION ? ++tests_passed, "passed" : "failed")
 
 int tests_total = 0, tests_passed = 0;
 
@@ -33,7 +33,7 @@ void test_cycled()
 
     list.last->next = list.first->next;
 
-    TEST(liu7st_check(list) & LIU7ST_CYCLED);
+    TEST((liu7st_check(list) & LIU7ST_CYCLED));
 }
 
 void test_back_cycled()
@@ -47,7 +47,7 @@ void test_back_cycled()
 
     list.first->prev = list.first->next;
 
-    TEST(liu7st_check(list) & LIU7ST_BACK_CYCLED);
+    TEST((liu7st_check(list) & LIU7ST_BACK_CYCLED));
 }
 
 void test_nonlinear()
@@ -63,7 +63,7 @@ void test_nonlinear()
 
     list.last->prev = elem;
 
-    TEST(liu7st_check(list) & LIU7ST_NONLINEAR);
+    TEST((liu7st_check(list) & LIU7ST_NONLINEAR));
 }
 
 int main()
