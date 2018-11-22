@@ -61,7 +61,7 @@ int init_pointers_set(pointers_set_t **set)
 */
 int is_full(pointers_set_t *set)
 {
-    if (set != NULL)
+    if (set == NULL)
     {
         return IU7_FALSE;
     }
