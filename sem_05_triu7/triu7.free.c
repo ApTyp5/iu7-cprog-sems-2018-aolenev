@@ -1,18 +1,27 @@
 #include "triu7.h"
 #include <stdio.h>
+#include <stdlib.h>
 
-void triu7_free(triu7 *tree)
+void free_data(void *data)
 {
-    if (tree->data == NULL || tree->num_of_leaves == 0 || tree->leavs == NULL)
+    return;
+}
+
+/**
+ * @fn triu7_free(triu7_ptr root)
+ * @brief Очищает память из-под дерева.
+ * @param [in] узел дерева.
+ */
+void triu7_free(triu7_ptr root)
+{
+    if (root == NULL || root->data == NULL || root->con_wei == NULL || \
+        root->leavs == NULL)
     {
         return;
     }
-    
-    for (int i = 0; i < tree->num_of_leaves; i++)
-    {
-        tree->data = NULL;
-        tree->leavs = NULL;
-    }
-    
-    tree->num_of_leaves = 0;
+
+    liu7st_free(root->leavs, free_data);
+    darriu7_release(*root->con_wei);
+    free(root->data);
+    free(root);
 }
