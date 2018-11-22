@@ -2,6 +2,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void free_data(void *data)
+{
+    return;
+}
+
 /**
  * @fn triu7_free(triu7_ptr root)
  * @brief Очищает память из-под дерева.
@@ -15,15 +20,8 @@ void triu7_free(triu7_ptr root)
         return;
     }
 
-    liu7st_element *now = root->leavs->first;
-
-    while (now != NULL && now->data != NULL)
-    {
-        free(root->data);
-        free(root->con_wei);
-        free(root->leavs);
-        now = now->next;
-    }
-
+    liu7st_free(root->leavs, free_data);
+    darriu7_release(*root->con_wei);
+    free(root->data);
     free(root);
 }
