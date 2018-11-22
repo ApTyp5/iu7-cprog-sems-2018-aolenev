@@ -17,11 +17,10 @@ int main(void)
 {
     printf("Total tests : %d\n", 2);
     triu7_ptr tree = malloc(sizeof(triu7_node));
-    int data = 1;
     triu7_ptr node1 = malloc(sizeof(triu7_node));
     triu7_ptr node2 = malloc(sizeof(triu7_node));
     triu7_ptr node3 = malloc(sizeof(triu7_node));
-    
+
     node1->data = malloc(sizeof(int));
     node2->data = malloc(sizeof(int));
     node3->data = malloc(sizeof(int));
