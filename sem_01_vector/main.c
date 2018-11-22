@@ -17,7 +17,7 @@ sort()
 
 int main(void)
 {
-    DARR darr = darriu7_create(0);
+    darriu7 darr = darriu7_create(0);
     darriu7_print(darr);
 
     for(int i = 0; i < 25; i++)

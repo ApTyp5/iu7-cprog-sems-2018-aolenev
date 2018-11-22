@@ -1,28 +1,38 @@
 CC := gcc
-CFLAGS := -Wall -Werror
+FLAGS := -Wall -Werror
 
-CURDIR := ../sem_05_triu7
-LIU7STDIR := ../sem_04_li7st
-DARRIU7 := ../sem_01_vector/darriu7.h
+ifeq ($(mod),deb)
+	FLAGS += -O0 -g3
+endif
+
+ifeq ($(mod),rel)
+	FLEGS += -O3 -g0
+endif
+
+OBJ := triu7_create.o
+OBJ += triu7_free.o
+OBJ += triu7_add.o
+OBJ += triu7_add_subtree.o
+OBJ += triu7_has_cycle.o
+OBJ += triu7_dat_apply.o
+OBJ += triu7_leav_sort.o
+OBJ += triu7_dat_test.o
+OBJ += triu7_size.o
+OBJ += triu7_depth.o
+OBJ += triu7_ptrint.o
 
 
+app.exe: libliu7st.a $(OBJ) 
+	$(CC) -o $@ $(OBJ) -L. -l$<
 
+%.o: %.c *.h
+	$(CC) -c $< $(FLAGS)
 
-all: app.exe
-    ./app.exe
-    
-app.exe: $(OBJ) import_darriu7 import_liu7
-    $(CC) -o $@ $^
-    
+libliu7st.a:
+	./import_libliu7st.sh
 
-import_darriu7:
-	cp $(DARRIU7) ./
-
-import_liu7:
-	import_liu7.sh
-    
-%.o: %.c
-    $(CC) -c $<
+clean:
+	rm *.o *.exe *.gch *.a
     
 
 
