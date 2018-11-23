@@ -1,10 +1,8 @@
 #ifndef __TRIU7_H__
 #define __TRIU7_H__
 
-// Временно!
 #include "../sem_01_vector/darriu7.h"
 #include "../sem_04_liu7st/liu7st.h"
-// Конец 'Временно'
 
 #define     IU7_TRUE            1
 #define     IU7_FALSE           0
@@ -31,7 +29,7 @@ typedef triu7_node *triu7_ptr;
 struct triu7_node
 {
     void *data;
-    darriu7 *con_wei; // == connection weight
+    darriu7 con_wei; // == connection weight
     liu7st *leavs; 
 };
 
