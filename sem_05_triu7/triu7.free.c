@@ -10,7 +10,7 @@ void free_data(void *data)
 /**
  * @fn triu7_free(triu7_ptr root)
  * @brief Очищает память из-под дерева.
- * @param [in] узел дерева.
+ * @param root [in] узел дерева.
  */
 void triu7_free(triu7_ptr *root)
 {
