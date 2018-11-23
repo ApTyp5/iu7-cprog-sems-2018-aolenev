@@ -12,10 +12,10 @@
 int triu7_dat_apply(triu7_ptr node, void (*func)(void*))
 {
     if (node == NULL)
-        return WRONG_TREE;
+        return IU7_WRONG_TREE;
 
     if (func == NULL)
-        return WRONG_FUNCTION;
+        return IU7_WRONG_FUNCTION;
 
     func(node->data);
 
