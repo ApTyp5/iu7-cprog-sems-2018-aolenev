@@ -26,7 +26,7 @@ typedef struct {
 * \return IU7_SUCCESS - если память выделена успешно и проинициализирован
 * указатель. Иначе IU7_FAIL
 */
-int init_pointers_set(pointers_set_t **set)
+static int init_pointers_set(pointers_set_t **set)
 {
     if (set == NULL)
     {
@@ -59,7 +59,7 @@ int init_pointers_set(pointers_set_t **set)
 * максимального размера. Иначе IU7_FAIL. В том числе и при некорректных входных
 * данных
 */
-int is_full(pointers_set_t *set)
+static int is_full(pointers_set_t *set)
 {
     if (set == NULL)
     {
@@ -75,7 +75,7 @@ int is_full(pointers_set_t *set)
 * \detail Происходит очищение выделенной памяти на массив указателей и на саму
 * структуру множества
 */
-void free_set(pointers_set_t *set)
+static void free_set(pointers_set_t *set)
 {
     if (set == NULL)
     {
@@ -92,7 +92,7 @@ void free_set(pointers_set_t *set)
 * \detail Происходит увеличение массива pointers вдвое + 1
 * \return IU7_SUCCESS - если память выделена успешно. Иначе IU7_FAIL
 */
-int resize(pointers_set_t *set)
+static int resize(pointers_set_t *set)
 {
     if (set == NULL)
     {
@@ -117,7 +117,7 @@ int resize(pointers_set_t *set)
 * \param pointer Узел дерева
 * \return IU7_TRUE - если pointer найден. Иначе IU7_FALSE
 */
-int contains(pointers_set_t *set, triu7_ptr pointer)
+static int contains(pointers_set_t *set, triu7_ptr pointer)
 {
     if (set == NULL || pointer == NULL)
     {
@@ -142,7 +142,7 @@ int contains(pointers_set_t *set, triu7_ptr pointer)
 * \return IU7_SUCCESS - если pointer успешно добавлен в set. Если произошла
 * внутренняя ошибка, то IU7_FAIL. В противном случае возвращаем REPEATED_POINTER
 */
-int add_pointer(pointers_set_t *set, triu7_ptr pointer)
+static int add_pointer(pointers_set_t *set, triu7_ptr pointer)
 {
     int rc = IU7_SUCCESS;
     if (set == NULL || pointer == NULL)
