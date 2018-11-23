@@ -1,17 +1,21 @@
 /**
  @file triu7.depth.c
+ @author Dimon G
+ @date 10 Nov 2018
  */
 
 #include "triu7.h"
 
+static int depth = 0;
+
 /**
- @fn void count_depth(int *max, int n, triu7_ptr node)
+ @fn static void count_depth(int n, triu7_ptr node)
  
  @param max [in, out] - указатель на найденную максимальную глубину
  @param n [in] - текущая глубина
  @param node [in] - текущее положение в дереве
  */
-void count_depth(int *max, int n, triu7_ptr node)
+static void count_depth(int n, triu7_ptr node)
 {
     liu7st_element *now = node->leavs->first;
     
@@ -21,8 +25,8 @@ void count_depth(int *max, int n, triu7_ptr node)
         now = now->next;
     }
     
-    if (n > *max)
-        *max = n;
+    if (n > depth)
+        depth = n;
 }
 
 /**
@@ -40,10 +44,9 @@ int triu7_depth(triu7_ptr node)
     if (triu7_has_cycle(node))
         return IU7_FAIL;
     
-    int size = 0;
     int n = 0;
     
-    count_depth(&size, n, node);
+    count_depth(n, node);
     
-    return size;
+    return depth;
 }
