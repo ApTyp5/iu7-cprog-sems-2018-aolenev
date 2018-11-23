@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int test_free(triu7_ptr tree)
+int test_free(triu7_ptr *tree)
 {
     triu7_free(tree);
 
@@ -30,12 +30,9 @@ int main(void)
     *(node1->leavs) = liu7st_create();
     *(node2->leavs) = liu7st_create();
     *(node3->leavs) = liu7st_create();
-    node1->con_wei = malloc(sizeof(darriu7));
-    node2->con_wei = malloc(sizeof(darriu7));
-    node3->con_wei = malloc(sizeof(darriu7));
-    *(node1->con_wei) = darriu7_create(0);
-    *(node2->con_wei) = darriu7_create(0);
-    *(node3->con_wei) = darriu7_create(0);
+    node1->con_wei = darriu7_create(0);
+    node2->con_wei = darriu7_create(0);
+    node3->con_wei = darriu7_create(0);
 
     tree->data = malloc(sizeof(int));
     tree->leavs = malloc(sizeof(liu7st));
@@ -43,13 +40,12 @@ int main(void)
     liu7st_append(tree->leavs, node1);
     liu7st_append(tree->leavs, node2);
     liu7st_append(tree->leavs, node3);
-    tree->con_wei = malloc(sizeof(darriu7));
-    *(tree->con_wei) = darriu7_create(3);
-    (*(tree->con_wei))[0] = 1;
-    (*(tree->con_wei))[1] = 3;
-    (*(tree->con_wei))[2] = 5;
+    tree->con_wei = darriu7_create(3);
+    (tree->con_wei)[0] = 1;
+    (tree->con_wei)[1] = 3;
+    (tree->con_wei)[2] = 5;
 
-    printf("%d\n", test_free(tree));
+    printf("%d\n", test_free(&tree));
 
 //    int *data = malloc(sizeof(int));
 //    tree = triu7_create(data);
