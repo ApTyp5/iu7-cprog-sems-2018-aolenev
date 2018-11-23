@@ -182,7 +182,3 @@ int triu7_print(triu7_ptr node, void (* pdata)(void *));
 
 #endif // __TRIU7_H__
 
-
-
-
-    
