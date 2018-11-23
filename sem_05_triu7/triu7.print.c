@@ -31,6 +31,6 @@ int triu7_print(triu7_ptr node, void (*pdata)(void*))
         count_of_tab--;
     }
 
-    return SUCCESS;
+    return IU7_SUCCESS;
 }
 
