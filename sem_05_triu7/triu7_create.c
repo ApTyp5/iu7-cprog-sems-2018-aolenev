@@ -1,10 +1,10 @@
 #include "triu7.h"
 
-triu7* triu7_create(void *data)
+triu7_ptr triu7_create(void *data)
 {
-    triu7 *tree;
+    triu7_ptr tree;
     tree->data = data;
-    tree->num_of_leaves = 0;
+    tree->con_wei = darriu7_create(0);
     tree->leavs = NULL;
 
     return tree;
