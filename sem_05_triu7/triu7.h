@@ -121,7 +121,7 @@ int triu7_has_cycle(triu7_ptr node);
  *
  * \return код сотояния
  */
-int triu7_dat_apply(triu7_ptr node, void (*func)(void *data));
+int triu7_apply(triu7_ptr node, void (*func)(void *data));
 
 
 /**
