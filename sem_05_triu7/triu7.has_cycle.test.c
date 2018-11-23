@@ -4,13 +4,12 @@
 
 void test_no_cycle(int *passed)
 {
-    int expected = FALSE;
-    triu7 tree;
-    int *fake_data;
+    int expected = IU7_FALSE;
+    triu7_ptr root;
     
-    tree = triu7_create(fake_data);
+    root = triu7_create(NULL);
     
-    if(triu7_has_cycle(tree) != expected)
+    if(triu7_has_cycle(root) != expected)
     {
         printf("No cycle test:        not passed.\n");
     }
@@ -23,10 +22,12 @@ void test_no_cycle(int *passed)
 
 void test_cycle_0(int *passed)
 {
-    int expected = TRUE;
-    triu7 tree;
+    int expected = IU7_TRUE;
+    triu7_ptr root;
     
-    if(triu7_has_cycle(tree) != expected)
+    root = triu7_create(NULL);
+    
+    if(triu7_has_cycle(root) != expected)
     {
         printf("Cycle test #1:        not passed.\n");
     }
@@ -39,10 +40,12 @@ void test_cycle_0(int *passed)
 
 void test_cycle_1(int *passed)
 {
-    int expected = TRUE;
-    triu7 tree;
+    int expected = IU7_TRUE;
+    triu7_ptr root;
     
-    if(triu7_has_cycle(tree) != expected)
+    root = triu7_create(NULL);
+    
+    if(triu7_has_cycle(root) != expected)
     {
         printf("Cycle test #2:        not passed.\n");
     }
@@ -55,10 +58,12 @@ void test_cycle_1(int *passed)
 
 void test_cycle_2(int *passed)
 {
-    int expected = TRUE;
-    triu7 tree;
+    int expected = IU7_TRUE;
+    triu7_ptr root;
     
-    if(triu7_has_cycle(tree) != expected)
+    root = triu7_create(NULL);
+    
+    if(triu7_has_cycle(root) != expected)
     {
         printf("Cycle test #3:        not passed.\n");
     }
@@ -71,10 +76,12 @@ void test_cycle_2(int *passed)
 
 void test_invalid_0(int *passed)
 {
-    int expected = FALSE;
-    triu7 tree;
+    int expected = IU7_FALSE;
+    triu7_ptr root;
     
-    if(triu7_has_cycle(tree) != expected)
+    root = triu7_create(NULL);
+    
+    if(triu7_has_cycle(root) != expected)
     {
         printf("Invalid tree test #1: not passed.\n");
     }
@@ -87,10 +94,12 @@ void test_invalid_0(int *passed)
 
 void test_invalid_1(int *passed)
 {
-    int expected = FALSE;
-    triu7 tree;
+    int expected = IU7_FALSE;
+    triu7_ptr root;
     
-    if(triu7_has_cycle(tree) != expected)
+    root = triu7_create(NULL);
+    
+    if(triu7_has_cycle(root) != expected)
     {
         printf("Invalid tree test #2: not passed.\n");
     }
@@ -115,11 +124,11 @@ int main()
     if(passed == 6)
     {
         printf("All tests successfuly passed!\n");
-        return SUCCESS;
+        return IU7_SUCCESS;
     }
     else
     {
         printf("Not all tests passed!\n");
-        return FAIL;
+        return IU7_FAIL;
     }
 }
