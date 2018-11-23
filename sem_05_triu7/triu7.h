@@ -18,6 +18,7 @@
 #define     IU7_FAIL            -1
 #define     IU7_WRONG_TREE      -2
 #define     IU7_WRONG_INDEX     -3
+#define     IU7_WRONG_FUNCTION  -4
 
 
 typedef struct triu7_node triu7_node;
