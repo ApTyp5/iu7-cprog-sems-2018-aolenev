@@ -9,22 +9,24 @@ ifeq ($(mod),rel)
 	FLEGS += -O3 -g0
 endif
 
-OBJ := triu7_create.o
-OBJ += triu7_free.o
-OBJ += triu7_add.o
-OBJ += triu7_add_subtree.o
-OBJ += triu7_has_cycle.o
-OBJ += triu7_dat_apply.o
-OBJ += triu7_leav_sort.o
-OBJ += triu7_dat_test.o
-OBJ += triu7_size.o
-OBJ += triu7_depth.o
-OBJ += triu7_ptrint.o
+OBJ := triu7.create.o
+OBJ += triu7.free.o
+OBJ += triu7.add.o
+OBJ += triu7.add_subtree.o
+OBJ += triu7.has_cycle.o
+OBJ += triu7.dat_apply.o
+OBJ += triu7.leav_sort.o
+OBJ += triu7.dat_test.o
+OBJ += triu7.size.o
+OBJ += triu7.depth.o
+OBJ += triu7.print.o
 
 
 
-app.exe: libliu7st.a $(OBJ) 
+app.exe: $(OBJ) libliu7st.a  
 	$(CC) -o $@ $(OBJ) -L. -l$<
+
+%.test.o: 
 
 %.o: %.c *.h
 	$(CC) -c $< $(FLAGS)
