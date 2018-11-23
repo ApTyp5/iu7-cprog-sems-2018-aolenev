@@ -10,7 +10,7 @@ ifeq ($(mod),rel)
 endif
 
 OBJ := triu7_create.o
-OBJ += triu7_free.o
+OBJ += triu7.free.o
 OBJ += triu7_add.o
 OBJ += triu7_add_subtree.o
 OBJ += triu7_has_cycle.o
