@@ -22,6 +22,7 @@ OBJ += triu7_depth.o
 OBJ += triu7_ptrint.o
 
 
+
 app.exe: libliu7st.a $(OBJ) 
 	$(CC) -o $@ $(OBJ) -L. -l$<
 
