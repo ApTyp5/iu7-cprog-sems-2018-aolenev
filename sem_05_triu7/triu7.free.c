@@ -12,7 +12,7 @@ void free_data(void *data)
  * @brief Очищает память из-под дерева.
  * @param [in] узел дерева.
  */
-void triu7_free(triu7_ptr root)
+void triu7_free(triu7_ptr *root)
 {
     if (root == NULL || root->data == NULL || root->con_wei == NULL || \
         root->leavs == NULL)
