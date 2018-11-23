@@ -132,7 +132,8 @@ int triu7_size(triu7_ptr node);
 // Вход: узел дерева
 // Выход: код состояния (<0) при ошибочных данных,
 // размер дерева иначе
-int triu7_depth(triu7_ptr node); // Не забудьте проверить древо на наличие цикла!
+int triu7_depth(triu7_ptr node); 
+
 
 
 /**
@@ -172,3 +173,4 @@ int triu7_print(triu7_ptr node, void (* pdata)(void *));
 
 
 #endif // __TRIU7_H__
+
