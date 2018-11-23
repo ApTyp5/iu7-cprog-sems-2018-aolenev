@@ -27,6 +27,7 @@ int triu7_print(triu7_ptr node, void (*pdata)(void*))
     {
         count_of_tab++;
         triu7_print(temp->data, pdata);
+        printf("\n");
         count_of_tab--;
     }
 
