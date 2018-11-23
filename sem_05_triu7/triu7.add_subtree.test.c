@@ -1,4 +1,5 @@
 #include <triu7.h>
+#include <stdio.h>
 
 
 int triu7_add_subtree_test(triu7_ptr root, triu7_ptr sub, int w)
