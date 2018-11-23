@@ -31,7 +31,6 @@ TESTS += triu7.has_cycle.test.exe
 TESTS += triu7.apply.test.exe
 TESTS += triu7.size.test.exe
 TESTS += triu7.depth.test.exe
-TESTS += triu7.print.test.exe
 TESTS += triu7.add_subtree.test.exe
 
 
