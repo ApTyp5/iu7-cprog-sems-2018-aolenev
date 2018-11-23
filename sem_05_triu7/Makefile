@@ -22,15 +22,18 @@ OBJ += triu7_depth.o
 OBJ += triu7_ptrint.o
 
 
-app.exe: $(OBJ) 
-	$(CC) -o $@ $^
-    
+
+app.exe: libliu7st.a $(OBJ) 
+	$(CC) -o $@ $(OBJ) -L. -l$<
 
 %.o: %.c *.h
 	$(CC) -c $< $(FLAGS)
 
+libliu7st.a:
+	./import_libliu7st.sh
+
 clean:
-	rm *.o *.exe *.gch
+	rm *.o *.exe *.gch *.a
     
 
 
