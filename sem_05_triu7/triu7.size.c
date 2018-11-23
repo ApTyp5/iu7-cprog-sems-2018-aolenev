@@ -1,6 +1,6 @@
 #include "triu7.h"
 
-int triu7_size_recursion(triu7_ptr node)
+static int triu7_size_recursion(triu7_ptr node)
 {
     int n = 0;
     
