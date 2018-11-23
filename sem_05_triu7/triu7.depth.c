@@ -11,7 +11,6 @@ static int depth = 0;
 /**
  @fn static void count_depth(int n, triu7_ptr node)
  
- @param max [in, out] - указатель на найденную максимальную глубину
  @param n [in] - текущая глубина
  @param node [in] - текущее положение в дереве
  */
