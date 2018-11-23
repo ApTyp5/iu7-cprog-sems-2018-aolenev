@@ -20,7 +20,7 @@ static void count_depth(int n, triu7_ptr node)
     
     while (now != NULL && now->data != NULL)
     {
-        count_depth(max, n + 1, (triu7_ptr)(now->data));
+        count_depth(n + 1, (triu7_ptr)(now->data));
         now = now->next;
     }
     
