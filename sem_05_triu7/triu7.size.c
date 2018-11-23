@@ -1,11 +1,19 @@
 #include "triu7.h"
 
-int triu7_size(triu7 *tree)
+int triu7_size_recursion(triu7_ptr node)
 {
-	n = 0;
+	int n = 0;
 	
-	for (int i = 0; i < tree->num_of_leaves; i++)
-		n += triu7_size((tree->leavs)[i])
+	for (int i = 0; i < (node->leavs)->size; i++)
+		n += triu7_size_recursion((triu7_ptr)liu7st_get(*(node->leavs), i));
     
 	return n + 1;
+}
+
+int triu7_size(triu7_ptr node)
+{
+	if (triu7_has_cycle(node) == IU7_TRUE)
+		return IU7_WRONG_TREE;
+	
+	return triu7_size_recursion(node);
 }

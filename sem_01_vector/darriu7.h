@@ -1,6 +1,9 @@
 #ifndef __VECTOR_H
 #define __VECTOR_H
 
+#include <stdio.h>
+#include <stdlib.h>
+
 #define INITIAL_SIZE        10
 #define PRIVAT_DATA_SIZE    2
 
@@ -13,7 +16,8 @@
 #define CUR_LEN (darr[-1])
 #define MAX_LEN (darr[-2])
 
-#define DARR int*
+typedef int * darriu7;
+
 
 /*  Создание дин. массива длины len  */
 /*************************************/
@@ -21,7 +25,7 @@
 // --> Выход: указатель на начало массива при успешном
 // выделении памяти и корректности входных даннх, 
 // NULL иначе
-DARR darriu7_create(int len)
+darriu7 darriu7_create(int len)
 {
     if (len  < 0) 
         return NULL;
@@ -29,7 +33,7 @@ DARR darriu7_create(int len)
     if (len == 0)
         len = INITIAL_SIZE;
 
-    DARR darr; 
+    darriu7 darr; 
 
     if ((darr= malloc((len + PRIVAT_DATA_SIZE) * sizeof(int))) == NULL)
         return NULL;
@@ -50,7 +54,7 @@ DARR darriu7_create(int len)
 // --> Выход: длина массива
 // в случае корректных данных,
 // IU7_FAIL иначе
-int darriu7_len(DARR darr)
+int darriu7_len(darriu7 darr)
 {
     if (!darr)
         return IU7_FAIL;
@@ -61,7 +65,7 @@ int darriu7_len(DARR darr)
 /*  Вывод coдержимого динамического массива на экран  */
 /******************************************************/
 // --> Вход : дин. массив
-void darriu7_print(DARR darr)
+void darriu7_print(darriu7 darr)
 {
     printf("[");
 
@@ -83,7 +87,7 @@ void darriu7_print(DARR darr)
 // --> Вход : дин. массив, значение элемента,
 // который хотим добавить
 // --> Выход: адрес получившегося дин. массива.
-DARR darriu7_append(DARR darr, int x)
+darriu7 darriu7_append(darriu7 darr, int x)
 {
 
     if(CUR_LEN == MAX_LEN)
@@ -110,7 +114,7 @@ DARR darriu7_append(DARR darr, int x)
 /* Освобождение памяти из-под дин. массива */
 /*******************************************/
 // --> Вход: дин. массив.
-void darriu7_release(DARR darr)
+void darriu7_release(darriu7 darr)
 {
     free(darr - PRIVAT_DATA_SIZE);
 }
