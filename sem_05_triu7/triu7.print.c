@@ -17,6 +17,8 @@ int triu7_print(triu7_ptr node, void (*pdata)(void*))
     if (node == NULL)
         return IU7_WRONG_TREE;
 
+    printf("\n");
+
     for (int i = 0; i < count_of_tab; i++)
         printf("    ");
 
@@ -27,7 +29,6 @@ int triu7_print(triu7_ptr node, void (*pdata)(void*))
     {
         count_of_tab++;
         triu7_print(temp->data, pdata);
-        printf("\n");
         count_of_tab--;
     }
 
