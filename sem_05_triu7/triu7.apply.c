@@ -11,17 +11,19 @@
 
 int triu7_dat_apply(triu7_ptr node, void (*func)(void*))
 {
-    if (tree_head == NULL)
-        return WRONG_TREE;
+    if (node == NULL)
+        return IU7_WRONG_TREE;
 
     if (func == NULL)
-        return WRONG_FUNCTION;
+        return IU7_WRONG_FUNCTION;
 
-    func(tree_head->data);
+    func(node->data);
 
-    for (int i = 0; i < darrliu7_len(node->con_wei); i++)
+    liu7st_element *temp = node->leavs->first;
+
+    for (; temp != NULL; temp = temp->next)
     {
-        triu7_apply(tree_head->leavs[i], func);
+        triu7_apply(temp->data, func);
     }
 
     return SUCCESS;
