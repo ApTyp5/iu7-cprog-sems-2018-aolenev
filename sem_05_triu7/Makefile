@@ -1,35 +1,52 @@
 CC := gcc
-FLAGS := -Wall -Werror
+CFLAGS := -Wall -Werror
+
 
 ifeq ($(mod),deb)
-	FLAGS += -O0 -g3
+	FLAGS += -O0 -g3 
 endif
 
 ifeq ($(mod),rel)
-	FLEGS += -O3 -g0
+	FLEGS += -O3 -g0 -DNDEBUG
 endif
+
+
 
 OBJ := triu7.create.o
 OBJ += triu7.free.o
 OBJ += triu7.add.o
-OBJ += triu7.add_subtree.o
 OBJ += triu7.has_cycle.o
-OBJ += triu7.dat_apply.o
-OBJ += triu7.leav_sort.o
-OBJ += triu7.dat_test.o
 OBJ += triu7.size.o
-OBJ += triu7.depth.o
 OBJ += triu7.print.o
+OBJ += triu7.add_subtree.o
+OBJ += triu7.apply.o
+OBJ += triu7.depth.o
 
 
 
-app.exe: $(OBJ) libliu7st.a  
+TESTS := triu7.create.test.exe
+TESTS += triu7.free.test.exe
+TESTS += triu7.add.test.exe
+TESTS += triu7.has_cycle.test.exe
+TESTS += triu7.apply.test.exe
+TESTS += triu7.size.test.exe
+TESTS += triu7.depth.test.exe
+TESTS += triu7.print.test.exe
+TESTS += triu7.add_subtree.test.exe
+
+
+
+
+app.exe: libliu7st.a $(OBJ) main.o
 	$(CC) -o $@ $(OBJ) -L. -l$<
 
-%.test.o: 
+create_tests: $(TESTS)
+
+%.test.exe: libliu7st.a $(OBJ) %.test.o
+	$(CC) -o $@ $^ -L. -l$<
 
 %.o: %.c *.h
-	$(CC) -c $< $(FLAGS)
+	$(CC) $(CFLAGS) -c $< 
 
 libliu7st.a:
 	./import_libliu7st.sh
