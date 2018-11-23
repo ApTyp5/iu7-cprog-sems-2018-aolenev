@@ -18,6 +18,7 @@
 #define     IU7_FAIL            -1
 #define     IU7_WRONG_TREE      -2
 #define     IU7_WRONG_INDEX     -3
+#define     IU7_WRONG_FUNCTION  -4
 
 
 typedef struct triu7_node triu7_node;
@@ -120,7 +121,7 @@ int triu7_has_cycle(triu7_ptr node);
  *
  * \return код сотояния
  */
-int triu7_dat_apply(triu7_ptr node, void (*func)(void *data));
+int triu7_apply(triu7_ptr node, void (*func)(void *data));
 
 
 /**
