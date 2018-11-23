@@ -23,7 +23,7 @@ void triu7_free(triu7_ptr *root)
     liu7st_element *elem = (*root)->leavs->first;
     do
     {
-        triu7_free(elem->data);
+        triu7_free(&elem->data);
         elem = elem->next;
     } while (elem != (*root)->leavs->last->next);
 	
