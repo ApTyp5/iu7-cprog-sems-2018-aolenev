@@ -21,13 +21,14 @@ void triu7_free(triu7_ptr *root)
     }
 
     liu7st_element *elem = (*root)->leavs->first;
-    do
-    {
-        triu7_ptr subroot = elem->data;
-        triu7_free(&subroot);
-        elem->data = subroot;
-        elem = elem->next;
-    } while (elem != (*root)->leavs->last->next);
+    if (elem != NULL)
+        do
+        {
+            triu7_ptr subroot = elem->data;
+            triu7_free(&subroot);
+            elem->data = subroot;
+            elem = elem->next;
+        } while (elem != (*root)->leavs->last->next);
 	
     liu7st_free((*root)->leavs, free_data);
     darriu7_release(((*root)->con_wei));
