@@ -9,7 +9,7 @@ triu7_ptr triu7_create(void *data)
 
     tree->data = data;
     tree->con_wei = darriu7_create(0);
-    tree->leavs = NULL;
+    tree->leavs = liu7st_create();
 
     return tree;
 }
