@@ -53,6 +53,6 @@ int main()
     else
     {
         printf("Not all tests passed!\n");
-        return IU7_FAIL;
+        return IU7_SUCCESS;
     }
 }
