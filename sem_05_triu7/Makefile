@@ -3,11 +3,11 @@ CFLAGS := -Wall -Werror
 
 
 ifeq ($(mod),deb)
-	FLAGS += -O0 -g3 
+	CFLAGS += -O0 -g3 
 endif
 
 ifeq ($(mod),rel)
-	FLEGS += -O3 -g0 -DNDEBUG
+	CFLAGS += -O3 -g0 -DNDEBUG
 endif
 
 
@@ -39,7 +39,7 @@ TESTS += triu7.create.test.exe
 app.exe: libliu7st.a libdarriu7.a $(OBJ) main.o
 	$(CC) -o $@ $(OBJ) -L. -lli7st -ldarriu7
 
-run_tests: biuld_tests
+run_tests: build_tests
 	./run_tests.sh
 
 build_tests: libliu7st.a libdarriu7.a $(TESTS)
