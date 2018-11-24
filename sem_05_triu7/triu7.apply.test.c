@@ -49,8 +49,8 @@ void test_without_modify()
     triu7_apply(tree, do_nothing);
     TEST(tree->data == &a && a == 10
         && tree->leavs->size == 2
-        && liu7st_get(*tree->leavs, 0) == &b && b == 20
-        && liu7st_get(*tree->leavs, 1) == &c && c == 30);
+        && ((triu7_ptr)liu7st_get(*tree->leavs, 0))->data == &b && b == 20
+        && ((triu7_ptr)liu7st_get(*tree->leavs, 1))->data == &c && c == 30);
 }
 
 void test_with_modify()
@@ -63,8 +63,8 @@ void test_with_modify()
     triu7_apply(tree, mult_by_2);
     TEST(tree->data == &a && a == 20
         && tree->leavs->size == 2
-        && liu7st_get(*tree->leavs, 0) == &b && b == 40
-        && liu7st_get(*tree->leavs, 1) == &c && c == 60);
+        && ((triu7_ptr)liu7st_get(*tree->leavs, 0))->data == &b && b == 40
+        && ((triu7_ptr)liu7st_get(*tree->leavs, 1))->data == &c && c == 60);
 }
 
 int main()
