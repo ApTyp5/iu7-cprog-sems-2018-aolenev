@@ -1,7 +1,18 @@
 #include "triu7.h"
 #include <stdio.h>
 
+void major_test();
+
 int main()
+{
+    major_test();
+
+    return 0;
+}
+
+
+
+void major_test()
 {
     printf("Create test started:\n");
 
@@ -9,15 +20,16 @@ int main()
     void *data = &x;
     triu7_ptr tree = triu7_create(data);
     
-    if (tree->data == data && tree->leavs->size == 0 && tree->leavs == NULL)
+    if (tree->data == data && 
+        tree->leavs->size == 0)
     {
-        printf("test passed\n");
+        printf("TEST PASSED\n");
     }
     else
     {
-        printf("test not passed\n");
+        printf("TEST NOT PASSED\n");
+        printf("tree->data == data: %d\n", tree->data == data);
+        printf("tree->leavs->size == 0: %d\n", tree->leavs->size == 0);
     }
-
-    return 0;
 }
 
