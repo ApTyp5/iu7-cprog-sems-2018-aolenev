@@ -4,3 +4,4 @@
 *.swp
 *.gch
 .DS_Store
+*.a

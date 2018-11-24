@@ -9,7 +9,7 @@ make libliu7st.a
 
 cp ./libliu7st.a $WORK_DIR
 
-make clean
+rm *.o
 
 cd $WORK_DIR
 
