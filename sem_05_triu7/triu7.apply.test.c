@@ -25,7 +25,7 @@ void mult_by_2(void *data)
 void test_func_nullptr()
 {
     int a = 10;
-    triu7 *tree = triu7_create(&a);
+    triu7_ptr tree = triu7_create(&a);
     TEST(triu7_apply(tree, NULL));
 }
 
@@ -42,35 +42,29 @@ void test_both_nullptr()
 void test_without_modify()
 {
     int a = 10, b = 20, c = 30;
-    triu7 *tree = triu7_create(&a);
-    tree->num_of_leaves = 2;
-    tree->leavs = malloc(sizeof(triu7*) * 2);
-    triu7 *leaf1 = triu7_create(&b),
-        *leaf2 = triu7_create(&c);
-    tree->leavs[0] = leaf1;
-    tree->leavs[1] = leaf2;
+    triu7_ptr tree = triu7_create(&a);
+    triu7_add(tree, &b, 1);
+    triu7_add(tree, &c, 1);
 
     triu7_apply(tree, do_nothing);
     TEST(tree->data == &a && a == 10
-        && tree->leavs[0]->data == &b && b == 20
-        && tree->leavs[1]->data == &c && c == 30);
+        && tree->leavs->size == 2
+        && liu7st_get(*tree->leavs, 0) == &b && b == 20
+        && liu7st_get(*tree->leavs, 1) == &c && c == 30);
 }
 
 void test_with_modify()
 {
     int a = 10, b = 20, c = 30;
-    triu7 *tree = triu7_create(&a);
-    tree->num_of_leaves = 2;
-    tree->leavs = malloc(sizeof(triu7*) * 2);
-    triu7 *leaf1 = triu7_create(&b),
-        *leaf2 = triu7_create(&c);
-    tree->leavs[0] = leaf1;
-    tree->leavs[1] = leaf2;
+    triu7_ptr tree = triu7_create(&a);
+    triu7_add(tree, &b, 1);
+    triu7_add(tree, &c, 1);
 
     triu7_apply(tree, mult_by_2);
     TEST(tree->data == &a && a == 20
-        && tree->leavs[0]->data == &b && b == 40
-        && tree->leavs[1]->data == &c && c == 60);
+        && tree->leavs->size == 2
+        && liu7st_get(*tree->leavs, 0) == &b && b == 40
+        && liu7st_get(*tree->leavs, 1) == &c && c == 60);
 }
 
 int main()
