@@ -6,7 +6,7 @@ int test_free(triu7_ptr *tree)
 {
     triu7_free(tree);
 
-    if (tree == NULL)
+    if (*tree == NULL)
         return 1;
     else
         return 0;
@@ -15,7 +15,7 @@ int test_free(triu7_ptr *tree)
 
 int main(void)
 {
-    printf("Total tests : %d\n", 2);
+    printf("Total tests : %d\n", 1);
     triu7_ptr tree = malloc(sizeof(triu7_node));
     triu7_ptr node1 = malloc(sizeof(triu7_node));
     triu7_ptr node2 = malloc(sizeof(triu7_node));
