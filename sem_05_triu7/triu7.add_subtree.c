@@ -1,4 +1,4 @@
-#include <triu7.h>
+#include "triu7.h"
 
 /**
  * @fn triu7_add_subtree(triu7_ptr node, triu7_ptr subroot, int weight)
