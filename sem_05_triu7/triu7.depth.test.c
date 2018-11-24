@@ -3,7 +3,7 @@
 #include "triu7.h"
 void test_depth_0(int *passed)
 {
-    int expected = 1;
+    int expected = 0;
     triu7_ptr root;
     
     root = triu7_create(NULL);
@@ -21,7 +21,7 @@ void test_depth_0(int *passed)
 
 void test_depth_1(int *passed)
 {
-    int expected = 2;
+    int expected = 1;
     triu7_ptr root;
     
     root = triu7_create(NULL);
