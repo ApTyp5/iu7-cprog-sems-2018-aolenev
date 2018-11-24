@@ -25,13 +25,13 @@ OBJ += triu7.depth.o
 
 
 TESTS += triu7.free.test.exe
-TESTS += triu7.add.test.exe
+#TESTS += triu7.add.test.exe
 TESTS += triu7.has_cycle.test.exe
 TESTS += triu7.apply.test.exe
-TESTS += triu7.size.test.exe
-TESTS += triu7.depth.test.exe
+#TESTS += triu7.size.test.exe
+#TESTS += triu7.depth.test.exe
 TESTS += triu7.add_subtree.test.exe
-TESTS := triu7.create.test.exe
+TESTS += triu7.create.test.exe
 
 
 
@@ -39,9 +39,12 @@ TESTS := triu7.create.test.exe
 app.exe: libliu7st.a libdarriu7.a $(OBJ) main.o
 	$(CC) -o $@ $(OBJ) -L. -lli7st -ldarriu7
 
+run_tests: create_tests
+	./run_tests.sh
+
 create_tests: $(TESTS)
 
-%.test.exe: libliu7st.a libdarriu7.a $(OBJ) %.test.o
+%.test.exe: $(OBJ) %.test.o
 	$(CC) -o $@ $^ -L. -lliu7st -ldarriu7
 
 %.o: %.c *.h

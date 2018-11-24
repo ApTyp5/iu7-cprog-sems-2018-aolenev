@@ -4,10 +4,10 @@ int main()
 {
     int x = 5;
     void *data = &x;
-    triu7 *tree = triu7_create(data);
+    triu7_ptr tree = triu7_create(data);
     
-    if (tree->data == data && tree->num_of_leaves == 0 && tree->leavs == NULL)
-        return SUCCESS;
+    if (tree->data == data && tree->leavs->size == 0 && tree->leavs == NULL)
+        return IU7_SUCCESS;
     
-    return FAIL;
+    return IU7_FAIL;
 }

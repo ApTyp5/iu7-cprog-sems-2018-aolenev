@@ -9,7 +9,7 @@
  * @return Возвращает код ошибки при некорректных данных и SUCCESS в случае успеха
  */
 
-int triu7_dat_apply(triu7_ptr node, void (*func)(void*))
+int triu7_apply(triu7_ptr node, void (*func)(void*))
 {
     if (node == NULL)
         return IU7_WRONG_TREE;
