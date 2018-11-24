@@ -341,7 +341,8 @@ int main()
 {
     int passed = 0;
     
-    test_no_cycle(&passed);
+    test_no_cycle_0(&passed);
+    test_no_cycle_1(&passed);
     test_cycle_0(&passed);
     test_cycle_1(&passed);
     test_cycle_2(&passed);
