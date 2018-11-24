@@ -39,7 +39,7 @@ TESTS += triu7.create.test.exe
 app.exe: libliu7st.a libdarriu7.a $(OBJ) main.o
 	$(CC) -o $@ $(OBJ) -L. -lli7st -ldarriu7
 
-run_tests: create_tests
+run_tests: biuld_tests
 	./run_tests.sh
 
 build_tests: $(TESTS)
