@@ -58,7 +58,7 @@ libdarriu7.a:
 	./import_libdarriu7.sh
 
 clean:
-	rm *.o *.exe *.gch *.a
+	rm -f *.o *.exe *.gch *.a
     
 
 
