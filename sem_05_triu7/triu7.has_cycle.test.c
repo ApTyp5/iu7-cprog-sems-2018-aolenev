@@ -88,6 +88,8 @@ void test_cycle_1(int *passed)
     
     cycle_node = root->leavs->first->data;
     
+    triu7_add(cycle_node, &fake_data, 1);
+    
     cycle_node->leavs->first->data = root;
     
     if(triu7_has_cycle(root) != expected)
@@ -116,6 +118,8 @@ void test_cycle_2(int *passed)
     
     cycle_node = root->leavs->first->data;
     
+    triu7_add(cycle_node, &fake_data, 1);
+    
     cycle_node->leavs->first->data = root->leavs->last->data;
     
     if(triu7_has_cycle(root) != expected)
@@ -128,6 +132,7 @@ void test_cycle_2(int *passed)
         *passed = *passed + 1;
     }
 }
+
 
 void test_cycle_3(int *passed)
 {
