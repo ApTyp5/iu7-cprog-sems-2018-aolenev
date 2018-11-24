@@ -42,7 +42,7 @@ app.exe: libliu7st.a libdarriu7.a $(OBJ) main.o
 run_tests: biuld_tests
 	./run_tests.sh
 
-build_tests: $(TESTS)
+build_tests: libliu7st.a libdarriu7.a $(TESTS)
 
 %.test.exe: $(OBJ) %.test.o
 	$(CC) -o $@ $^ -L. -lliu7st -ldarriu7
@@ -50,7 +50,6 @@ build_tests: $(TESTS)
 %.o: %.c *.h
 	$(CC) $(CFLAGS) -c $< 
 
-import_libs: libliu7st.a libdarriu7.a
 
 libliu7st.a:
 	./import_libliu7st.sh
