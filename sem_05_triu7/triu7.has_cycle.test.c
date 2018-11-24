@@ -198,7 +198,6 @@ void test_cycle_5(int *passed)
 {
     int expected = IU7_TRUE;
     triu7_ptr root;
-    triu7_ptr cycle_node;
     triu7_ptr node;
     char fake_data = 0;
     
@@ -230,7 +229,6 @@ void test_cycle_6(int *passed)
 {
     int expected = IU7_TRUE;
     triu7_ptr root;
-    triu7_ptr cycle_node;
     triu7_ptr node;
     char fake_data = 0;
     
@@ -299,8 +297,6 @@ void test_invalid_0(int *passed)
 {
     int expected = IU7_FALSE;
     triu7_ptr root;
-    char fake_data = 0;
-    
     root = NULL;
     
     if(triu7_has_cycle(root) != expected)
