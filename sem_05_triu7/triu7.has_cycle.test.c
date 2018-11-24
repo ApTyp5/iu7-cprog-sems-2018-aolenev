@@ -354,14 +354,7 @@ int main()
     test_invalid_0(&passed);
     test_invalid_1(&passed);
     
-    if(passed == 6)
-    {
-        printf("All tests successfuly passed!\n");
-        return IU7_SUCCESS;
-    }
-    else
-    {
-        printf("Not all tests passed!\n");
-        return IU7_FAIL;
-    }
+    printf("\nPassed %d out of 12 tests.\n", passed);
+    
+    return IU7_SUCCESS;
 }
