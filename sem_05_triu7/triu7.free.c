@@ -14,8 +14,7 @@ void free_data(void *data)
  */
 void triu7_free(triu7_ptr *root)
 {
-    if ((*root) == NULL || (*root)->data == NULL || (*root)->con_wei == NULL || \
-        (*root)->leavs == NULL)
+    if ((*root) == NULL)
     {
         return;
     }
