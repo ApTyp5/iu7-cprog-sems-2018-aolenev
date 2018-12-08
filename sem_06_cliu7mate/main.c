@@ -1,74 +1,57 @@
 #include <stdio.h>
-#include <ncurses.h>
+#include <stdlib.h>
+#include <assert.h>
 
-int main(void)
+#include "list.h"
+#include "weather.h"
+
+#define CITIES_COUNT 3
+
+int main()
 {
-    int row, col;
+    struct berkly_head *my_awesome_city = malloc(sizeof(my_awesome_city));
+    assert(my_awesome_city != NULL);
 
-    WINDOW *my_win;
+    weather_data *my_awesome_weather = NULL;
+    char *files[] = {
+        "EKB.csv",
+        "SPB.csv",
+        "STC.csv",
+    };
 
-    initscr();
-    noecho();
-    cbreak();
-    refresh();
-
-    my_win = newwin(30, 30, 10, 10);
-    MEVENT event;
-    mousemask(ALL_MOUSE_EVENTS, NULL);
-
-    box(my_win, 1, 1);
-    wrefresh(my_win);
-
-    getmaxyx(my_win, row, col);
-    start_color();
-    init_pair(1, COLOR_BLACK, COLOR_YELLOW);
-    attron(COLOR_PAIR(1));
-
-    printw("Hello, Anton @qwer_ty Olenev\n");
-    attroff(COLOR_PAIR(1));
-    wrefresh(my_win);
-
-    int c;
-    while (1)
+    FILE *file = NULL;
+    for (int i = 0; i < CITIES_COUNT; i++)
     {
-        wprintw(my_win, "kek\n");
+        file = fopen(files[i], "r");
+        assert(file != NULL);
 
-        c = wgetch(my_win);
+        INIT_LIST_HEAD(my_awesome_city);
 
-        if (c == KEY_MOUSE)
+        while ((my_awesome_weather = parse(file)) != NULL)
         {
-            wprintw(my_win, "Olenev's seminars are good\n");
-            if (getmouse(&event) == OK)
-            {
-                printw("Olenev's seminars are good\n");
-            }
+            struct berkly_head *new_awesome_node = malloc(sizeof(new_awesome_node));
+            assert(new_awesome_node);
+            push_back(new_awesome_node, my_awesome_city);
+
+            my_awesome_weather->node = new_awesome_node;
+            my_awesome_weather->city = files[i];
         }
+
+        assert(fclose(file) != EOF);
     }
 
-/*    raw();
+    //do some activity with list...
 
-    printw("Hello, ");
-    attron(A_BOLD);
+    // TODO:free list
+    struct berkly_head *iterator = my_awesome_city;
+    struct berkly_head *saver = NULL;
+    weather_data *member = NULL;
 
-    printw("IU%d\n", 7);
-    attroff(A_BOLD);
-
-    mvprintw(20, 20, "BMSTU\n");
-
-    getmaxyx(stdscr, row, col);
-    mvprintw(row / 2, col / 2 - 6, "Center BMSTU\n");
-
-    char ch;
-    while (ch != 'q')
+    list_for_each_safe(iterator, saver, my_awesome_city)
     {
-        mvprintw(row - 1, col - 4, "4:20\n");
-        ch = getch();
-        mvprintw(10, 0, "%c", ch);
-        refresh();
+        member = list_entry(iterator, weather_data, node);
+        free(member);
     }
-*/
-    refresh();
-    getch();
-    endwin();
+
     return 0;
 }
