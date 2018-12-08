@@ -20,6 +20,11 @@ struct berkly_head
 #define offsetof(TYPE, MEMBER)\
     ((size_t) &((TYPE *)0)->MEMBER)
 
+#define list_for_each_entry(pos, head, member)\
+    for (pos = list_entry((head)->next, typeof(*pos), member);\
+    	&pos->member != (head);\
+        pos = list_entry(pos->member.next, typeof(*pos), member))
+
 static inline void INIT_LIST_HEAD(struct berkly_head *list)
 {
     list->next = list;
@@ -39,8 +44,5 @@ static inline void push_back(struct berkly_head *new, struct berkly_head *head)
 {
     __list_add(new, head, head->next);
 }
-
-
-
 
 #endif
