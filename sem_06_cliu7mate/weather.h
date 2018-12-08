@@ -6,5 +6,6 @@ typedef struct
     int month;
     int tmax_day;
     int tmax_night;
+    struct berkly_head *node;
  } weather_data; 
 
