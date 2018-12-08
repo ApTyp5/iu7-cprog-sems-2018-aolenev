@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "colours.h"
 
 #include "triu7.h"
 void test_depth_0(int *passed)
@@ -47,12 +48,12 @@ int main()
     
     if(passed == 2)
     {
-        printf("All tests successfuly passed!\n");
+        printf(GREEN "All tests successfuly passed!\n" END_C);
         return IU7_SUCCESS;
     }
     else
     {
-        printf("Not all tests passed!\n");
+        printf(GREEN "Not all tests passed!\n" END_C);
         return IU7_SUCCESS;
     }
 }

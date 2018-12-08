@@ -1,6 +1,6 @@
 #include <stdio.h>
-
 #include "triu7.h"
+#include "colours.h"
 
 void test_no_cycle_0(int *passed)
 {
@@ -356,6 +356,8 @@ int main()
     test_invalid_1(&passed);
     
     printf("\nPassed %d out of 12 tests.\n", passed);
+    printf("Verdict: %s%s%s\n", passed == 12 ? GREEN : RED,
+                       passed == 12 ? "SUCCESS" : "FAIL", END_C);
     
     return IU7_SUCCESS;
 }

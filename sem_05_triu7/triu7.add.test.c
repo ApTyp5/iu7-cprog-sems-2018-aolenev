@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "colours.h"
 
 #include "triu7.h"
 
@@ -11,6 +12,8 @@ int tests_total = 0, tests_passed = 0;
 void print_tests_summary()
 {
     printf("Passed %d tests from %d total.\n", tests_passed, tests_total);
+    printf("Verdict: %s%s%s\n", tests_passed == tests_total ? GREEN : RED,
+                       tests_passed == tests_total ? "SUCCESS" : "FAIL", END_C);
 }
 
 void test_tree_nullptr()

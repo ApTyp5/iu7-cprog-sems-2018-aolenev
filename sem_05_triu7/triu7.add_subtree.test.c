@@ -40,7 +40,7 @@ int main(void)
     res += triu7_add_subtree_test(NULL, subtree, 3);
 
     printf("Completed %d tests of %d:", res, exp_res);
-    printf("%s%s%s\n", res == exp_res ? RED : BLUE,
+    printf("Verdict: %s%s%s\n", res == exp_res ? GREEN : RED,
                        res == exp_res ? "SUCCESS" : "FAIL", END_C);
 
     triu7_free(&root);

@@ -1,5 +1,6 @@
-#include "triu7.h"
 #include <stdio.h>
+#include "triu7.h"
+#include "colours.h"
 
 void major_test();
 
@@ -23,13 +24,14 @@ void major_test()
     if (tree->data == data && 
         tree->leavs->size == 0)
     {
-        printf("TEST PASSED\n");
+        printf(GREEN "SUCCESS\n" END_C);
     }
     else
     {
-        printf("TEST NOT PASSED\n");
+        printf(RED "FAIL\n" END_C);
         printf("tree->data == data: %d\n", tree->data == data);
         printf("tree->leavs->size == 0: %d\n", tree->leavs->size == 0);
     }
+
 }
 
