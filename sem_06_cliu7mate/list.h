@@ -25,6 +25,10 @@ struct berkly_head
     	&pos->member != (head);\
         pos = list_entry(pos->member.next, typeof(*pos), member))
 
+#define list_for_each_safe(pos, n, head) \
+    for (pos = (head)->next, n = pos->next; pos != (head); \
+        pos = n, n = pos->next)
+
 static inline void INIT_LIST_HEAD(struct berkly_head *list)
 {
     list->next = list;

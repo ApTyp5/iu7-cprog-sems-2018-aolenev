@@ -43,6 +43,15 @@ int main()
     //do some activity with list...
 
     // TODO:free list
+    struct berkly_head *iterator = my_awesome_city;
+    struct berkly_head *saver = NULL;
+    weather_data *member = NULL;
+
+    list_for_each_safe(iterator, saver, my_awesome_city)
+    {
+        member = list_entry(iterator, weather_data, node);
+        free(member);
+    }
 
     return 0;
 }
