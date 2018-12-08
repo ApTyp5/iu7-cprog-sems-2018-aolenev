@@ -8,4 +8,5 @@ typedef struct
     int tmax_night;
     struct berkly_head *node;
  } weather_data; 
+weather_data *parse(FILE* data);
 

@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "weather.h"
+#include "list.h"
 weather_data *parse(FILE* data)
 { 
     weather_data* elem;
