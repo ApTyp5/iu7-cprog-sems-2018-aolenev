@@ -19,13 +19,6 @@ void test_tree_nullptr()
     TEST(triu7_add(NULL, &a, 1));
 }
 
-void test_data_nullptr()
-{
-    int a = 10;
-    triu7_ptr tree = triu7_create(&a);
-    TEST(triu7_add(tree, NULL, 1));
-}
-
 void test_both_nullptr()
 {
     TEST(triu7_add(NULL, NULL, 1));
@@ -43,7 +36,6 @@ void test_normal()
 int main()
 {
     test_tree_nullptr();
-    test_data_nullptr();
     test_both_nullptr();
     test_normal();
 
