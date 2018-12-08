@@ -1,10 +1,10 @@
-struct weather_data 
+typedef struct 
  {
     char* city;
     int year;
     int day;
     int month;
-    int tmax_dat;
+    int tmax_day;
     int tmax_night;
- }
-typedef struct weather_data weather_data;
+ } weather_data; 
+
