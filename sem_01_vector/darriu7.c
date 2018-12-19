@@ -13,7 +13,7 @@
  * указателю нужного нам типа) или NULL при ошибке выделения 
  * памяти.
  */
-darriu7 darriu7_create(int len, int size_of_el)
+darriu7 darriu7_create(int len, size_t size_of_el)
 {
     if (len  < 0) 
         return NULL;
@@ -40,10 +40,9 @@ darriu7 darriu7_create(int len, int size_of_el)
 }
 
 /// Улучшенный вариант strcpy, принимающий любые указатели
-static void mycpy(void *dest, void *source, int size)
+static inline void mycpy(void *dest, void *source, size_t size)
 {
-    for (int i = 0; i < size; i++)
-        *(char *)dest++ = *(char *)source++;
+    for (int i = 0; i < size; i++, *(char *)dest++ = *(char *)source++);
 }
 
 /**
@@ -118,44 +117,48 @@ void darriu7_int_print(darriu7 darr)
  *
  * \param [in] darr сам массив
  * \param [in] x указатель на добавляемый элемент
+ * \param [out] rc указатель на переменную состояния(может быт равен NULL)
  *
  * \return код состояния программы: IU7_FAIL при ошибке 
  *   выделения памяти(массив остается без изменений), 
  *   IU7_SUCCESS иначе, если элемент был успешно добавлен.
  */
-int darriu7_append(darriu7 *darr, void *x)
+darriu7 darriu7_append(darriu7 darr, void *x, int *rc)
 {
+    *rc = IU7_SUCCESS;
 
     if (CUR_LEN == MAX_LEN)
     {
-        darriu7 save_copy = *darr;
+        darriu7 save_copy = darr;
 
         int new_max_len = 2 * MAX_LEN;
         int old_cur_len = CUR_LEN;
         int old_el_size = EL_SIZE;
 
-        (*darr) = realloc((int *)(*darr) - PRIVAT_DATA_SIZE, 
+        darr = realloc((int *)darr - PRIVAT_DATA_SIZE, 
             new_max_len * EL_SIZE + PRIVAT_DATA_SIZE * sizeof(int));
 
-        if (!(*darr))
+        if (!darr)
         {
-            *darr = save_copy;
-            return IU7_FAIL;
+            if (*rc)
+                *rc = IU7_FAIL;
+
+            return save_copy;
         }
 
         // Если не понятно, что написано внизу, смотри ф-ю create
-        mycpy( (int *)(*darr), &old_el_size, sizeof(int));
-        mycpy( (int *)(*darr) + 1, &new_max_len, sizeof(int));
-        mycpy( (int *)(*darr) + 2, &old_cur_len, sizeof(int));
+        mycpy( (int *)darr, &old_el_size, sizeof(int));
+        mycpy( (int *)darr + 1, &new_max_len, sizeof(int));
+        mycpy( (int *)darr + 2, &old_cur_len, sizeof(int));
 
-        darr = (void *)( (int *)(*darr) + PRIVAT_DATA_SIZE);
+        darr = (void *)( (int *)darr + PRIVAT_DATA_SIZE);
     }
     
-    mycpy( (char *)(*darr) + CUR_LEN * EL_SIZE, x, EL_SIZE);
+    mycpy( (char *)darr + CUR_LEN * EL_SIZE, x, EL_SIZE);
 
     CUR_LEN++;
 
-    return IU7_SUCCESS;
+    return darr;
 }
 
 

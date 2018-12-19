@@ -1,5 +1,5 @@
 CC := gcc
-CFL := -Wall -Werror
+CFL := -Werror
 
 ifeq ($(mod),db)
 	CFL += -O0 -g3
@@ -17,5 +17,5 @@ app.exe: darriu7.o main.o
 
 
 clean:
-	$(RM) *.o *.a
+	$(RM) *.o *.a *.exe
 

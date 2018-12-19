@@ -17,6 +17,8 @@ sort()
 
 int main(void)
 {
+    int rc = IU7_SUCCESS;
+
     printf("Int massive demonstration\n");
 
     int *ints = darriu7_create(0, sizeof(int));
@@ -24,7 +26,13 @@ int main(void)
 
     for(int i = 0; i < 25; i++)
     {
-        ints = darriu7_append(ints, &i);
+        ints = darriu7_append(ints, &i, &rc);
+
+        if (rc == IU7_FAIL)
+        {
+            printf("Переменная %d утеряна из-за ошибки выделения памяти\n", i);
+            rc = IU7_SUCCESS;
+        }
     }
 
     darriu7_int_print(ints);
@@ -34,10 +42,7 @@ int main(void)
 
     darriu7_release(ints);
 
-    printf("\n");
-    printf("\n");
-    printf("\n");
-
+    printf("\n\n\n");
 
     printf("Double massive demonstration\n");
 
@@ -47,9 +52,14 @@ int main(void)
 
     for(int i = 0; i < 25; i++)
     {
-        double g = 1.1;
+        double g = i * 1.1;
 
-        doubles = darriu7_append(doubles, &g);
+        doubles = darriu7_append(doubles, &g, &rc);
+        if  (rc != IU7_SUCCESS)
+        {
+            printf("Переменная %lf утеряна из-за ошибки выделения памяти\n", g);
+            rc = IU7_SUCCESS;
+        }
     }
 
     darriu7_double_print(doubles);
