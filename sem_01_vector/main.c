@@ -17,20 +17,50 @@ sort()
 
 int main(void)
 {
-    darriu7 darr = darriu7_create(0);
-    darriu7_print(darr);
+    printf("Int massive demonstration\n");
+
+    int *ints = darriu7_create(0, sizeof(int));
+    darriu7_int_print(ints);
 
     for(int i = 0; i < 25; i++)
     {
-        darr = darriu7_append(darr, i);
+        ints = darriu7_append(ints, &i);
     }
 
-    darriu7_print(darr);
-    printf("darr len = %d\n", darriu7_len(darr));
-    printf("darr[-2] = %d\n", darr[-2]); 
-    printf("darr[3] = %d\n", darr[3]);
+    darriu7_int_print(ints);
+    printf("darr len = %d\n", darriu7_len(ints));
+    printf("darr[-2] = %d\n", ints[-2]); 
+    printf("darr[3] = %d\n", ints[3]);
 
-    darriu7_release(darr);
+    darriu7_release(ints);
+
+    printf("\n");
+    printf("\n");
+    printf("\n");
+
+
+    printf("Double massive demonstration\n");
+
+    double *doubles = darriu7_create(0, sizeof(double));
+
+    darriu7_double_print(doubles);
+
+    for(int i = 0; i < 25; i++)
+    {
+        double g = 1.1;
+
+        doubles = darriu7_append(doubles, &g);
+    }
+
+    darriu7_double_print(doubles);
+
+
+    printf("darr len = %d\n", darriu7_len(doubles));
+    printf("darr[-1] = %d\n", ((int *)doubles)[-1]);
+    printf("darr[-2] = %d\n", ((int *)doubles)[-2]); 
+    printf("darr[-3] = %d\n", ((int *)doubles)[-3]);
+
+    darriu7_release(doubles);
 
     return 0;
 }
