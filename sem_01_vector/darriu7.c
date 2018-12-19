@@ -107,7 +107,7 @@ void darriu7_int_print(darriu7 darr)
 
     for(int i = CUR_LEN; i < MAX_LEN; i++)
     {
-        printf("* ");
+        printf("*, ");
     }
 
     printf("]\n");
@@ -119,37 +119,43 @@ void darriu7_int_print(darriu7 darr)
  * \param [in] darr сам массив
  * \param [in] x указатель на добавляемый элемент
  *
- * \return адрес получившегося динамического массива
- *   (остается прежним, если не происходило расширения)
+ * \return код состояния программы: IU7_FAIL при ошибке 
+ *   выделения памяти(массив остается без изменений), 
+ *   IU7_SUCCESS иначе, если элемент был успешно добавлен.
  */
-darriu7 darriu7_append(darriu7 darr, void *x)
+int darriu7_append(darriu7 *darr, void *x)
 {
 
     if (CUR_LEN == MAX_LEN)
     {
+        darriu7 save_copy = *darr;
+
         int new_max_len = 2 * MAX_LEN;
         int old_cur_len = CUR_LEN;
         int old_el_size = EL_SIZE;
 
-        darr = realloc((int *)darr - PRIVAT_DATA_SIZE, 
+        (*darr) = realloc((int *)(*darr) - PRIVAT_DATA_SIZE, 
             new_max_len * EL_SIZE + PRIVAT_DATA_SIZE * sizeof(int));
 
-        if (!darr)
-            return NULL;
+        if (!(*darr))
+        {
+            *darr = save_copy;
+            return IU7_FAIL;
+        }
 
         // Если не понятно, что написано внизу, смотри ф-ю create
-        mycpy( (int *)darr, &old_el_size, sizeof(int));
-        mycpy( (int *)darr + 1, &new_max_len, sizeof(int));
-        mycpy( (int *)darr + 2, &old_cur_len, sizeof(int));
+        mycpy( (int *)(*darr), &old_el_size, sizeof(int));
+        mycpy( (int *)(*darr) + 1, &new_max_len, sizeof(int));
+        mycpy( (int *)(*darr) + 2, &old_cur_len, sizeof(int));
 
-        darr = (void *)( (int *)darr + PRIVAT_DATA_SIZE);
+        darr = (void *)( (int *)(*darr) + PRIVAT_DATA_SIZE);
     }
     
-    mycpy( (char *)darr + CUR_LEN * EL_SIZE, x, EL_SIZE);
+    mycpy( (char *)(*darr) + CUR_LEN * EL_SIZE, x, EL_SIZE);
 
     CUR_LEN++;
 
-    return darr;
+    return IU7_SUCCESS;
 }
 
 
