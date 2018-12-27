@@ -1,4 +1,4 @@
-![logo](logo_transparent_small.png)
+![logo](new_year_logo_transparent_small.png)
 # Семинары, ИУ7-33, Программирование 
 
 Как забрать себе изменения из  мастер, без создания новой ветки
