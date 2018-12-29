@@ -7,7 +7,7 @@
 char* xor_chiper(char* text, char* key)
 {
 	int len = strlen(text);
-	char *result = malloc(len * sizeof(char));
+	char *result = malloc(len * sizeof(char) + 1);
 	for (int i = 0; i < len; i++)
 		result[i] = text[i] ^ key[i % strlen(key)];
 	result[len] = '\0';
