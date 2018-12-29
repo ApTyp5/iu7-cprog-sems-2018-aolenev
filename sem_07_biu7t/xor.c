@@ -11,7 +11,7 @@ char* xor_chiper(char* text, char* key)
     while (text[i] != '\0')
     {
         new[i] = text[i] ^ key[j];
-        if (key[j] != '\0')
+        if (key[j] == '\0')
             j = 0;
         i++;
         j++;
@@ -23,6 +23,7 @@ char* xor_chiper(char* text, char* key)
 int main(void)
 {
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
+    int i = 0;
     puts(encoded);
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
