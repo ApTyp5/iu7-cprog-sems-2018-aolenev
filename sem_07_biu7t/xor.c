@@ -9,10 +9,10 @@ char* xor_chiper(char* text, char* key);
 int main(void)
 {
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
-    printf("%s", encoded);
+    printf("%s\n", encoded);
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
-    printf("%s", decoded);
+    printf("%s\n", decoded);
 
     return 1;
 }
