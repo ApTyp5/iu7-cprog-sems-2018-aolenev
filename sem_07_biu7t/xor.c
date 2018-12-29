@@ -18,7 +18,8 @@ char* xor_chiper(char* text, char* key)
 int main(void)
 {
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
-    printf("%s", encoded);
+    for (int i = 0; i < 11; i++)
+		printf("%o ", encoded[i]);
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
     printf("\n%s", decoded);
