@@ -12,8 +12,8 @@ int main(void)
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
     printf("%s", encoded);
 
-    char* decoded = xor_chiper(encoded "pa$$w0rd");
-    printf("%s", encoded);
+    char* decoded = xor_chiper(encoded, "pa$$w0rd");
+    printf("%s", decoded);
 
     return 1;
 }
