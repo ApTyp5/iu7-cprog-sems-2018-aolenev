@@ -22,6 +22,11 @@ int main(void)
 {
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
     printf("%s\n", encoded);
+    for (int i = 0; i < strlen(encoded); i++)
+    {
+        printf("%d ", encoded[i]);
+    }
+    printf("\n");
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
     printf("%s\n", decoded);
