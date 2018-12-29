@@ -1,19 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 //XOR cipher
 
-int len_str(char *str)
+int len(char *str)
 {
-    int len = 0;
-
-    while (str[len] != '\0')
-    {
-        len += 1;
-    }
-
-    return len;
+    int n = 0;
+    while (str[n] != '\0') n++;
+    return n;
 }
 
 char* xor_chiper(char* text, char* key)
@@ -34,6 +28,15 @@ char* xor_chiper(char* text, char* key)
         result[i] = text[i] ^ key[j];
         ++j;
     }
+    int len_text = len(text);
+    int len_key = len(key);
+
+    char *result = malloc(len_text + 1);
+
+    for (int i = 0; i < len_text; i++)
+        result[i] = text[i] ^ key[i % len_key];
+
+    result[len_text] = '\0';
 
     return result;
 }
@@ -41,12 +44,17 @@ char* xor_chiper(char* text, char* key)
 int main(void)
 {
     char* encoded = xor_chiper("Hello world", "pa$$w0rd");
-    
     for (int i = 0; encoded[i] != '\0'; i++)
 	    printf("%d\n", encoded[i]);
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
     printf("%s", decoded);
+    printf("%s\n", encoded);
+
+    char* decoded = xor_chiper(encoded, "pa$$w0rd");
+    printf("%s\n", decoded);
+
+    free(encoded);
 
     return 1;
 }
