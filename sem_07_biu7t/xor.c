@@ -3,7 +3,7 @@
 
 //XOR cipher
 
-int len(char *str)
+int len_str(char *str)
 {
     int n = 0;
     while (str[n] != '\0') n++;
@@ -14,8 +14,8 @@ char* xor_chiper(char* text, char* key)
 {
     int len;
     char *result;
-    result = malloc(20 * sizeof(int));
     len = len_str(text);
+    result = malloc((len + 1) * sizeof(int));
     int j = 0;
 
     for (int i = 0; i < len; i++)
@@ -28,16 +28,7 @@ char* xor_chiper(char* text, char* key)
         result[i] = text[i] ^ key[j];
         ++j;
     }
-    int len_text = len(text);
-    int len_key = len(key);
-
-    char *result = malloc(len_text + 1);
-
-    for (int i = 0; i < len_text; i++)
-        result[i] = text[i] ^ key[i % len_key];
-
-    result[len_text] = '\0';
-
+    result[len] = '\0';
     return result;
 }
 
@@ -48,13 +39,9 @@ int main(void)
 	    printf("%d\n", encoded[i]);
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
-    printf("%s", decoded);
-    printf("%s\n", encoded);
-
-    char* decoded = xor_chiper(encoded, "pa$$w0rd");
     printf("%s\n", decoded);
 
     free(encoded);
 
-    return 1;
+    return 0;
 }
