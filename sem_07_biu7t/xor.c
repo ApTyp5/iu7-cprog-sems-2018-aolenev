@@ -58,6 +58,8 @@ int main(void)
 
     char* decoded = xor_chiper(encoded, "pa$$w0rd");
     printf("%s\n", decoded);
-
+	
+    free(encoded);
+    free(decoded);
     return 1;
 }
