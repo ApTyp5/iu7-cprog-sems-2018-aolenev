@@ -1,7 +1,18 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 //XOR cipher
+
+int my_strlen(char *str)
+{
+    if (str == NULL)
+    {
+        return 0;
+    }
+
+    int i = 0;
+    while (*(str + i++) != '\0');
+    return i;
+}
 
 char* xor_chiper(char* text, char* key)
 {
@@ -10,16 +21,28 @@ char* xor_chiper(char* text, char* key)
         return NULL;
     }
 
-    int key_len = strlen(key);
-    char *result = calloc((strlen(text) + 1), sizeof(char));
+    int key_len = my_strlen(key);
+    int text_len = my_strlen(text);
+    if (text_len == 0)
+    {
+        return "";
+    }
+
+    if (key_len == 0)
+    {
+        return text;
+    }
+
+    char *result = calloc((text_len + 1), sizeof(char));
     if (result != NULL)
     {
         int i = 0;
-        for (; i < strlen(text); i++)
+        while (*(text + i) != '\0')
         {
-            result[i] = text[i] ^ key[i % key_len];
+            *(result + i) = *(text + i) ^ *(key + (i % key_len));
+            i++;
         }
-        result[i] = '\0';
+        *(result + i) = '\0';
     }
     return result;
 }
